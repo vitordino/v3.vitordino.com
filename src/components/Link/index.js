@@ -1,14 +1,18 @@
 import React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
-import { useContext } from '@/store'
+import useStore from '@/store'
 
 /* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable react/button-has-type */
 const Link = ({ to, children, className, style, target, ...p }) => {
+	const { locales, locale } = useStore(s => ({
+		locales: s.locales,
+		locale: s.locale,
+	}))
+
 	const href = (to || {}).pathname || typeof to === 'string' ? to : null
 	const props = { className, style, children, target }
 
-	const { locales, locale } = useContext()
 	const isIndex = href === '/'
 	const localized = locales[locale].default
 		? href
