@@ -1,0 +1,32 @@
+{
+	"extends": ["react-app", "@significa/significa"],
+	"env": {
+		"browser": true,
+		"commonjs": true,
+		"es6": true,
+		"node": true
+	},
+	"parserOptions": {
+		"ecmaVersion": 2018,
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": true
+		}
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		},
+		"import/resolver": {
+			"alias": {
+				"map": [["@", "./src"]],
+				"extensions": [".js", ".json"]
+			}
+		}
+	},
+	"rules": {
+		"prettier/prettier": 1,
+		"camelcase": 0,
+		"react/prop-types": 0
+	}
+}
