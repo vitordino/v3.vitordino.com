@@ -20,7 +20,8 @@
 		"react-dom": "^16.8.6",
 		"react-helmet": "^5.2.1",
 		"styled-components": "^4.2.0",
-		"wipe.css": "^1.1.1"
+		"wipe.css": "^1.1.1",
+		"zustand": "^1.0.3"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.4.4",
