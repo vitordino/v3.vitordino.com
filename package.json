@@ -13,6 +13,7 @@
 		"lint": "eslint --ignore-path .gitignore src gatsby content './gatsby-*.js'"
 	},
 	"dependencies": {
+		"etymos": "^0.0.2",
 		"gatsby": "^2.6.0",
 		"gatsby-image": "^2.1.0",
 		"griding": "^0.5.0",
