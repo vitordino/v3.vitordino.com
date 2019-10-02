@@ -1,11 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+
+import extractMeta from '@/utils/extractMeta'
 import Layout from '@/components/Layout'
 
 const HomePage = ({ data }) => {
 	const content = data?.content?.data
 	return (
-		<Layout title={content.meta_title} description={content.meta_description}>
+		<Layout {...extractMeta(content)}>
 			<pre>{JSON.stringify(content, null, 2)}</pre>
 		</Layout>
 	)
