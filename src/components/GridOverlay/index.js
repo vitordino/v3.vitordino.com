@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled, { withTheme } from 'styled-components'
-import {
-	Row,
-	Cell,
-	MediaQuery,
-	useWindowSize,
-	useCurrentBreakpoint,
-} from 'griding'
+import { useMediaQuery, useWindowSize, useCurrentBreakpoint } from 'etymos'
+import Grid from '@/components/Grid'
 import Container from '@/components/Container'
 
 /* eslint-disable */
@@ -42,8 +37,13 @@ const Key = styled.div`
 	font-size: 0.875rem;
 	color: #ff000066;
 	bottom: 0;
-	left: 0;
-	transform: rotate(-90deg) translate(50%, -100%);
+	left: -5rem;
+	transform: rotate(-90deg) translateX(50%);
+	kbd {
+		font-weight: 700;
+		font-size: 0.75rem;
+		color: #ff000088;
+	}
 `
 
 const Breakpoint = styled.div`
@@ -70,28 +70,27 @@ const Inner = withTheme(({ theme }) => {
 	const [visible, setVisible] = useState(true)
 	const { innerWidth } = useWindowSize()
 	const currentBreakpoint = useCurrentBreakpoint()
+	const belowSM = useMediaQuery({ below: 'sm' })
+	const aboveSMBelowMD = useMediaQuery({ above: 'sm', below: 'md' })
 	useEffect(toggle(setVisible), [])
 
 	return (
 		<Wrapper visible={visible}>
 			<Container>
-				<Row>
-					{fromArray(theme.grid.columns).map((x, i) => (
-						<Cell key={x} xs={i % 4 ? 0 : 4} sm={i % 2 ? 0 : 2} md={1}>
+				<Grid.Row>
+					{fromArray(theme.columns).map((x, i) => (
+						<Grid.Column key={x} xs={i % 4 ? 0 : 4} sm={i % 2 ? 0 : 2} md={1}>
 							<D>
 								{x}
-								<MediaQuery below='sm'> - {leftPad(i + 4)}</MediaQuery>
-								<MediaQuery above='sm' below='md'>
-									{' '}
-									- {leftPad(i + 2)}
-								</MediaQuery>
+								{belowSM && <span> - {leftPad(i + 4)}</span>}
+								{aboveSMBelowMD && <span> - {leftPad(i + 2)}</span>}
 							</D>
-						</Cell>
+						</Grid.Column>
 					))}
-				</Row>
+				</Grid.Row>
 			</Container>
 			<Key>
-				<kbd>ctrl</kbd> + <kbd>l</kbd>
+				hold <kbd>L</kbd> to disable grid overlay
 			</Key>
 			<Breakpoint>
 				<div>{currentBreakpoint}</div>

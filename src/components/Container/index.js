@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { above } from 'griding'
+import { above } from 'etymos'
 
 const Container = styled.div`
 	padding-left: 1rem;
