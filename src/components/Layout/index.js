@@ -18,7 +18,7 @@ const query = graphql`
 	}
 `
 
-const Layout = ({ children, title, description, background, color }) => {
+const Layout = ({ children, title, description, background, color, lang }) => {
 	const { site } = useStaticQuery(query)
 	const meta = {
 		title: title || site.meta.title,
@@ -27,7 +27,7 @@ const Layout = ({ children, title, description, background, color }) => {
 	return (
 		<ThemeProvider>
 			<>
-				<SEO {...meta} />
+				<SEO {...meta} lang={lang} />
 				<GlobalStyle background={background} color={color} />
 				{children}
 				<GridOverlay />

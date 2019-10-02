@@ -66,7 +66,7 @@ const SEO = ({
 
 	return (
 		<Helmet
-			htmlAttributes={{ lang }}
+			htmlAttributes={{ lang: lang.split('-')[0].split('_')[0] }}
 			title={currentTitle}
 			titleTemplate={titleTemplate || defaultTitleTemplate}
 			meta={[
