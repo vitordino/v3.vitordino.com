@@ -2,53 +2,52 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-const SEO = ({
-	description,
-	lang = 'en',
-	meta = [],
-	keywords = [],
-	title,
-	image,
-	titleTemplate,
-}) => {
-	const { site, allImageSharp } = useStaticQuery(
-		graphql`
-			query SEOQuery {
-				site {
-					siteMetadata {
-						title
-						description
-						author
-						keywords
-						siteUrl
+const seoQuery = graphql`
+	query SEOQuery {
+		site {
+			siteMetadata {
+				title
+				description
+				author
+				keywords
+				siteUrl
+			}
+		}
+		allImageSharp(
+			filter: { original: { src: { regex: "/twittercard|opengraph/" } } }
+		) {
+			edges {
+				node {
+					resize {
+						originalName
 					}
-				}
-				allImageSharp(
-					filter: { original: { src: { regex: "/twittercard|opengraph/" } } }
-				) {
-					edges {
-						node {
-							resize {
-								originalName
-							}
-							original {
-								src
-							}
-						}
+					original {
+						src
 					}
 				}
 			}
-		`,
-	)
+		}
+	}
+`
+
+const SEO = ({
+	title,
+	description,
+	lang = 'en',
+	meta = [],
+	tags,
+	image,
+	titleTemplate,
+}) => {
+	const { site, allImageSharp } = useStaticQuery(seoQuery)
 
 	const {
 		twittercard: twittercardImage,
 		opengraph: opengraphImage,
-	} = allImageSharp.edges.reduce((prev, { node }) => {
+	} = allImageSharp.edges.reduce((acc, { node }) => {
 		const name = node.resize.originalName.replace('.png', '')
 		const value = node.original.src
-
-		return { ...prev, [name]: value }
+		return { ...acc, [name]: value }
 	}, {})
 
 	const { siteUrl, author } = site.siteMetadata
@@ -58,11 +57,16 @@ const SEO = ({
 		? `${site.siteMetadata.title} | %s`
 		: site.siteMetadata.title
 
+	const metaTags = tags || site.siteMetadata.keywords
+
+	const tagsObject =
+		metaTags?.length > 0
+			? { name: `keywords`, content: metaTags.join(`, `) }
+			: {}
+
 	return (
 		<Helmet
-			htmlAttributes={{
-				lang,
-			}}
+			htmlAttributes={{ lang }}
 			title={currentTitle}
 			titleTemplate={titleTemplate || defaultTitleTemplate}
 			meta={[
@@ -118,18 +122,9 @@ const SEO = ({
 					name: `twitter:description`,
 					content: metaDescription,
 				},
-				// { rel: 'dns-prefetch', href: 'https://client.relay.crisp.chat' },
-			]
-
-				.concat(
-					keywords.length > 0
-						? {
-								name: `keywords`,
-								content: keywords.join(`, `),
-						  }
-						: [],
-				)
-				.concat(meta)}
+				tagsObject,
+				...meta,
+			]}
 		/>
 	)
 }
