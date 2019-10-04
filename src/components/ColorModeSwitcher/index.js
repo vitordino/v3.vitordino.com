@@ -78,10 +78,20 @@ const Inner = styled.svg`
 `
 
 const ColorModeSwitcher = ({ theme, size = 20, ...props }) => {
-	const { mode, setColorMode } = theme.colors
-	const themeSwitch = () => setColorMode(mode === 'light' ? 'dark' : 'light')
+	const { isGridVisible, setGridVisible, colors } = theme
+	const { mode, setColorMode } = colors
+	const colorSwitch = () => setColorMode(mode === 'light' ? 'dark' : 'light')
+	const gridSwitch = e => {
+		e.preventDefault()
+		setGridVisible(!isGridVisible)
+	}
 	return (
-		<Button type='button' onClick={themeSwitch} {...props}>
+		<Button
+			type='button'
+			onClick={colorSwitch}
+			onContextMenu={gridSwitch}
+			{...props}
+		>
 			<Inner mode={mode} size={size} viewBox='0 0 24 24'>
 				<defs>
 					<mask id='mask' stroke='none'>

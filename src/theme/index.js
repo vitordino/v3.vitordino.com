@@ -9,16 +9,22 @@ import typography from './type'
 
 const theme = { colors, ...responsive, type: typography }
 
-const keys = { color: 'theme:color-mode' }
+const keys = {
+	color: 'theme:color-mode',
+	grid: 'theme:show-grid',
+}
 
 export const ThemeProvider = ({ children }) => {
 	const [colorMode, setColorMode] = usePersistentState(keys.color, 'light')
+	const [isGridVisible, setGridVisible] = usePersistentState(keys.grid, false)
 
 	return (
 		<Provider
 			theme={{
 				colors: { ...colors, mode: colorMode, setColorMode },
 				...responsive,
+				isGridVisible,
+				setGridVisible,
 				type: typography,
 			}}
 		>
