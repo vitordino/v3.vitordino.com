@@ -2,7 +2,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import { ThemeProvider } from '@/theme'
 import SEO from '@/components/SEO'
 import GridOverlay from '@/components/GridOverlay'
 import GlobalStyle from './GlobalStyle'
@@ -25,14 +24,12 @@ const Layout = ({ children, title, description, background, color, lang }) => {
 		description: description || site.meta.description,
 	}
 	return (
-		<ThemeProvider>
-			<>
-				<SEO {...meta} lang={lang} />
-				<GlobalStyle background={background} color={color} />
-				{children}
-				<GridOverlay />
-			</>
-		</ThemeProvider>
+		<>
+			<SEO {...meta} lang={lang} />
+			<GlobalStyle background={background} color={color} />
+			{children}
+			<GridOverlay />
+		</>
 	)
 }
 
