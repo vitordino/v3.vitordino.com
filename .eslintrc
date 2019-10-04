@@ -1,5 +1,6 @@
 {
-  "extends": ["react-app", "@significa/significa"],
+  "extends": ["react-app", "prettier", "prettier/react"],
+  "plugins": ["react", "prettier"],
   "env": {
     "browser": true,
     "commonjs": true,
@@ -14,9 +15,6 @@
     }
   },
   "settings": {
-    "react": {
-      "version": "detect"
-    },
     "import/resolver": {
       "alias": {
         "map": [["@", "./src"]],
