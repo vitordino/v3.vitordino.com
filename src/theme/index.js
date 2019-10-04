@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { ThemeProvider as Provider } from 'styled-components'
+
+import usePersistentState from '@/hooks/usePersistentState'
 
 import colors from './colors'
 import responsive from './responsive'
@@ -10,17 +12,12 @@ const theme = { colors, ...responsive, type: typography }
 const keys = { color: 'theme:color-mode' }
 
 export const ThemeProvider = ({ children }) => {
-	const stored = localStorage.getItem(keys.color)
-	const [colorMode, setColorMode] = useState(stored || 'light')
-	const changeColorMode = value => {
-		setColorMode(value)
-		if (typeof window !== 'undefined') localStorage.setItem(keys.color, value)
-	}
+	const [colorMode, setColorMode] = usePersistentState(keys.color, 'light')
 
 	return (
 		<Provider
 			theme={{
-				colors: { ...colors, mode: colorMode, changeColorMode },
+				colors: { ...colors, mode: colorMode, setColorMode },
 				...responsive,
 				type: typography,
 			}}

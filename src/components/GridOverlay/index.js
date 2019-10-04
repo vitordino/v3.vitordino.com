@@ -50,9 +50,8 @@ const Breakpoint = styled.div`
 	position: absolute;
 	font-size: 0.875rem;
 	color: #ff000066;
-	bottom: 0.25rem;
-	right: 0.25rem;
-	text-align: right;
+	bottom: 0.5rem;
+	left: 1.75rem;
 `
 
 const D = styled.pre`

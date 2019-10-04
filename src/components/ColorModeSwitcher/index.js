@@ -78,8 +78,8 @@ const Inner = styled.svg`
 `
 
 const ColorModeSwitcher = ({ theme, size = 24, ...props }) => {
-	const { mode, changeColorMode } = theme.colors
-	const themeSwitch = () => changeColorMode(mode === 'light' ? 'dark' : 'light')
+	const { mode, setColorMode } = theme.colors
+	const themeSwitch = () => setColorMode(mode === 'light' ? 'dark' : 'light')
 	return (
 		<Button type='button' onClick={themeSwitch} {...props}>
 			<Inner mode={mode} size={size} viewBox='0 0 24 24'>
