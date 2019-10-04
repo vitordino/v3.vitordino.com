@@ -1,17 +1,27 @@
-import { useState, useEffect } from 'react'
-
-const isBrowser = typeof window !== 'undefined'
+import { useState } from 'react'
 
 const usePersistentState = (key, initialValue) => {
-	const stored = isBrowser ? localStorage?.getItem(key) : null
-	const [state, setState] = useState(stored || initialValue)
+	const [storedValue, setStoredValue] = useState(() => {
+		try {
+			const item = window.localStorage.getItem(key)
+			return item ? JSON.parse(item) : initialValue
+		} catch (error) {
+			console.error(error)
+			return initialValue
+		}
+	})
 
-	useEffect(() => {
-		if (!isBrowser) return
-		localStorage?.setItem(key, state)
-	}, [key, state])
+	const setValue = v => {
+		try {
+			const valueToStore = v instanceof Function ? v(storedValue) : v
+			setStoredValue(valueToStore)
+			window.localStorage.setItem(key, JSON.stringify(valueToStore))
+		} catch (error) {
+			console.error(error)
+		}
+	}
 
-	return [state, setState]
+	return [storedValue, setValue]
 }
 
 export default usePersistentState
