@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
 			-webkit-font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'pnum' 0, 'tnum' 1, 'onum' 0, 'lnum' 1, 'dlig' 1, 'zero' 1, 'case' 1;
 			height: auto;
 			min-height: 100vh;
+			transition: 0.25s color 0.125s, 0.25s background-color 0.125s;
 		}
 		body {
 			overflow-x: hidden;
