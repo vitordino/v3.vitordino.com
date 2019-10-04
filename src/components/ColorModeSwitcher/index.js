@@ -3,7 +3,7 @@ import styled, { css, withTheme } from 'styled-components'
 
 const Button = styled.button`
 	display: block;
-	padding: 0.5rem;
+	padding: 1rem;
 	position: fixed;
 	bottom: 0;
 	right: 0;
@@ -77,7 +77,7 @@ const Inner = styled.svg`
 		`}
 `
 
-const ColorModeSwitcher = ({ theme, size = 24, ...props }) => {
+const ColorModeSwitcher = ({ theme, size = 20, ...props }) => {
 	const { mode, setColorMode } = theme.colors
 	const themeSwitch = () => setColorMode(mode === 'light' ? 'dark' : 'light')
 	return (
