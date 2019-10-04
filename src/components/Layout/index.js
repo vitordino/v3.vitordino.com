@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 import SEO from '@/components/SEO'
 import GridOverlay from '@/components/GridOverlay'
+import ColorModeSwitcher from '@/components/ColorModeSwitcher'
 import GlobalStyle from './GlobalStyle'
 
 const query = graphql`
@@ -29,6 +30,7 @@ const Layout = ({ children, title, description, background, color, lang }) => {
 			<GlobalStyle background={background} color={color} />
 			{children}
 			<GridOverlay />
+			<ColorModeSwitcher />
 		</>
 	)
 }
