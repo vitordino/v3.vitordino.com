@@ -1,9 +1,11 @@
 import { useState } from 'react'
 
+const isBrowser = typeof window !== 'undefined'
+
 const usePersistentState = (key, initialValue) => {
-	const [storedValue, setStoredValue] = useState(() => {
+	const [state, setInnerState] = useState(() => {
 		try {
-			const item = window.localStorage.getItem(key)
+			const item = isBrowser && window.localStorage.getItem(key)
 			return item ? JSON.parse(item) : initialValue
 		} catch (error) {
 			console.error(error)
@@ -11,17 +13,19 @@ const usePersistentState = (key, initialValue) => {
 		}
 	})
 
-	const setValue = v => {
+	const setState = v => {
 		try {
-			const valueToStore = v instanceof Function ? v(storedValue) : v
-			setStoredValue(valueToStore)
-			window.localStorage.setItem(key, JSON.stringify(valueToStore))
+			const valueToStore = v instanceof Function ? v(state) : v
+			setInnerState(valueToStore)
+			if (isBrowser) {
+				return window.localStorage.setItem(key, JSON.stringify(valueToStore))
+			}
 		} catch (error) {
 			console.error(error)
 		}
 	}
 
-	return [storedValue, setValue]
+	return [state, setState]
 }
 
 export default usePersistentState
