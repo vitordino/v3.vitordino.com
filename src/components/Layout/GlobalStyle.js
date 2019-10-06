@@ -6,8 +6,8 @@ const GlobalStyle = createGlobalStyle`
 	${({ background, color, theme }) => `
 		html, body {
 			font-family: ${theme.type.fonts.sans};
-			background: ${theme.colors[theme.colors.mode][background || 'white']};
-			color: ${theme.colors[theme.colors.mode][color || 'black']};
+			background: ${theme.colors[theme.colors.mode][background || 'base00']};
+			color: ${theme.colors[theme.colors.mode][color || 'base']};
 			text-rendering: optimizeLegibility;
 			font-smooth: antialised;
 			font-smoothing: antialised;
@@ -22,8 +22,8 @@ const GlobalStyle = createGlobalStyle`
 			overflow-x: hidden;
 		}
 		::selection {
-			color: ${theme.colors[theme.colors.mode][background || 'white']};
-			background: ${theme.colors[theme.colors.mode][color || 'black']};
+			color: ${theme.colors[theme.colors.mode][background || 'base00']};
+			background: ${theme.colors[theme.colors.mode][color || 'base']};
 		}
 		#__gatsby{
 			min-height: 100%;
