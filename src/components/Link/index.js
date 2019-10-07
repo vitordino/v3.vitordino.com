@@ -14,9 +14,10 @@ const Link = ({ to, children, className, style, target, ...p }) => {
 	const props = { className, style, children, target }
 
 	const isIndex = href === '/'
-	const localized = locales[locale].default
-		? href
-		: `${locales[locale].path}${isIndex ? '' : `${href}`}`
+	const localized =
+		!locales[locale] || locales[locale].default
+			? href
+			: `${locales[locale].path}${isIndex ? '' : `${href}`}`
 
 	if (p.onClick || p.type)
 		return <button type={p.type || 'button'} {...p} {...props} />
