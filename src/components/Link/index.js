@@ -1,14 +1,11 @@
 import React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
-import useStore from '@/store'
+import useLocale from '@/store/locale'
 
 /* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable react/button-has-type */
 const Link = ({ to, children, className, style, target, ...p }) => {
-	const { locales, locale } = useStore(s => ({
-		locales: s.locales,
-		locale: s.locale,
-	}))
+	const { locales, locale } = useLocale()
 
 	const href = (to || {}).pathname || typeof to === 'string' ? to : null
 	const props = { className, style, children, target }
