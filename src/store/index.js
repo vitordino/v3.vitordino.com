@@ -10,11 +10,9 @@ const [useStore] = create(set => ({
 
 export const AppProvider = ({ locale, children }) => {
 	const setLocale = useStore(s => s.setLocale)
-	/* eslint-disable react-hooks/exhaustive-deps */
 	useEffect(() => {
 		setLocale(locale)
-	}, [])
-	/* eslint-enable react-hooks/exhaustive-deps */
+	}, [locale, setLocale])
 	return children
 }
 
