@@ -5,7 +5,15 @@ const base = {
 	dark: '#FFFFFF',
 }
 
+const get = color => ({ theme, ...p }) => {
+	if (typeof theme?.colors?.[color] === 'function')
+		return theme?.colors?.[color]({ theme, ...p })
+	if (theme?.colors?.[color]) return theme?.colors?.[color]
+	return theme?.colors?.[theme.colors.mode]?.[color]
+}
+
 const colors = {
+	get,
 	light: {
 		base: base.light,
 		base88: mix(0.88, base.light, base.dark),
