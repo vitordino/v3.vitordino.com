@@ -12257,7 +12257,3 @@ zen-observable-ts@^0.8.20:
 zen-observable@^0.8.0:
   version "0.8.14"
   resolved "https://registry.yarnpkg.com/zen-observable/-/zen-observable-0.8.14.tgz#d33058359d335bc0db1f0af66158b32872af3bf7"
-
-zustand@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/zustand/-/zustand-1.0.7.tgz#b4ff50785073b6e0ce28fdda3f2ede1cc810e99b"
