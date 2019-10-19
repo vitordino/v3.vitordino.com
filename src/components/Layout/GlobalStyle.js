@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
 	${fonts}
 	${({ background, color, theme }) => `
 		html, body {
-			font-family: ${theme.type.fonts.sans};
+			font-family: ${theme.type.fonts.serif};
 			background: ${theme.colors[theme.colors.mode][background || 'base00']};
 			color: ${theme.colors[theme.colors.mode][color || 'base']};
 			text-rendering: optimizeLegibility;
