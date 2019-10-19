@@ -1,9 +1,8 @@
-import useStore from '.'
+import { useContext } from '.'
 
-const useLocale = () =>
-	useStore(s => ({
-		locales: s.locales,
-		locale: s.locale,
-	}))
+const useLocale = () => {
+	const { locale, locales } = useContext()
+	return { locale, locales }
+}
 
 export default useLocale

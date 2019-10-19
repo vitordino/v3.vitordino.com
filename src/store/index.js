@@ -1,19 +1,10 @@
-import { useEffect } from 'react'
-import create from 'zustand'
+import React, { createContext } from 'react'
 import locales from '../../content/i18n'
 
-const [useStore] = create(set => ({
-	locales,
-	locale: null,
-	setLocale: value => set({ locale: value }),
-}))
+const Context = createContext()
 
-export const AppProvider = ({ locale, children }) => {
-	const setLocale = useStore(s => s.setLocale)
-	useEffect(() => {
-		setLocale(locale)
-	}, [locale, setLocale])
-	return children
-}
+export const useContext = () => React.useContext(Context)
 
-export default useStore
+export const AppProvider = ({ locale, children }) => (
+	<Context.Provider value={{ locales, locale }}>{children}</Context.Provider>
+)
