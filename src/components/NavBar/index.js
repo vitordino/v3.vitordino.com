@@ -5,21 +5,47 @@ import { mapTheme, mapBreakpoints } from 'etymos'
 
 import useLocale from '@/store/locale'
 import getLocalizedContent from '@/utils/getLocalizedContent'
-import Link from '@/components/Link'
+import BaseLink from '@/components/Link'
 import Container from '@/components/Container'
 import Text from '@/components/Text'
 
-const Wrapper = styled.nav`
-	display: flex;
+const Wrapper = styled.div`
+	top: -1px;
+	margin-bottom: -1px;
+	position: sticky;
+	margin-top: 2.5rem;
+`
+
+const Inner = styled.nav`
 	justify-content: space-between;
+	border-top: 1px solid currentColor;
+	border-bottom: 1px solid transparent;
+	background: ${({ theme }) => theme.colors.get('base00')};
+	${'' /* background: red; */}
 `
 
 const Links = styled.div`
 	display: flex;
+	justify-content: space-between;
+	margin: 1rem -1rem;
+	flex: 1;
+	text-transform: lowercase;
 `
 
-const HomeLink = styled(Link)`
-	display: block;
+const Link = styled(BaseLink)`
+	padding: 1rem;
+`
+
+const Right = styled.div`
+	display: flex;
+`
+
+const Bottom = styled.div`
+	background: ${({ theme }) => theme.colors.get('base00')};
+	${'' /* background: green; */}
+	border-bottom: 1px solid white;
+	height: 1.5rem;
+	${'' /* transform: translateY(1.5rem); */}
 `
 
 const query = graphql`
@@ -49,20 +75,25 @@ const NavBar = ({ lang }) => {
 	const { navbar_title, navbar_links } = getLocalizedContent(data, locale)
 
 	return (
-		<Container>
-			<Wrapper>
-				<Text as={Link} to='/'>
-					{navbar_title?.text}
-				</Text>
-				<Links>
-					{navbar_links?.map(({ text, to }) => (
-						<Text as={Link} to={to}>
-							{text}
+		<Wrapper>
+			<Container>
+				<Inner>
+					<Links>
+						<Text as={Link} weight={500} to='/'>
+							{navbar_title?.text}
 						</Text>
-					))}
-				</Links>
-			</Wrapper>
-		</Container>
+						<Right>
+							{navbar_links?.map(({ text, to }) => (
+								<Text as={Link} to={to}>
+									{text}
+								</Text>
+							))}
+						</Right>
+					</Links>
+				</Inner>
+				<Bottom />
+			</Container>
+		</Wrapper>
 	)
 }
 
