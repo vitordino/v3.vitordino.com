@@ -17,20 +17,32 @@ const Wrapper = styled.div`
 	margin-top: 2.5rem;
 `
 
-const Inner = styled.nav`
-	justify-content: space-between;
-	border-top: 1px solid currentColor;
-	border-bottom: 1px solid transparent;
+const Background = styled.div`
 	background: ${({ theme }) => theme.colors.get('base00')};
-	${'' /* background: red; */}
+	position: absolute;
+	top: -2.5rem;
+	left: 0;
+	bottom: 1px;
+	right: 0;
+	transition: 0.25s color 0.125s, 0.25s background-color 0.125s;
+`
+
+const Inner = styled.nav`
+	position: relative;
+	justify-content: space-between;
+	border-top: 1px solid ${({ theme }) => theme.colors.get('base03')};
+	transition: 0.25s border-color 0.125s;
 `
 
 const Links = styled.div`
+	flex: 1;
 	display: flex;
 	justify-content: space-between;
-	margin: 1rem -1rem;
-	flex: 1;
 	text-transform: lowercase;
+	margin: 0.5rem -1rem;
+	${p => p.theme.above('md')`
+		margin: 1rem -1rem;
+	`}
 `
 
 const Link = styled(BaseLink)`
@@ -42,9 +54,9 @@ const Right = styled.div`
 `
 
 const Bottom = styled.div`
-	background: ${({ theme }) => theme.colors.get('base00')};
-	border-bottom: 1px solid white;
 	height: 1.5rem;
+	border-bottom: 1px solid ${({ theme }) => theme.colors.get('base03')};
+	transition: 0.25s border-color 0.125s;
 `
 
 const query = graphql`
@@ -78,6 +90,7 @@ const NavBar = ({ lang }) => {
 
 	return (
 		<Wrapper>
+			<Background style={{ transform: offset(y) }} />
 			<Container>
 				<Inner>
 					<Links>
