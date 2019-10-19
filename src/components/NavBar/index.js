@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { mapTheme, mapBreakpoints } from 'etymos'
+import { useWindowScroll } from 'react-use'
 
 import useLocale from '@/store/locale'
 import getLocalizedContent from '@/utils/getLocalizedContent'
@@ -42,10 +43,8 @@ const Right = styled.div`
 
 const Bottom = styled.div`
 	background: ${({ theme }) => theme.colors.get('base00')};
-	${'' /* background: green; */}
 	border-bottom: 1px solid white;
 	height: 1.5rem;
-	${'' /* transform: translateY(1.5rem); */}
 `
 
 const query = graphql`
@@ -69,10 +68,13 @@ const query = graphql`
 	}
 `
 
+const offset = y => `translateY(${Math.max(Math.min(0, -y + 40), -24)}px)`
+
 const NavBar = ({ lang }) => {
 	const data = useStaticQuery(query)
 	const { locale } = useLocale()
 	const { navbar_title, navbar_links } = getLocalizedContent(data, locale)
+	const { y } = useWindowScroll()
 
 	return (
 		<Wrapper>
@@ -91,7 +93,7 @@ const NavBar = ({ lang }) => {
 						</Right>
 					</Links>
 				</Inner>
-				<Bottom />
+				<Bottom style={{ transform: offset(y) }} />
 			</Container>
 		</Wrapper>
 	)
