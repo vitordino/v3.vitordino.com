@@ -1,8 +1,10 @@
 import { createGlobalStyle } from 'styled-components'
 import reset from 'wipe.css'
+import fonts from './fonts'
 
 const GlobalStyle = createGlobalStyle`
 	${reset}
+	${fonts}
 	${({ background, color, theme }) => `
 		html, body {
 			font-family: ${theme.type.fonts.sans};
