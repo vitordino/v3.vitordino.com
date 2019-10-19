@@ -1,5 +1,6 @@
 import React from 'react'
 import { ThemeProvider as Provider } from 'styled-components'
+import { above } from 'etymos'
 
 import usePersistentState from '@/hooks/usePersistentState'
 
@@ -21,6 +22,7 @@ export const ThemeProvider = ({ children }) => {
 	return (
 		<Provider
 			theme={{
+				above,
 				colors: { ...colors, mode: colorMode, setColorMode },
 				...responsive,
 				isGridVisible,
