@@ -1,9 +1,9 @@
 const getTypeStyle = name => ({ theme }) => {
-	const { fontSize, lineHeight, letterSpacing } = theme.type.scale[name]
+	const { s, l, c } = theme.type.scale[name]
 	return [
-		fontSize && `font-size: ${fontSize}px`,
-		lineHeight && `line-height: ${lineHeight}px`,
-		letterSpacing && `letter-spacing: ${letterSpacing}px`,
+		s && `font-size: ${s}px`,
+		l && `line-height: ${l}px`,
+		c && `letter-spacing: ${c}px`,
 	]
 		.filter(x => !!x)
 		.join(';\n')

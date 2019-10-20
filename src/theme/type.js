@@ -12,13 +12,14 @@ const fonts = {
 const type = {
 	fonts,
 	scale: {
-		'0': { fontSize: 16, lineHeight: 24, letterSpacing: 0.0 },
-		'1': { fontSize: 20, lineHeight: 40, letterSpacing: 0.0 },
-		'2': { fontSize: 24, lineHeight: 40, letterSpacing: 0.0 },
-		'3': { fontSize: 24, lineHeight: 48, letterSpacing: 0.0 },
-		'4': { fontSize: 32, lineHeight: 40, letterSpacing: 0.0 },
-		'5': { fontSize: 32, lineHeight: 48, letterSpacing: 0.0 },
-		'6': { fontSize: 48, lineHeight: 64, letterSpacing: 0.0 },
+		// f: font-size, l: line-height, c: letter-spacing
+		'0': { f: 16, l: 24, c: 0.0 },
+		'1': { f: 20, l: 40, c: 0.0 },
+		'2': { f: 24, l: 40, c: 0.0 },
+		'3': { f: 24, l: 48, c: 0.0 },
+		'4': { f: 32, l: 40, c: 0.0 },
+		'5': { f: 32, l: 48, c: 0.0 },
+		'6': { f: 48, l: 64, c: 0.0 },
 	},
 }
 
