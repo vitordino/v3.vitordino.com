@@ -17,6 +17,6 @@ const Text = styled.p`
 	${mapBreakpoints((value, props) => getStyle(props.theme.type.scale[value]))}
 `
 
-Text.defaultProps = { xs: 'default' }
+Text.defaultProps = { xs: 0 }
 
 export default Text
