@@ -35,6 +35,17 @@ export const pageQuery = graphql`
 				hero_title
 			}
 		}
+		posts: allPrismicPost(filter: { lang: { eq: $locale } }) {
+			edges {
+				node {
+					first_publication_date
+					data {
+						meta_title
+						meta_description
+					}
+				}
+			}
+		}
 	}
 `
 
