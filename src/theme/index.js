@@ -16,21 +16,17 @@ const keys = {
 }
 
 export const ThemeProvider = ({ children }) => {
-	const [colorMode, _setColorMode] = usePersistentState(keys.color, 'light')
-	const [isGridVisible, _setGridVisible] = usePersistentState(keys.grid, false)
+	const [colorMode, setColorMode] = usePersistentState(keys.color, 'light')
+	const [isGridVisible, setGridVisible] = usePersistentState(keys.grid, false)
 
 	return (
 		<Provider
 			theme={{
 				above,
-				colors: {
-					...colors,
-					mode: colorMode,
-					setColorMode: v => _setColorMode(v),
-				},
+				colors: { ...colors, mode: colorMode, setColorMode },
 				...responsive,
 				isGridVisible,
-				setGridVisible: v => _setGridVisible(v),
+				setGridVisible,
 				type: typography,
 			}}
 		>
