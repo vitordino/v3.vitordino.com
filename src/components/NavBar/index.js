@@ -10,7 +10,7 @@ import Container from '@/components/Container'
 import Text from '@/components/Text'
 
 const Wrapper = styled.div`
-	top: -1px;
+	top: -1rem;
 	margin-bottom: -1px;
 	position: sticky;
 	margin-top: 2.5rem;
@@ -38,9 +38,9 @@ const Links = styled.div`
 	display: flex;
 	justify-content: space-between;
 	text-transform: lowercase;
-	margin: 0.5rem -1rem;
+	margin: 0.75rem -1rem 1.125rem;
 	${p => p.theme.above('md')`
-		margin: 1rem -1rem;
+		margin: 1rem -1rem 1.5rem;
 	`}
 `
 
@@ -81,7 +81,7 @@ const query = graphql`
 	}
 `
 
-const offset = y => `translateY(${Math.max(Math.min(0, -y + 40), -24)}px)`
+const offset = y => `translateY(${Math.max(Math.min(0, -y + 56), -44)}px)`
 
 const NavBar = ({ lang }) => {
 	const data = useStaticQuery(query)
