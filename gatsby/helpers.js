@@ -31,15 +31,15 @@ const getLocalizedPath = (locale, url) =>
 // -------
 
 // Use a little helper function to remove trailing slashes from paths
-removeTrailingSlash = path =>
+const removeTrailingSlash = path =>
   path === `/` ? path : path.replace(/\/$/, ``)
 
-localizedSlug = ({ isDefault, locale, slug }) =>
+const localizedSlug = ({ isDefault, locale, slug }) =>
   isDefault ? `/${slug}` : `/${locale}/${slug}`
 
 // From lodash:
 // https://github.com/lodash/lodash/blob/750067f42d3aa5f927604ece2c6df0ff2b2e9d72/findKey.js
-findKey = (object, predicate) => {
+const findKey = (object, predicate) => {
   let result
   if (object == null) {
     return result
