@@ -16,8 +16,9 @@ const Index = ({ data: { allMdx } }) => {
 			<ul className='post-list'>
 				{allMdx.edges.map(({ node: post }) => (
 					<li key={`${post.frontmatter.title}-${post.fields.locale}`}>
-						<Link to={`/${post.parent.relativeDirectory}`}>
+						<Link to={post.frontmatter.slug}>
 							{post.frontmatter.title}
+							<pre>{JSON.stringify(post, null, 2)}</pre>
 						</Link>
 						<div>{post.frontmatter.date}</div>
 					</li>
@@ -40,14 +41,10 @@ export const query = graphql`
 					frontmatter {
 						title
 						date(formatString: $dateFormat)
+						slug
 					}
 					fields {
 						locale
-					}
-					parent {
-						... on File {
-							relativeDirectory
-						}
 					}
 				}
 			}

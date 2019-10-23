@@ -44,7 +44,6 @@ exports.createPages = async ({ graphql, actions }) => {
     writing: allFile(filter: { sourceInstanceName: { eq: "writing" } }) {
       edges {
         node {
-          relativeDirectory
           childMdx {
             fields {
               locale
@@ -52,6 +51,7 @@ exports.createPages = async ({ graphql, actions }) => {
             }
             frontmatter {
               title
+              slug
             }
           }
         }
@@ -65,22 +65,15 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   const postList = result.data.writing.edges
-
   postList.forEach(({ node: post }) => {
-    const slug = post.relativeDirectory
-
+    const slug = post.childMdx.frontmatter.slug
     const title = post.childMdx.frontmatter.title
-
     const locale = post.childMdx.fields.locale
     const isDefault = post.childMdx.fields.isDefault
-
     createPage({
       path: localizedSlug({ isDefault, locale, slug }),
       component: postTemplate,
-      context: {
-        locale,
-        title,
-      },
+      context: { locale, title, slug },
     })
   })
 }

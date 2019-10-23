@@ -25,28 +25,4 @@ const HomePage = ({ data, ...props }) => {
 	)
 }
 
-// export const pageQuery = graphql`
-// 	query HomePage($locale: String) {
-// 		content: prismicHome(lang: { eq: $locale }) {
-// 			lang
-// 			data {
-// 				meta_title
-// 				meta_description
-// 				hero_title
-// 			}
-// 		}
-// 		posts: allPrismicPost(filter: { lang: { eq: $locale } }) {
-// 			edges {
-// 				node {
-// 					first_publication_date
-// 					data {
-// 						meta_title
-// 						meta_description
-// 					}
-// 				}
-// 			}
-// 		}
-// 	}
-// `
-
 export default HomePage
