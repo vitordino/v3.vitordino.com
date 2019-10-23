@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
 			color: ${theme.colors[theme.colors.mode][background || 'base00']};
 			background: ${theme.colors[theme.colors.mode][color || 'base']};
 		}
-		#__gatsby{
+		#___gatsby{
 			min-height: 100%;
 			display: flex;
 			flex-direction: column;
