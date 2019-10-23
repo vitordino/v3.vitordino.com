@@ -23,14 +23,14 @@ const Background = styled.div`
 	left: 0;
 	bottom: 1px;
 	right: 0;
-	transition: 0.25s color 0.125s, 0.25s background-color 0.125s;
+	${({ theme }) => theme.transition.get()};
 `
 
 const Inner = styled.nav`
 	position: relative;
 	justify-content: space-between;
 	border-top: 1px solid ${({ theme }) => theme.colors.get('base03')};
-	transition: 0.25s border-color 0.125s;
+	${({ theme }) => theme.transition.get('border-color')};
 `
 
 const Links = styled.div`
@@ -46,6 +46,8 @@ const Links = styled.div`
 
 const Link = styled(BaseLink)`
 	padding: 1rem;
+	color: ${({ theme }) => theme.colors.get('base88')};
+	${({ theme }) => theme.transition.get()};
 `
 
 const Right = styled.div`
@@ -55,7 +57,7 @@ const Right = styled.div`
 const Bottom = styled.div`
 	height: 1.5rem;
 	border-bottom: 1px solid ${({ theme }) => theme.colors.get('base03')};
-	transition: 0.25s border-color 0.125s;
+	${({ theme }) => theme.transition.get('border-color')};
 `
 
 const query = graphql`
