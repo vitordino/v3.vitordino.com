@@ -1,6 +1,3 @@
-const enPaths = require('./translations/en.json').paths
-const ptPaths = require('./translations/pt.json').paths
-
 module.exports = {
 	en: {
 		default: true,
@@ -9,7 +6,6 @@ module.exports = {
 		siteLanguage: 'en',
 		ogLang: 'en_US',
 		dateFormat: `MM.DD.YYYY`,
-		paths: enPaths,
 	},
 	pt: {
 		path: 'pt',
@@ -17,6 +13,5 @@ module.exports = {
 		siteLanguage: 'pt',
 		ogLang: 'pt_BR',
 		dateFormat: `DD.MM.YYYY`,
-		paths: ptPaths,
 	},
 }

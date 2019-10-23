@@ -1,5 +1,7 @@
 const path = require(`path`)
 const locales = require(`./content/i18n`)
+const translations = require(`./content/translations`)
+
 const {
   localizedSlug,
   findKey,
@@ -68,7 +70,7 @@ exports.createPages = async ({ graphql, actions }) => {
   postList.forEach(({ node: post }) => {
     const title = post.childMdx.frontmatter.title
     const locale = post.childMdx.fields.locale
-    const slug = `${locales[locale].paths.writing}/${post.childMdx.frontmatter.slug}`
+    const slug = `${translations[locale].paths.writing}/${post.childMdx.frontmatter.slug}`
     const isDefault = post.childMdx.fields.isDefault
     createPage({
       path: localizedSlug({ isDefault, locale, slug }),
