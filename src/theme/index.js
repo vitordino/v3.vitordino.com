@@ -7,8 +7,9 @@ import usePersistentState from '@/hooks/usePersistentState'
 import colors from './colors'
 import responsive from './responsive'
 import typography from './type'
+import transition from './transition'
 
-const theme = { colors, ...responsive, type: typography }
+const theme = { colors, ...responsive, type: typography, transition }
 
 const keys = {
 	color: 'theme:color-mode',
@@ -28,6 +29,7 @@ export const ThemeProvider = ({ children }) => {
 				isGridVisible,
 				setGridVisible,
 				type: typography,
+				transition,
 			}}
 		>
 			{children}
