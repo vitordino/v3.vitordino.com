@@ -16,7 +16,7 @@ const Index = ({ data: { allMdx } }) => {
 			<ul className='post-list'>
 				{allMdx.edges.map(({ node: post }) => (
 					<li key={`${post.frontmatter.title}-${post.fields.locale}`}>
-						<Link to={`${paths.writing}/${post.frontmatter.slug}`}>
+						<Link to={`/${paths.writing}/${post.frontmatter.slug}`}>
 							{post.frontmatter.title}
 						</Link>
 						<div>{post.frontmatter.date}</div>
