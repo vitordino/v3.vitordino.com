@@ -11986,8 +11986,8 @@ widest-line@^2.0.0:
     string-width "^2.1.1"
 
 wipe.css@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/wipe.css/-/wipe.css-1.1.1.tgz#42d6d4078aa2cfffb47cc50106f2dc67df4851b0"
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/wipe.css/-/wipe.css-1.1.2.tgz#8a8f6f65c67b505026ce5828cc776a94e025c5c5"
 
 with-open-file@^0.1.6:
   version "0.1.6"
