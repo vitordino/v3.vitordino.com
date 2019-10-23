@@ -27,7 +27,8 @@ const GlobalStyle = createGlobalStyle`
 			color: ${theme.colors[theme.colors.mode][background || 'base00']};
 			background: ${theme.colors[theme.colors.mode][color || 'base']};
 		}
-		#___gatsby{
+		#___gatsby {
+			${process.env.NODE_ENV === 'development' && 'color: red;'}
 			min-height: 100%;
 			display: flex;
 			flex-direction: column;
