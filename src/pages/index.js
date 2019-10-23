@@ -6,7 +6,7 @@ import useTranslations from '@/hooks/useTranslations'
 const Index = ({ data: { allMdx } }) => {
 	// useTranslations is aware of the global context (and therefore also 'locale')
 	// so it'll automatically give back the right translations
-	const { hello, subline } = useTranslations()
+	const { hello, subline, paths } = useTranslations()
 
 	return (
 		<>
@@ -16,9 +16,8 @@ const Index = ({ data: { allMdx } }) => {
 			<ul className='post-list'>
 				{allMdx.edges.map(({ node: post }) => (
 					<li key={`${post.frontmatter.title}-${post.fields.locale}`}>
-						<Link to={post.frontmatter.slug}>
+						<Link to={`${paths.writing}/${post.frontmatter.slug}`}>
 							{post.frontmatter.title}
-							<pre>{JSON.stringify(post, null, 2)}</pre>
 						</Link>
 						<div>{post.frontmatter.date}</div>
 					</li>

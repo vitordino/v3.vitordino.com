@@ -1,5 +1,8 @@
 {
   "hello": "Hallo und herzlich Willkommen zu dieser i18n Beispielseite!",
   "subline": "Lies doch ein paar coole Artikel von mir!",
-  "backToHome": "Zurück zur Startseite"
+  "backToHome": "Zurück zur Startseite",
+  "paths": {
+    "writing": "escrita"
+  }
 }

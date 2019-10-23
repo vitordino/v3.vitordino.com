@@ -66,9 +66,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const postList = result.data.writing.edges
   postList.forEach(({ node: post }) => {
-    const slug = post.childMdx.frontmatter.slug
     const title = post.childMdx.frontmatter.title
     const locale = post.childMdx.fields.locale
+    const slug = `${locales[locale].paths.writing}/${post.childMdx.frontmatter.slug}`
     const isDefault = post.childMdx.fields.isDefault
     createPage({
       path: localizedSlug({ isDefault, locale, slug }),

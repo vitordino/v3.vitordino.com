@@ -22,6 +22,9 @@ const query = graphql`
 						hello
 						subline
 						backToHome
+						paths {
+							writing
+						}
 					}
 				}
 			}
