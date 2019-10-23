@@ -60,33 +60,33 @@ const Bottom = styled.div`
 	${({ theme }) => theme.transition.get('border-color')};
 `
 
-const query = graphql`
-	query NavBar {
-		content: allPrismicGlobals {
-			edges {
-				node {
-					lang
-					data {
-						navbar_title {
-							text
-						}
-						navbar_links {
-							text
-							to
-						}
-					}
-				}
-			}
-		}
-	}
-`
+// const query = graphql`
+// 	query NavBar {
+// 		content: allPrismicGlobals {
+// 			edges {
+// 				node {
+// 					lang
+// 					data {
+// 						navbar_title {
+// 							text
+// 						}
+// 						navbar_links {
+// 							text
+// 							to
+// 						}
+// 					}
+// 				}
+// 			}
+// 		}
+// 	}
+// `
 
 const offset = y => `translateY(${Math.max(Math.min(0, -y + 56), -44)}px)`
 
 const NavBar = ({ lang }) => {
-	const data = useStaticQuery(query)
+	// const data = useStaticQuery(query)
 	const { locale } = useLocale()
-	const { navbar_title, navbar_links } = getLocalizedContent(data, locale)
+	// const { navbar_title, navbar_links } = getLocalizedContent(data, locale)
 	const { y } = useWindowScroll()
 
 	return (
@@ -96,14 +96,14 @@ const NavBar = ({ lang }) => {
 				<Inner>
 					<Links>
 						<Text as={Link} weight={500} to='/'>
-							{navbar_title?.text}
+							{/* {navbar_title?.text} */} Vitor Dino
 						</Text>
 						<Right>
-							{navbar_links?.map(({ text, to }) => (
+							{/* {navbar_links?.map(({ text, to }) => (
 								<Text as={Link} to={to}>
 									{text}
 								</Text>
-							))}
+							))} */}
 						</Right>
 					</Links>
 				</Inner>

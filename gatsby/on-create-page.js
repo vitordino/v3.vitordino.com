@@ -3,9 +3,6 @@ const locales = require('../content/i18n')
 
 module.exports = ({ page, actions }) => {
 	const { createPage, deletePage } = actions
-	if (page.path.includes('404')) {
-		return
-	}
 	deletePage(page)
 	Object.keys(locales).map(locale =>
 		createPage({
