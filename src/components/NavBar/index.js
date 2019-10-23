@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { mapTheme, mapBreakpoints } from 'etymos'
 import { useWindowScroll } from 'react-use'
 
 import useLocale from '@/store/locale'
