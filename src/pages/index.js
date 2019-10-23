@@ -1,37 +1,49 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Link from '@/components/Link'
 import useTranslations from '@/hooks/useTranslations'
+import Layout from '@/components/Layout'
+import Container from '@/components/Container'
+import NavBar from '@/components/NavBar'
+import Spacer from '@/components/Spacer'
+import Text from '@/components/Text'
+import Link from '@/components/Link'
 
-const Index = ({ data: { allMdx } }) => {
-	// useTranslations is aware of the global context (and therefore also 'locale')
-	// so it'll automatically give back the right translations
-	const { hello, subline, paths } = useTranslations()
-
+const HomePage = ({ data, ...props }) => {
+	const { paths, homepage } = useTranslations()
+	const { writing } = data
 	return (
-		<>
-			<h1>{hello}</h1>
-			<p>{subline}</p>
-			<hr style={{ margin: `2rem 0` }} />
-			<ul className='post-list'>
-				{allMdx.edges.map(({ node: post }) => (
-					<li key={`${post.frontmatter.title}-${post.fields.locale}`}>
-						<Link to={`/${paths.writing}/${post.frontmatter.slug}`}>
-							{post.frontmatter.title}
-						</Link>
-						<div>{post.frontmatter.date}</div>
-					</li>
-				))}
-			</ul>
-		</>
+		<Layout>
+			<NavBar />
+			<Container>
+				<Spacer.V xs={6} />
+				<Text
+					xs={4}
+					md={6}
+					style={{ maxWidth: '7em', textTransform: 'lowercase' }}
+				>
+					{homepage?.heroTitle}
+				</Text>
+				<Spacer.V xs={8} />
+				<ul>
+					{writing.edges.map(({ node: post }) => (
+						<li key={`${post.frontmatter.title}-${post.fields.locale}`}>
+							<Link to={`/${paths.writing}/${post.frontmatter.slug}`}>
+								{post.frontmatter.title}
+							</Link>
+							<div>{post.frontmatter.date}</div>
+						</li>
+					))}
+				</ul>
+			</Container>
+		</Layout>
 	)
 }
 
-export default Index
+export default HomePage
 
 export const query = graphql`
-	query Index($locale: String!, $dateFormat: String!) {
-		allMdx(
+	query HomePage($locale: String!, $dateFormat: String!) {
+		writing: allMdx(
 			filter: { fields: { locale: { eq: $locale } } }
 			sort: { fields: [frontmatter___date], order: DESC }
 		) {

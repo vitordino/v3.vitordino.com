@@ -4,5 +4,8 @@
   "backToHome": "Zurück zur Startseite",
   "paths": {
     "writing": "escrita"
+  },
+  "homepage": {
+    "heroTitle": "Move fast, Learn everyday"
   }
 }

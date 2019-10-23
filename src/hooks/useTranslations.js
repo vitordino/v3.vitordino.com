@@ -21,6 +21,9 @@ const query = graphql`
 						hello
 						subline
 						backToHome
+						homepage {
+							heroTitle
+						}
 						paths {
 							writing
 						}

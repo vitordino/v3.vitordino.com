@@ -4,5 +4,8 @@
   "backToHome": "Back to home",
   "paths": {
     "writing": "writing"
+  },
+  "homepage": {
+    "heroTitle": "Move fast, Learn everyday"
   }
 }
