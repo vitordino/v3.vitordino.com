@@ -1,4 +1,3 @@
-import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import useLocale from '@/store/locale'
 import flattenEdges from '@/utils/flattenEdges'
