@@ -1,10 +1,7 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { useWindowScroll } from 'react-use'
 
-import useLocale from '@/store/locale'
-import getLocalizedContent from '@/utils/getLocalizedContent'
 import BaseLink from '@/components/Link'
 import Container from '@/components/Container'
 import Text from '@/components/Text'
@@ -60,33 +57,9 @@ const Bottom = styled.div`
 	${({ theme }) => theme.transition.get('border-color')};
 `
 
-// const query = graphql`
-// 	query NavBar {
-// 		content: allPrismicGlobals {
-// 			edges {
-// 				node {
-// 					lang
-// 					data {
-// 						navbar_title {
-// 							text
-// 						}
-// 						navbar_links {
-// 							text
-// 							to
-// 						}
-// 					}
-// 				}
-// 			}
-// 		}
-// 	}
-// `
-
 const offset = y => `translateY(${Math.max(Math.min(0, -y + 56), -44)}px)`
 
 const NavBar = ({ lang }) => {
-	// const data = useStaticQuery(query)
-	const { locale } = useLocale()
-	// const { navbar_title, navbar_links } = getLocalizedContent(data, locale)
 	const { y } = useWindowScroll()
 
 	return (
