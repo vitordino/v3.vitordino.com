@@ -6,8 +6,8 @@ const defaultOptions = {
 const defaultProperties = ['color', 'background-color', 'border-color']
 
 const get = (p = defaultProperties, { time, delay } = defaultOptions) => {
-	if (typeof p === 'string') return `transition: ${time}s ${p} ${delay}s;`
 	if (!p?.length) return null
+	if (typeof p === 'string') return `transition: ${time}s ${p} ${delay}s;`
 	return `transition: ${p.map(x => `${time}s ${x} ${delay}s`).join(', ')};`
 }
 
