@@ -27,7 +27,7 @@ const Background = styled.div`
 const Inner = styled.nav`
 	position: relative;
 	justify-content: space-between;
-	border-top: 1px solid ${({ theme }) => theme.colors.get('base03')};
+	border-top: 1px solid ${({ theme }) => theme.colors.get('base06')};
 	${({ theme }) => theme.transition.get('border-color')};
 `
 
@@ -54,7 +54,7 @@ const Right = styled.div`
 
 const Bottom = styled.div`
 	height: 1.5rem;
-	border-bottom: 1px solid ${({ theme }) => theme.colors.get('base03')};
+	border-bottom: 1px solid ${({ theme }) => theme.colors.get('base06')};
 	${({ theme }) => theme.transition.get('border-color')};
 `
 
