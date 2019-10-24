@@ -28,8 +28,13 @@ const Background = styled.div`
 const Inner = styled.nav`
 	position: relative;
 	justify-content: space-between;
-	border-top: 1px solid ${({ theme }) => theme.colors.get('base06')};
 	${({ theme }) => theme.transition.get('border-color')};
+`
+
+const Top = styled.div`
+	border-top: 1px solid ${({ theme }) => theme.colors.get('base06')};
+	margin: 0 -1rem;
+	${({ theme }) => theme.above('md')`margin: 0;`}
 `
 
 const Links = styled.div`
@@ -57,6 +62,8 @@ const Bottom = styled.div`
 	height: 1.5rem;
 	border-bottom: 1px solid ${({ theme }) => theme.colors.get('base06')};
 	${({ theme }) => theme.transition.get('border-color')};
+	margin: 0 -1rem;
+	${({ theme }) => theme.above('md')`margin: 0;`}
 `
 
 const offset = y => `translateY(${Math.max(Math.min(0, -y + 56), -44)}px)`
@@ -70,6 +77,7 @@ const NavBar = ({ lang }) => {
 			<Background style={{ transform: offset(y) }} />
 			<Container>
 				<Inner>
+					<Top />
 					<Links>
 						<Text as={Link} weight={500} to={paths[navbar.main.path]}>
 							{navbar.main.content}
