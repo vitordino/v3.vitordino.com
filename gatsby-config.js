@@ -66,6 +66,13 @@ module.exports = {
 				name: `writing`,
 			},
 		},
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				path: `${__dirname}/content/experience`,
+				name: `experience`,
+			},
+		},
 		`gatsby-transformer-json`,
 		{
 			resolve: `gatsby-plugin-manifest`,

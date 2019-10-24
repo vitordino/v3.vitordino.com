@@ -13,13 +13,20 @@ import Grid from '@/components/Grid'
 
 const HomePage = ({ data, ...props }) => {
 	const { paths, homepage } = useTranslations()
-	const { writing } = data
+	const { writing, experience } = data
 
 	const postItems = flattenEdges(writing).map(({ frontmatter }) => ({
 		title: frontmatter.title,
 		description: frontmatter.description,
 		right: frontmatter.date,
 		to: `/${paths.writing}/${frontmatter.slug}`,
+	}))
+
+	const experienceItems = flattenEdges(experience).map(({ frontmatter }) => ({
+		title: frontmatter.title,
+		description: frontmatter.description,
+		right: frontmatter.dateRange,
+		to: frontmatter.to,
 	}))
 
 	return (
@@ -36,6 +43,7 @@ const HomePage = ({ data, ...props }) => {
 				</Text>
 				<Spacer.V xs={8} />
 				<SeparatorSection title='writing' items={postItems} />
+				<SeparatorSection title='experience' items={experienceItems} />
 			</Container>
 		</Layout>
 	)
@@ -46,7 +54,10 @@ export default HomePage
 export const query = graphql`
 	query HomePage($locale: String!, $dateFormat: String!) {
 		writing: allMdx(
-			filter: { fields: { locale: { eq: $locale } } }
+			filter: {
+				fields: { locale: { eq: $locale } }
+				fileAbsolutePath: { regex: "/writing/" }
+			}
 			sort: { fields: [frontmatter___date], order: DESC }
 		) {
 			edges {
@@ -55,6 +66,27 @@ export const query = graphql`
 						title
 						date(formatString: $dateFormat)
 						slug
+						description
+					}
+					fields {
+						locale
+					}
+				}
+			}
+		}
+		experience: allMdx(
+			filter: {
+				fields: { locale: { eq: $locale } }
+				fileAbsolutePath: { regex: "/experience/" }
+			}
+			sort: { fields: [frontmatter___date], order: DESC }
+		) {
+			edges {
+				node {
+					frontmatter {
+						title
+						dateRange
+						to
 						description
 					}
 					fields {
