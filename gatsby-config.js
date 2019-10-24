@@ -86,5 +86,6 @@ module.exports = {
 				icon: siteConfig.logo,
 			},
 		},
+		`gatsby-plugin-netlify`,
 	],
 }
