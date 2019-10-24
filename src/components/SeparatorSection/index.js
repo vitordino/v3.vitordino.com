@@ -21,7 +21,8 @@ const DesktopLine = styled.div`
 const StickyColumn = styled(Grid.Column)`
 	${({ theme }) => theme.above('md')`
 		position: sticky;
-		top: 6.125rem;
+		top: 6.25rem;
+		padding-bottom: 4rem;
 	`}
 `
 
