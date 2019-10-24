@@ -7,9 +7,7 @@ import Container from '@/components/Container'
 import NavBar from '@/components/NavBar'
 import Spacer from '@/components/Spacer'
 import Text from '@/components/Text'
-import Link from '@/components/Link'
 import SeparatorSection from '@/components/SeparatorSection'
-import Grid from '@/components/Grid'
 
 const HomePage = ({ data, ...props }) => {
 	const { paths, homepage } = useTranslations()

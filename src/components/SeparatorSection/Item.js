@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import Grid from '@/components/Grid'
 import Text from '@/components/Text'
 import Link from '@/components/Link'
 import Spacer from '@/components/Spacer'
