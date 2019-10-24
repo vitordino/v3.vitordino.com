@@ -11,12 +11,6 @@ module.exports = {
 	plugins: [
 		`gatsby-plugin-styled-components`,
 		`gatsby-plugin-react-helmet`,
-		{
-			resolve: 'gatsby-source-prismic',
-			options: {
-				repositoryName: 'vitordino',
-			},
-		},
 		`gatsby-transformer-sharp`,
 		`gatsby-plugin-sharp`,
 		`gatsby-plugin-sitemap`,
@@ -57,6 +51,22 @@ module.exports = {
 				path: `${__dirname}/src/assets/images`,
 			},
 		},
+		`gatsby-plugin-mdx`,
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				path: `${__dirname}/content/translations`,
+				name: `translations`,
+			},
+		},
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				path: `${__dirname}/content/writing`,
+				name: `writing`,
+			},
+		},
+		`gatsby-transformer-json`,
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
