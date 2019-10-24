@@ -21,8 +21,8 @@ const colors = {
 		base44: mix(0.44, base.light, base.dark),
 		base22: mix(0.22, base.light, base.dark),
 		base11: mix(0.11, base.light, base.dark),
-		base06: mix(0.6, base.light, base.dark),
-		base03: mix(0.3, base.light, base.dark),
+		base06: mix(0.06, base.light, base.dark),
+		base03: mix(0.03, base.light, base.dark),
 		base00: mix(0.0, base.light, base.dark),
 	},
 	dark: {
@@ -32,8 +32,8 @@ const colors = {
 		base44: mix(0.44, base.dark, base.light),
 		base22: mix(0.22, base.dark, base.light),
 		base11: mix(0.11, base.dark, base.light),
-		base06: mix(0.6, base.dark, base.light),
-		base03: mix(0.3, base.dark, base.light),
+		base06: mix(0.06, base.dark, base.light),
+		base03: mix(0.03, base.dark, base.light),
 		base00: mix(0.0, base.dark, base.light),
 	},
 }
