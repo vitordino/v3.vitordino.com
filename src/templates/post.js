@@ -19,6 +19,7 @@ export const query = graphql`
 		mdx(
 			frontmatter: { slug: { eq: $slug } }
 			fields: { locale: { eq: $locale } }
+			fileAbsolutePath: { regex: "/writing/" }
 		) {
 			frontmatter {
 				title
