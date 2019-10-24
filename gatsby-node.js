@@ -43,7 +43,10 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const postTemplate = require.resolve(`./src/templates/post.js`)
   const result = await graphql(`{
-    writing: allFile(filter: { sourceInstanceName: { eq: "writing" } }) {
+    writing: allFile(filter: {
+      sourceInstanceName: { eq: "writing" }
+      extension: { eq: "mdx" }
+    }) {
       edges {
         node {
           childMdx {
