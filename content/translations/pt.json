@@ -1,8 +1,26 @@
 {
   "paths": {
-    "writing": "escrita"
+    "home": "/",
+    "writing": "/palavras",
+    "contact": "/contato"
   },
   "homepage": {
     "heroTitle": "Move fast, Learn everyday"
+  },
+  "navbar": {
+    "main": {
+      "content": "Vitor Dino",
+      "path": "home"
+    },
+    "items": [
+      {
+        "content": "Palavras",
+        "path": "writing"
+      },
+      {
+        "content": "Contato",
+        "path": "contact"
+      }
+    ]
   }
 }

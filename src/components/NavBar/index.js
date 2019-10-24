@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useWindowScroll } from 'react-use'
 
+import useTranslations from '@/hooks/useTranslations'
 import BaseLink from '@/components/Link'
 import Container from '@/components/Container'
 import Text from '@/components/Text'
@@ -61,6 +62,7 @@ const offset = y => `translateY(${Math.max(Math.min(0, -y + 56), -44)}px)`
 
 const NavBar = ({ lang }) => {
 	const { y } = useWindowScroll()
+	const { navbar, paths } = useTranslations()
 
 	return (
 		<Wrapper>
@@ -68,15 +70,15 @@ const NavBar = ({ lang }) => {
 			<Container>
 				<Inner>
 					<Links>
-						<Text as={Link} weight={500} to='/'>
-							{/* {navbar_title?.text} */} Vitor Dino
+						<Text as={Link} weight={500} to={paths[navbar.main.path]}>
+							{navbar.main.content}
 						</Text>
 						<Right>
-							{/* {navbar_links?.map(({ text, to }) => (
-								<Text as={Link} to={to}>
-									{text}
+							{navbar.items?.map(({ content, path }) => (
+								<Text as={Link} to={paths[path]}>
+									{content}
 								</Text>
-							))} */}
+							))}
 						</Right>
 					</Links>
 				</Inner>
