@@ -1,10 +1,9 @@
 import { createGlobalStyle } from 'styled-components'
 import reset from 'wipe.css'
-import fonts from './fonts'
+import '@/assets/fonts/tiempos-text/index.css'
 
 const GlobalStyle = createGlobalStyle`
 	${reset}
-	${fonts}
 	${({ background, color, theme }) => `
 		html, body {
 			font-family: ${theme.type.fonts.serif};
