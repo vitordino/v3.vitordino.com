@@ -2,9 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import Grid from '@/components/Grid'
 import Text from '@/components/Text'
+import SeparatorSectionItem from './Item'
 
 const Wrapper = styled.div`
-	margin-bottom: 8rem;
+	margin-bottom: 4rem;
 `
 
 const DesktopLine = styled.div`
@@ -26,21 +27,27 @@ const StickyColumn = styled(Grid.Column)`
 const MobileLine = styled.div`
 	border-top: 1px solid ${({ theme }) => theme.colors.get('base06')};
 	display: block;
-	margin: 1rem -1rem;
+	margin: 1rem -1rem 2.5rem;
 	${({ theme }) => theme.above('md')`
 		display: none;
 	`}
 `
 
-const SeparatorSection = ({ title, children, ...props }) => (
+const SeparatorSection = ({ title, children, items = [], ...props }) => (
 	<Wrapper {...props}>
 		<DesktopLine />
 		<Grid.Row>
-			<StickyColumn xs={16} md={4} lg={3} xg={2}>
+			<StickyColumn xs={16} md={3} lg={2}>
 				<Text color='base44'>{title}</Text>
 				<MobileLine />
 			</StickyColumn>
-			{children}
+			<Grid.Column xs={0} lg={2} xg={3} />
+			<Grid.Column xs={16} md={12} lg={10} lg={8} xg={6}>
+				{children}
+				{items.map(item => (
+					<SeparatorSectionItem {...item} />
+				))}
+			</Grid.Column>
 		</Grid.Row>
 	</Wrapper>
 )
