@@ -34,6 +34,7 @@ const Inner = styled.nav`
 const Top = styled.div`
 	border-top: 1px solid ${({ theme }) => theme.colors.get('base06')};
 	margin: 0 -1rem;
+	${({ theme }) => theme.transition.get()};
 	${({ theme }) => theme.above('md')`margin: 0;`}
 `
 
@@ -51,7 +52,6 @@ const Links = styled.div`
 const Link = styled(BaseLink)`
 	padding: 1rem;
 	color: ${({ theme }) => theme.colors.get('base88')};
-	${({ theme }) => theme.transition.get()};
 `
 
 const Right = styled.div`

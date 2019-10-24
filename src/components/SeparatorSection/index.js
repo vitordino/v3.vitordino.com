@@ -12,6 +12,7 @@ const DesktopLine = styled.div`
 	border-top: 1px solid ${({ theme }) => theme.colors.get('base06')};
 	display: none;
 	margin-bottom: 2.5rem;
+	${({ theme }) => theme.transition.get()};
 	${({ theme }) => theme.above('md')`
 		display: block;
 	`}
@@ -28,6 +29,7 @@ const MobileLine = styled.div`
 	border-top: 1px solid ${({ theme }) => theme.colors.get('base06')};
 	display: block;
 	margin: 1rem -1rem 2.5rem;
+	${({ theme }) => theme.transition.get()};
 	${({ theme }) => theme.above('md')`
 		display: none;
 	`}
@@ -42,7 +44,7 @@ const SeparatorSection = ({ title, children, items = [], ...props }) => (
 				<MobileLine />
 			</StickyColumn>
 			<Grid.Column xs={0} lg={2} xg={3} />
-			<Grid.Column xs={16} md={12} lg={10} lg={8} xg={6}>
+			<Grid.Column xs={16} md={12} lg={8} xg={6}>
 				{children}
 				{items.map(item => (
 					<SeparatorSectionItem {...item} />

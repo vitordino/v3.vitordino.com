@@ -7,6 +7,7 @@ const Text = styled.div`
   ${p => p.color && `color: ${p.theme.colors.get(p.color)(p)};`}
   ${p => p.weight && `font-weight: ${p.weight};`}
   ${p => p.uppercase && `text-transform: uppercase;`}
+  ${({ theme }) => theme.transition.get()};
 	${mapBreakpoints(value => getTypeStyle(value))}
 `
 
