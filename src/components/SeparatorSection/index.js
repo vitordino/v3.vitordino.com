@@ -2,9 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import Grid from '@/components/Grid'
 import Text from '@/components/Text'
-import Spacer from '@/components/Spacer'
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+	margin-bottom: 8rem;
+`
 
 const DesktopLine = styled.div`
 	border-top: 1px solid ${({ theme }) => theme.colors.get('base06')};
@@ -19,7 +20,6 @@ const StickyColumn = styled(Grid.Column)`
 	${({ theme }) => theme.above('md')`
 		position: sticky;
 		top: 6.125rem;
-		padding-bottom: 2.5rem;
 	`}
 `
 
