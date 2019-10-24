@@ -12,6 +12,7 @@ const Wrapper = styled.div`
 	margin-bottom: -1px;
 	position: sticky;
 	margin-top: 2.5rem;
+	z-index: 10;
 `
 
 const Background = styled.div`
