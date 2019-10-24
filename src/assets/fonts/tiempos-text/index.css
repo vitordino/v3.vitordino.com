@@ -1,31 +1,31 @@
 @font-face {
 	font-family: 'Tiempos Text';
-	src: url('TiemposText-Regular.woff') format('woff'),
-		url('TiemposText-Regular.ttf') format('truetype');
+	src: url('./TiemposText-Regular.woff') format('woff'),
+		url('./TiemposText-Regular.ttf') format('truetype');
 	font-style: normal;
 	font-weight: 400;
 }
 
 @font-face {
 	font-family: 'Tiempos Text';
-	src: url('TiemposText-RegularItalic.woff') format('woff'),
-		url('TiemposText-RegularItalic.ttf') format('truetype');
+	src: url('./TiemposText-RegularItalic.woff') format('woff'),
+		url('./TiemposText-RegularItalic.ttf') format('truetype');
 	font-style: italic;
 	font-weight: 400;
 }
 
 @font-face {
 	font-family: 'Tiempos Text';
-	src: url('TiemposText-Semibold.woff') format('woff'),
-		url('TiemposText-Semibold.ttf') format('truetype');
+	src: url('./TiemposText-Semibold.woff') format('woff'),
+		url('./TiemposText-Semibold.ttf') format('truetype');
 	font-style: normal;
 	font-weight: 500;
 }
 
 @font-face {
 	font-family: 'Tiempos Text';
-	src: url('TiemposText-SemiBoldItalic.woff') format('woff'),
-		url('TiemposText-SemiBoldItalic.ttf') format('truetype');
+	src: url('./TiemposText-SemiBoldItalic.woff') format('woff'),
+		url('./TiemposText-SemiBoldItalic.ttf') format('truetype');
 	font-style: italic;
 	font-weight: 500;
 }
