@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import flattenEdges from '@/utils/flattenEdges'
 import useTranslations from '@/hooks/useTranslations'
 import Layout from '@/components/Layout'
 import Container from '@/components/Container'
@@ -7,10 +8,20 @@ import NavBar from '@/components/NavBar'
 import Spacer from '@/components/Spacer'
 import Text from '@/components/Text'
 import Link from '@/components/Link'
+import SeparatorSection from '@/components/SeparatorSection'
+import Grid from '@/components/Grid'
 
 const HomePage = ({ data, ...props }) => {
 	const { paths, homepage } = useTranslations()
 	const { writing } = data
+
+	const postItems = flattenEdges(writing).map(({ frontmatter }) => ({
+		title: frontmatter.title,
+		description: frontmatter.description,
+		right: frontmatter.date,
+		to: `/${paths.writing}/${frontmatter.slug}`,
+	}))
+
 	return (
 		<Layout>
 			<NavBar />
@@ -24,16 +35,7 @@ const HomePage = ({ data, ...props }) => {
 					{homepage?.heroTitle}
 				</Text>
 				<Spacer.V xs={8} />
-				<ul>
-					{writing.edges.map(({ node: post }) => (
-						<li key={`${post.frontmatter.title}-${post.fields.locale}`}>
-							<Link to={`/${paths.writing}/${post.frontmatter.slug}`}>
-								{post.frontmatter.title}
-							</Link>
-							<div>{post.frontmatter.date}</div>
-						</li>
-					))}
-				</ul>
+				<SeparatorSection title='writing' items={postItems} />
 			</Container>
 		</Layout>
 	)
@@ -53,6 +55,7 @@ export const query = graphql`
 						title
 						date(formatString: $dateFormat)
 						slug
+						description
 					}
 					fields {
 						locale
