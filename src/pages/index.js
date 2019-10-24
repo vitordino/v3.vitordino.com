@@ -38,6 +38,7 @@ const HomePage = ({ data, ...props }) => {
 					xs={4}
 					md={6}
 					style={{ maxWidth: '7em', textTransform: 'lowercase' }}
+					color='base'
 				>
 					{homepage?.heroTitle}
 				</Text>
