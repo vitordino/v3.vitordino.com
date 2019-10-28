@@ -1,17 +1,21 @@
-const { replaceTrailing, replaceBoth, getLocalizedPath } = require('./helpers')
 const locales = require('../content/i18n')
+const { removeTrailingSlash } = require('./helpers')
 
 module.exports = ({ page, actions }) => {
-	const { createPage, deletePage } = actions
-	deletePage(page)
-	Object.keys(locales).map(locale =>
-		createPage({
-			...page,
-			path: getLocalizedPath(locale, replaceTrailing(page.path)),
-			context: {
-				locale,
-				name: replaceBoth(page.path),
-			},
-		}),
-	)
+  const { createPage, deletePage } = actions
+  deletePage(page)
+  Object.keys(locales).map(lang => {
+    const localizedPath = locales[lang].default
+      ? page.path
+      : `${locales[lang].path}${page.path}`
+    return createPage({
+      ...page,
+      path: removeTrailingSlash(localizedPath),
+      context: {
+        ...page.context,
+        locale: lang,
+        dateFormat: locales[lang].dateFormat,
+      },
+    })
+  })
 }
