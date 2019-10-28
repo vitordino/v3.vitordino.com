@@ -39,48 +39,8 @@ exports.onCreateNode = ({ node, actions }) => {
   }
 }
 
-exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
-  const postTemplate = require.resolve(`./src/templates/post.js`)
-  const result = await graphql(`{
-    writing: allFile(filter: {
-      sourceInstanceName: { eq: "writing" }
-      extension: { eq: "mdx" }
-    }) {
-      edges {
-        node {
-          childMdx {
-            fields {
-              locale
-              isDefault
-            }
-            frontmatter {
-              title
-              slug
-            }
-          }
-        }
-      }
-    }
-  }`)
-
-  if (result.errors) {
-    console.error(result.errors)
-    return
-  }
-
-  const postList = result.data.writing.edges
-  postList.forEach(({ node: post }) => {
-    const title = post.childMdx.frontmatter.title
-    const locale = post.childMdx.fields.locale
-    const slug = post.childMdx.frontmatter.slug
-    const relativeSlug = `${translations[locale].paths.writing}/${slug}`
-    const isDefault = post.childMdx.fields.isDefault
-    const path = localizedSlug({ isDefault, locale, slug: relativeSlug })
-    createPage({
-      path,
-      component: postTemplate,
-      context: { locale, title, slug },
-    })
-  })
+exports.createPages = async (...args) => {
+  await Promise.all([
+		require('./gatsby/create-writing-pages')(...args)
+	])
 }
