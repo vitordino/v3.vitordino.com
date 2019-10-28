@@ -1,11 +1,11 @@
 // eslint-disable-next-line import/no-unresolved
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+import { createGlobalStyle } from 'styled-components'
 
 import SEO from '@/components/SEO'
 import GridOverlay from '@/components/GridOverlay'
 import ColorModeSwitcher from '@/components/ColorModeSwitcher'
-import GlobalStyle from './GlobalStyle'
 
 const query = graphql`
 	query LayoutQuery {
@@ -18,6 +18,21 @@ const query = graphql`
 	}
 `
 
+const OverwriteStyles = createGlobalStyle`
+	${p =>
+		p.background &&
+		`
+		html, body { background: ${p.theme.colors.get(p.background)(p)} }
+		::selection { color: ${p.theme.colors.get(p.background)(p)} }
+	`}
+	${p =>
+		p.color &&
+		`
+		html, body { color: ${p.theme.colors.get(p.color)(p)} }
+		::selection { background: ${p.theme.colors.get(p.color)(p)} }
+	`}
+`
+
 const Layout = ({ children, title, description, background, color, lang }) => {
 	const { site } = useStaticQuery(query)
 	const hasStyle = background || color
@@ -27,8 +42,8 @@ const Layout = ({ children, title, description, background, color, lang }) => {
 	}
 	return (
 		<>
+			{hasStyle && <OverwriteStyles color={color} background={background} />}
 			<SEO {...meta} lang={lang} />
-			{hasStyle && <GlobalStyle background={background} color={color} />}
 			{children}
 			<GridOverlay />
 			<ColorModeSwitcher />
