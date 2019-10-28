@@ -1,11 +1,8 @@
-const onCreatePage = require('./gatsby/on-create-page')
-const onCreateNode = require('./gatsby/on-create-node')
-
-exports.onCreatePage = onCreatePage
-exports.onCreateNode = onCreateNode
+exports.onCreatePage = require('./gatsby/on-create-page')
+exports.onCreateNode = require('./gatsby/on-create-node')
 
 exports.createPages = async (...args) => {
   await Promise.all([
-		require('./gatsby/create-writing-pages')(...args)
+		require('./gatsby/create-writing-pages')(...args),
 	])
 }
