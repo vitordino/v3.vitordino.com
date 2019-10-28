@@ -8,6 +8,8 @@ const {
   removeTrailingSlash,
 } = require(`./gatsby/helpers`)
 
+const onCreateNode = require('./gatsby/on-create-node')
+
 exports.onCreatePage = ({ page, actions }) => {
   const { createPage, deletePage } = actions
   deletePage(page)
@@ -27,17 +29,7 @@ exports.onCreatePage = ({ page, actions }) => {
   })
 }
 
-exports.onCreateNode = ({ node, actions }) => {
-  const { createNodeField } = actions
-  if (node.internal.type === `Mdx`) {
-    const name = path.basename(node.fileAbsolutePath, `.mdx`)
-    const isDefault = name === `index`
-    const defaultKey = findKey(locales, o => o.default === true)
-    const lang = isDefault ? defaultKey : name.split(`.`)[1]
-    createNodeField({ node, name: `locale`, value: lang })
-    createNodeField({ node, name: `isDefault`, value: isDefault })
-  }
-}
+exports.onCreateNode = onCreateNode
 
 exports.createPages = async (...args) => {
   await Promise.all([
