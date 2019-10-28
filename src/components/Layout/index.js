@@ -20,6 +20,7 @@ const query = graphql`
 
 const Layout = ({ children, title, description, background, color, lang }) => {
 	const { site } = useStaticQuery(query)
+	const hasStyle = background || color
 	const meta = {
 		title: title || site.meta.title,
 		description: description || site.meta.description,
@@ -27,7 +28,7 @@ const Layout = ({ children, title, description, background, color, lang }) => {
 	return (
 		<>
 			<SEO {...meta} lang={lang} />
-			<GlobalStyle background={background} color={color} />
+			{hasStyle && <GlobalStyle background={background} color={color} />}
 			{children}
 			<GridOverlay />
 			<ColorModeSwitcher />

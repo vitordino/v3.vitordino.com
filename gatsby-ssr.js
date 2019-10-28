@@ -1,20 +1,7 @@
-import React, { StrictMode } from 'react'
-import { AppProvider } from '@/store'
-import { ThemeProvider } from '@/theme'
+import React from 'react'
+import GatsbyLayout from '@/components/Layout/Gatsby'
 
 // eslint-disable-next-line import/prefer-default-export
 export const wrapPageElement = ({ element, props }) => (
-	<StrictMode>
-		<AppProvider locale={props.pageContext.locale}>
-			<ThemeProvider>
-				{element}
-			</ThemeProvider>
-		</AppProvider>
-	</StrictMode>
+	<GatsbyLayout {...props}>{element}</GatsbyLayout>
 )
-
-export const onRenderBody = ({ setPostBodyComponents }) => {
-	setPostBodyComponents([
-		React.createElement('div', { id: 'portal-root', key: 'portal-root' }),
-	])
-}
