@@ -1,15 +1,19 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
+import Layout from '@/components/Layout'
+import NavBar from '@/components/NavBar'
+import Container from '@/components/Container'
 import Link from '@/components/Link'
 
 const components = { a: Link }
 
 const Post = ({ data: { mdx } }) => (
-	<div className='writingpost'>
+	<Layout background='base11' color='base88'>
+		<NavBar />
 		<h1>{mdx.frontmatter.title}</h1>
 		<MDXRenderer components={components}>{mdx.body}</MDXRenderer>
-	</div>
+	</Layout>
 )
 
 export default Post
