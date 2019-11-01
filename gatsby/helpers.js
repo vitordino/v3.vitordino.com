@@ -30,9 +30,6 @@ const getLocalizedPath = (locale, url) =>
 
 // -------
 
-// Use a little helper function to remove trailing slashes from paths
-const removeTrailingSlash = path =>
-  path === `/` ? path : path.replace(/\/$/, ``)
 
 
 // From lodash:
@@ -59,6 +56,5 @@ module.exports = {
 	replaceBoth,
 	createQuery,
 	getLocalizedPath,
-	removeTrailingSlash,
 	findKey,
 }
