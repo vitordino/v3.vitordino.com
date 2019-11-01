@@ -1,6 +1,5 @@
-require('dotenv').config({
-	path: `.env.${process.env.NODE_ENV}`,
-})
+/* eslint-env node */
+require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
 const path = require('path')
 const siteConfig = require('./content/site-config')
 

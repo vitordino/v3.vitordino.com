@@ -1,3 +1,4 @@
+/* eslint-env node */
 const locales = require('../content/i18n')
 const { replaceTrailing } = require('./helpers')
 

@@ -1,3 +1,4 @@
+/* eslint-env node */
 const path = require('path')
 const locales = require('../content/i18n')
 const { findKey } = require('lodash')
