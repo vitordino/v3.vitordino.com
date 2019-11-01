@@ -15,7 +15,6 @@ const query = createQuery('CreateWritingPages')`
 				childMdx {
 					fields {
 						locale
-						isDefault
 					}
 					frontmatter {
 						title
@@ -35,7 +34,6 @@ module.exports = async ({ graphql, actions: { createPage, deletePage } }) => {
 		const locale = post.childMdx.fields.locale
 		const slug = post.childMdx.frontmatter.slug
 		const relativeSlug = replaceBoth(`${translations[locale].paths.writing}/${slug}`)
-		const isDefault = post.childMdx.fields.isDefault
 		const path = getLocalizedPath(locale, relativeSlug)
 
 		try { deletePage(path) } catch (e) { }
