@@ -1,9 +1,8 @@
 /* eslint-env node */
 const path = require('path')
 const locales = require('../content/i18n')
-const { findKey } = require('lodash')
 
-const defaultLocale = findKey(locales, x => !!x.default)
+const defaultLocale = Object.entries(locales).find(([_, v]) => !!v.default)[0]
 
 module.exports = ({ node, actions }) => {
   if (node.internal.type === 'Mdx') {
