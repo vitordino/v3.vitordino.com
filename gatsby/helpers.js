@@ -6,10 +6,6 @@ const concat = (strings, ...exps) =>
 		? strings
 		: exps.reduce((str, exp, i) => `${str}${exp}${strings[i + 1]}`, strings[0])
 
-const replaceTrailing = path => (path === `/` ? path : path.replace(/\/$/, ``))
-
-const replaceBoth = path => path.replace(/^\/|\/$/g, '')
-
 const createQuery = name => (..._query) => async graphql => {
 	const query = concat(..._query)
 	const { data, errors } = await graphql(`query ${name}Query { ${query} }`)
@@ -18,43 +14,17 @@ const createQuery = name => (..._query) => async graphql => {
 	throw errors
 }
 
-const getLocalizedPath = (locale, url) =>
-	replaceTrailing(
-		locales[locale].default ? `/${url}` : `/${locales[locale].path}/${url}`,
-	)
+const replaceTrailing = path => (path === `/` ? path : path.replace(/\/$/, ``))
 
+const replaceBoth = path => path.replace(/^\/|\/$/g, '')
 
-
-
-
-
-// -------
-
-
-
-// From lodash:
-// https://github.com/lodash/lodash/blob/750067f42d3aa5f927604ece2c6df0ff2b2e9d72/findKey.js
-const findKey = (object, predicate) => {
-  let result
-  if (object == null) {
-    return result
-  }
-  Object.keys(object).some(key => {
-    const value = object[key]
-    if (predicate(value, key, object)) {
-      result = key
-      return true
-    }
-    return false
-  })
-  return result
-}
-
+const getLocalizedPath = (locale, url) => replaceTrailing(
+	locales[locale].default ? `/${url}` : `/${locales[locale].path}/${url}`,
+)
 
 module.exports = {
+	createQuery,
 	replaceTrailing,
 	replaceBoth,
-	createQuery,
 	getLocalizedPath,
-	findKey,
 }

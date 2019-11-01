@@ -1,6 +1,6 @@
 const path = require('path')
 const locales = require('../content/i18n')
-const { findKey } = require('./helpers')
+const { findKey } = require('lodash')
 
 module.exports = ({ node, actions }) => {
   const { createNodeField } = actions
