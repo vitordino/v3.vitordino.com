@@ -1,6 +1,6 @@
 /* eslint-env node */
 const path = require('path')
-const { createQuery, localizedSlug, replaceBoth } = require('./helpers')
+const { createQuery, getLocalizedPath, replaceBoth } = require('./helpers')
 const locales = require(`../content/i18n`)
 const translations = require(`../content/translations`)
 const component = require.resolve('../src/templates/post.js')
@@ -36,7 +36,7 @@ module.exports = async ({ graphql, actions: { createPage, deletePage } }) => {
 		const slug = post.childMdx.frontmatter.slug
 		const relativeSlug = replaceBoth(`${translations[locale].paths.writing}/${slug}`)
 		const isDefault = post.childMdx.fields.isDefault
-		const path = localizedSlug({ isDefault, locale, slug: relativeSlug })
+		const path = getLocalizedPath(locale, relativeSlug)
 
 		try { deletePage(path) } catch (e) { }
 
