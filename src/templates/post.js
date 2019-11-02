@@ -11,8 +11,10 @@ const components = { a: Link }
 const Post = ({ data: { mdx } }) => (
 	<Layout background='base11' color='base88'>
 		<NavBar />
-		<h1>{mdx.frontmatter.title}</h1>
-		<MDXRenderer components={components}>{mdx.body}</MDXRenderer>
+		<Container>
+			<h1>{mdx.frontmatter.title}</h1>
+			<MDXRenderer components={components}>{mdx.body}</MDXRenderer>
+		</Container>
 	</Layout>
 )
 
