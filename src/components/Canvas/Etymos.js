@@ -93,13 +93,6 @@ const CanvasEtymos = () => {
 		<div ref={mouseRef}>
 			<Wrapper ref={ref} visible={!noRender}>
 				<Main width={width} height={height} ref={canvasRef} />
-				<div>
-					{width}x{height}
-				</div>
-				<div>
-					{mouseX}x{mouseY}
-				</div>
-				<div>{JSON.stringify({ noRender })}</div>
 			</Wrapper>
 		</div>
 	)
