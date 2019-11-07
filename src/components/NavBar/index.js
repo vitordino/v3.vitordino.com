@@ -69,12 +69,13 @@ const Bottom = styled.div`
 const offset = y => `translateY(${Math.max(Math.min(0, -y + 56), -44)}px)`
 
 const NavBar = ({ lang }) => {
-	const { y } = useWindowScroll()
 	const { navbar, paths } = useTranslations()
+	const { y } = useWindowScroll()
+	const offsetY = offset(y)
 
 	return (
 		<Wrapper>
-			<Background style={{ transform: offset(y) }} />
+			<Background style={{ transform: offsetY }} />
 			<Container>
 				<Inner>
 					<Top />
@@ -91,7 +92,7 @@ const NavBar = ({ lang }) => {
 						</Right>
 					</Links>
 				</Inner>
-				<Bottom style={{ transform: offset(y) }} />
+				<Bottom style={{ transform: offsetY }} />
 			</Container>
 		</Wrapper>
 	)
