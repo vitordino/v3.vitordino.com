@@ -57,18 +57,7 @@ const grid = ({
 	arr.forEach(({ x, y }) => circle({ ctx, size, fill: color, x, y }))
 }
 
-const ripples = ({
-	ctx,
-	size = 24,
-	width = 0,
-	height = 0,
-	mouseX = 0,
-	mouseY = 0,
-	count = 24,
-}) => {
-	ctx.clearRect(0, 0, width, height)
-	grid({ ctx, width, height })
-
+const ripples = ({ ctx, size, width, height, mouseX, mouseY, count }) =>
 	range(count).forEach(n => {
 		circle({
 			ctx,
@@ -79,6 +68,11 @@ const ripples = ({
 			strokeWidth: 1,
 		})
 	})
+
+const draw = ({ ctx, width = 0, height = 0, mouseX = 0, mouseY = 0 }) => {
+	ctx.clearRect(0, 0, width, height)
+	grid({ ctx, width, height })
+	ripples({ ctx, width, height, mouseX, mouseY, size: 24, count: 24 })
 }
 
 const CanvasEtymos = () => {
@@ -90,7 +84,7 @@ const CanvasEtymos = () => {
 	const canvasRef = useCanvas(ctx => {
 		if (noRender) return null
 		ctx.clearRect(0, 0, width, height)
-		ripples({ ctx, width, height, mouseX, mouseY })
+		draw({ ctx, width, height, mouseX, mouseY })
 	})
 
 	return (
