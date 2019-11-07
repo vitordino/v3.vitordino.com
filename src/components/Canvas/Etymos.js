@@ -83,8 +83,7 @@ const CanvasEtymos = () => {
 
 	const canvasRef = useCanvas(ctx => {
 		if (noRender) return null
-		ctx.clearRect(0, 0, width, height)
-		draw({ ctx, width, height, mouseX, mouseY })
+		return draw({ ctx, width, height, mouseX, mouseY })
 	})
 
 	return (
