@@ -13,7 +13,6 @@ const Wrapper = styled.div`
 	left: 0;
 	bottom: 0;
 	right: 0;
-	background: ${p => p.theme.colors.dark.base00};
 	opacity: ${p => (p.visible ? 1 : 0)};
 	transition: 0.3s opacity;
 `
