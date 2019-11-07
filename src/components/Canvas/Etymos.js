@@ -15,6 +15,7 @@ const Wrapper = styled.div`
 	right: 0;
 	opacity: ${p => (p.visible ? 1 : 0)};
 	transition: 0.3s opacity;
+	margin-top: 1px;
 `
 
 const Main = styled.canvas`
@@ -42,7 +43,7 @@ const grid = ({
 	size = 1,
 	width,
 	height,
-	color = '#474747',
+	color = '#2C2C2C',
 	space = 24,
 	padding = 1,
 }) => {
@@ -66,7 +67,7 @@ const ripples = ({ ctx, size, width, height, mouseX, mouseY, count }) =>
 			size: size * (n + 1),
 			x: mouseX + size * n - n * size * (mouseX / (width / 2)),
 			y: mouseY + size * n - n * size * (mouseY / (height / 2)),
-			stroke: '#72DEC2',
+			stroke: '#1D7969',
 			strokeWidth: 1,
 		})
 	})
