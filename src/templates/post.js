@@ -5,12 +5,14 @@ import Layout from '@/components/Layout'
 import NavBar from '@/components/NavBar'
 import Container from '@/components/Container'
 import Link from '@/components/Link'
+import PostHero from '@/components/PostHero'
 
 const components = { a: Link }
 
 const Post = ({ data: { mdx } }) => (
-	<Layout background='base11' color='base88'>
+	<Layout {...mdx.frontmatter}>
 		<NavBar />
+		<PostHero {...mdx.frontmatter} {...mdx.frontmatter.hero} />
 		<Container>
 			<h1>{mdx.frontmatter.title}</h1>
 			<MDXRenderer components={components}>{mdx.body}</MDXRenderer>
@@ -29,6 +31,11 @@ export const query = graphql`
 		) {
 			frontmatter {
 				title
+				description
+				tags
+				hero {
+					canvas
+				}
 			}
 			body
 		}
