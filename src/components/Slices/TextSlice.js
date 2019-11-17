@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 `
 
 const Content = styled(Text)`
-	* + * {
+	& > * + * {
 		margin-top: 1.75em;
 	}
 
