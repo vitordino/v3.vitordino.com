@@ -1,13 +1,12 @@
-const sansStack =
+const sans =
 	'-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
 
-const serifStack =
+const serif =
 	'"Tiempos Text", Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif'
 
-const fonts = {
-	sans: sansStack,
-	serif: serifStack,
-}
+const mono = 'SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace'
+
+const fonts = { sans, serif, mono }
 
 const type = {
 	fonts,

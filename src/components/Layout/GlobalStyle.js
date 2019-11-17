@@ -38,6 +38,9 @@ const GlobalStyle = createGlobalStyle`
 			background: ${theme.colors.get('base')({ theme, ...p })};
 			color: ${theme.colors.get('base00')({ theme, ...p })};
 		}
+		pre, code {
+			font-family ${theme.type.fonts.mono};
+		}
 	`}
 `
 
