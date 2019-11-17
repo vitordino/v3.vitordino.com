@@ -6,10 +6,14 @@ import Layout from '@/components/Layout'
 import NavBar from '@/components/NavBar'
 import Link from '@/components/Link'
 import PostHero from '@/components/PostHero'
+import CodeBlock from '@/components/CodeBlock'
 
 const MDXLink = ({ href, ...props }) => <Link {...props} to={href} />
 
-const components = { a: MDXLink }
+const components = {
+	a: MDXLink,
+	pre: CodeBlock,
+}
 
 const Post = ({ data: { mdx } }) => (
 	<Layout {...mdx.frontmatter}>
