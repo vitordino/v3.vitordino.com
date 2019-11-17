@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import Layout from '@/components/Layout'
 import NavBar from '@/components/NavBar'
-import Container from '@/components/Container'
 import Link from '@/components/Link'
 import PostHero from '@/components/PostHero'
 
@@ -13,10 +12,7 @@ const Post = ({ data: { mdx } }) => (
 	<Layout {...mdx.frontmatter}>
 		<NavBar />
 		<PostHero {...mdx.frontmatter} {...mdx.frontmatter.hero} />
-		<Container>
-			<h1>{mdx.frontmatter.title}</h1>
-			<MDXRenderer components={components}>{mdx.body}</MDXRenderer>
-		</Container>
+		<MDXRenderer components={components}>{mdx.body}</MDXRenderer>
 	</Layout>
 )
 
