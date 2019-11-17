@@ -22,8 +22,53 @@ import Slices from '@/components/Slices'
 
 </Slices.Text>
 
+
 <Slices.Quote author="— Me, just a couple of hours after learning how to apply background-color to a div ">
 
-css is pretty easy, right? It’s just applying some style rules to a specific element, what could go wrong?
+CSS is pretty easy, right? It’s just applying some style rules to a specific element, what could go wrong?
 
 </Slices.Quote>
+
+
+<Slices.Text>
+
+Maybe I was just naivë about the scale things might get on the web, or I hadn’t lost enough nights fighting bugs at that time.
+
+Is not that I was entirely wrong, nor does it means that handwritten stylesheets it’s not a way of writing styles anymore. It’s just that **my concerns at that time were totally different from what developers face on their everyday job today**.
+
+</Slices.Text>
+
+
+<Slices.Text background='base03'>
+
+Being optimistic, open to learn, and not having — at that time — a career that relied on my front-end knowledge, helped me learn and develop some interesting approaches to boost my productivity while learning some concepts and building my own tools.
+
+For example, a coworker said he was struggling building a grid layout with the current tools (*flex-box* just launched), and he said every css library limited him on having a single fixed gutter width (percentage or pixels) on every breakpoint. It wasn’t that hard to write my own that supported it while being compatible with the current Bootstrap API, and it took [roughly 30 lines of stylus code](https://codepen.io/vitordino/pen/PooGGyz).
+
+I’ve used mostly that grid system for basically every static website I’ve developed at that time. This was the moment I’ve realized how important is to separate concerns and think deeply about APIs — even when you just copy what’s mainstream at that time, to understand different approaches, really help you to build abstractions and to extend them as you need.
+
+</Slices.Text>
+
+
+<Slices.Text>
+
+Let’s get back to Bootstrap. I’ve never was a fan of it — and mostly used on already running projects. But it certainly paved the way to nicer things, it wasn’t the first, but certainly one of the biggest CSS frameworks of all time, I’m pretty sure every web developer used it at least once.
+
+Laying grids on Bootstrap looks like a little like this:
+
+```html
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-lg-4">
+    <p>First</p>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-lg-4">
+    <p>Second</p>
+  </div>
+ </div>
+```
+
+The key point here is definately on how concise and expressivelly one can write and know exactly on what it would look like. It’s like that unix philosophy axiom: Do One Thing And Do It Well. Defining a single porpuse for the column div, makes it clear what it does and easier to reuse everywhere whitout worrying of some obscure behavior or having to write it everytime.
+
+For me, that was one of the greatest abstractions Bootstrap brought to mainstream, and perharps one of the most copied and used features of it.
+
+</Slices.Text>
