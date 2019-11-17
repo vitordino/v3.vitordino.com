@@ -5,6 +5,7 @@ import Container from '@/components/Container'
 import Text from '@/components/Text'
 import Spacer from '@/components/Spacer'
 import Grid from '@/components/Grid'
+import getTypeStyle from '@/utils/getTypeStyle'
 
 const getColor = color => p => p.theme.colors.get(color) || color
 
@@ -22,6 +23,38 @@ const Content = styled(Text)`
 		background: ${p => getColor('base06')};
 		padding: 0 0.25em;
 		border-radius: 0.125rem;
+	}
+
+	pre {
+		background: ${p => p.theme.colors.dark.base00};
+		color: ${p => p.theme.colors.dark.base};
+		overflow: auto;
+		margin-left: -1rem;
+		margin-right: -1rem;
+		margin-bottom: 4rem;
+		padding: 2rem 1rem;
+		${getTypeStyle(1)};
+		${p => p.theme.above('md')`
+			margin-left: -2rem;
+			margin-right: -2rem;
+			padding: 2rem 2rem;
+		`}
+		${p => p.theme.above('lg')`
+			margin-left: -8.675%;
+			margin-right: -8.675%;
+			padding: 2rem 8.675%;
+			border-radius: 0.125rem;
+		`}
+		${p => p.theme.above('xg')`
+			margin-left: -10.5%;
+			margin-right: -10.5%;
+			padding: 2rem 10.5%;
+		`}
+		code {
+			background: none;
+			padding: 0;
+			border-radius: 0;
+		}
 	}
 `
 
