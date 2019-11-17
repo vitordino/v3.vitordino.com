@@ -9,7 +9,6 @@ import Text from '@/components/Text'
 
 const Wrapper = styled.div`
 	top: -1rem;
-	margin-bottom: -1px;
 	position: sticky;
 	margin-top: 2.5rem;
 	z-index: 10;
@@ -20,7 +19,7 @@ const Background = styled.div`
 	position: absolute;
 	top: -2.5rem;
 	left: 0;
-	bottom: 1px;
+	bottom: 0px;
 	right: 0;
 	${({ theme }) => theme.transition.get()};
 `
@@ -59,11 +58,12 @@ const Right = styled.div`
 `
 
 const Bottom = styled.div`
-	height: 1.5rem;
+	height: 1.25rem;
 	border-bottom: 1px solid ${({ theme }) => theme.colors.get('base06')};
 	${({ theme }) => theme.transition.get('border-color')};
 	margin: 0 -1rem;
 	${({ theme }) => theme.above('md')`margin: 0;`}
+	pointer-events: none;
 `
 
 const offset = y => `translateY(${Math.max(Math.min(0, -y + 56), -44)}px)`
