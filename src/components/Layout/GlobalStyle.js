@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import reset from 'wipe.css'
 import tiempos from '@/assets/fonts/tiempos-text'
+import 'typeface-ibm-plex-mono'
 
 const GlobalStyle = createGlobalStyle`
 	${reset}

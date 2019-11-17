@@ -4,7 +4,8 @@ const sans =
 const serif =
 	'"Tiempos Text", Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif'
 
-const mono = 'SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace'
+const mono =
+	'"IBM Plex Mono", SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace'
 
 const fonts = { sans, serif, mono }
 
