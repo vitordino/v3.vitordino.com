@@ -28,19 +28,19 @@ const GlobalStyle = createGlobalStyle`
 	button {
 		color: inherit;
 	}
-	${({ background, color, theme, ...p }) => `
+	${p => `
 		html, body {
-			font-family: ${theme.type.fonts.serif};
-			background: ${theme.colors.get('base00')({ theme, ...p })};
-			color: ${theme.colors.get('base')({ theme, ...p })};
-			${theme.transition.get()}
+			font-family: ${p.theme.type.fonts.serif};
+			background: ${p.theme.colors.get('base00')(p)};
+			color: ${p.theme.colors.get('base')(p)};
+			${p.theme.transition.get()}
 		}
 		::selection {
-			background: ${theme.colors.get('base')({ theme, ...p })};
-			color: ${theme.colors.get('base00')({ theme, ...p })};
+			background: ${p.theme.colors.get('base')(p)};
+			color: ${p.theme.colors.get('base00')(p)};
 		}
 		pre, code {
-			font-family ${theme.type.fonts.mono};
+			font-family ${p.theme.type.fonts.mono};
 		}
 	`}
 `
