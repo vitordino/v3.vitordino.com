@@ -85,7 +85,7 @@ const NavBar = ({ lang }) => {
 						</Text>
 						<Right>
 							{navbar.items?.map(({ content, path }) => (
-								<Text as={Link} to={paths[path]}>
+								<Text key={path} as={Link} to={paths[path]}>
 									{content}
 								</Text>
 							))}
