@@ -8,7 +8,7 @@ const base = {
 const get = color => ({ theme, ...p }) => {
 	if (typeof theme?.colors?.[color] === 'function')
 		return theme?.colors?.[color]({ theme, ...p })
-	return theme?.colors?.[theme.colors.mode]?.[color] || theme?.colors?.[color]
+	return theme?.colors?.[theme.colorMode]?.[color] || theme?.colors?.[color]
 }
 
 const light = {

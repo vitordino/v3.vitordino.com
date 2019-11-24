@@ -24,7 +24,9 @@ export const ThemeProvider = ({ children }) => {
 		<Provider
 			theme={{
 				above,
-				colors: { ...colors, mode: colorMode, setColorMode },
+				colors,
+				colorMode,
+				setColorMode,
 				...responsive,
 				isGridVisible,
 				setGridVisible,
