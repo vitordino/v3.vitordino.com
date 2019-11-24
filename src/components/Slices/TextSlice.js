@@ -9,7 +9,7 @@ import Text from '@/components/Text'
 import Spacer from '@/components/Spacer'
 import Grid from '@/components/Grid'
 
-const getColor = color => p => p.theme.colors.get(color) || color
+const getColor = color => p => p.theme.getColor(color) || color
 
 const Wrapper = styled.div`
 	color: ${p => getColor(p.color)};

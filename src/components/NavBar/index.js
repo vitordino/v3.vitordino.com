@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 `
 
 const Background = styled.div`
-	background: ${({ theme }) => theme.colors.get('base00')};
+	background: ${({ theme }) => theme.getColor('base00')};
 	position: absolute;
 	top: -2.5rem;
 	left: 0;
@@ -31,7 +31,7 @@ const Inner = styled.nav`
 `
 
 const Top = styled.div`
-	border-top: 1px solid ${({ theme }) => theme.colors.get('base06')};
+	border-top: 1px solid ${({ theme }) => theme.getColor('base06')};
 	margin: 0 -1rem;
 	${({ theme }) => theme.transition.get()};
 	${({ theme }) => theme.above('md')`margin: 0;`}
@@ -50,7 +50,7 @@ const Links = styled.div`
 
 const Link = styled(BaseLink)`
 	padding: 1rem;
-	color: ${({ theme }) => theme.colors.get('base88')};
+	color: ${({ theme }) => theme.getColor('base88')};
 `
 
 const Right = styled.div`
@@ -59,7 +59,7 @@ const Right = styled.div`
 
 const Bottom = styled.div`
 	height: 1.25rem;
-	border-bottom: 1px solid ${({ theme }) => theme.colors.get('base06')};
+	border-bottom: 1px solid ${({ theme }) => theme.getColor('base06')};
 	${({ theme }) => theme.transition.get('border-color')};
 	margin: 0 -1rem;
 	${({ theme }) => theme.above('md')`margin: 0;`}

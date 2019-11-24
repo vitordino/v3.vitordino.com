@@ -31,13 +31,13 @@ const GlobalStyle = createGlobalStyle`
 	${p => `
 		html, body {
 			font-family: ${p.theme.type.fonts.serif};
-			background: ${p.theme.colors.get('base00')(p)};
-			color: ${p.theme.colors.get('base')(p)};
+			background: ${p.theme.getColor('base00')(p)};
+			color: ${p.theme.getColor('base')(p)};
 			${p.theme.transition.get()}
 		}
 		::selection {
-			background: ${p.theme.colors.get('base')(p)};
-			color: ${p.theme.colors.get('base00')(p)};
+			background: ${p.theme.getColor('base')(p)};
+			color: ${p.theme.getColor('base00')(p)};
 		}
 		pre, code {
 			font-family ${p.theme.type.fonts.mono};

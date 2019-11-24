@@ -16,6 +16,12 @@ const keys = {
 	grid: 'theme:show-grid',
 }
 
+const getColor = color => ({ theme, ...p }) => {
+	if (typeof theme?.colors?.[color] === 'function')
+		return theme?.colors?.[color]({ theme, ...p })
+	return theme?.colors?.[theme.colorMode]?.[color] || theme?.colors?.[color]
+}
+
 export const ThemeProvider = ({ children }) => {
 	const [colorMode, setColorMode] = usePersistentState(keys.color, 'light')
 	const [isGridVisible, setGridVisible] = usePersistentState(keys.grid, false)
@@ -27,6 +33,7 @@ export const ThemeProvider = ({ children }) => {
 				colors,
 				colorMode,
 				setColorMode,
+				getColor,
 				...responsive,
 				isGridVisible,
 				setGridVisible,

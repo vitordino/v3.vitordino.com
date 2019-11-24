@@ -22,14 +22,14 @@ const OverwriteStyles = createGlobalStyle`
 	${p =>
 		p.background &&
 		`
-		html, body { background: ${p.theme.colors.get(p.background)(p)} }
-		::selection { color: ${p.theme.colors.get(p.background)(p)} }
+		html, body { background: ${p.theme.getColor(p.background)(p)} }
+		::selection { color: ${p.theme.getColor(p.background)(p)} }
 	`}
 	${p =>
 		p.color &&
 		`
-		html, body { color: ${p.theme.colors.get(p.color)(p)} }
-		::selection { background: ${p.theme.colors.get(p.color)(p)} }
+		html, body { color: ${p.theme.getColor(p.color)(p)} }
+		::selection { background: ${p.theme.getColor(p.color)(p)} }
 	`}
 `
 

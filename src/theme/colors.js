@@ -5,12 +5,6 @@ const base = {
 	dark: '#FFFFFF',
 }
 
-const get = color => ({ theme, ...p }) => {
-	if (typeof theme?.colors?.[color] === 'function')
-		return theme?.colors?.[color]({ theme, ...p })
-	return theme?.colors?.[theme.colorMode]?.[color] || theme?.colors?.[color]
-}
-
 const light = {
 	base: base.light,
 	base88: mix(0.88, base.light, base.dark),
@@ -35,6 +29,6 @@ const dark = {
 	base00: mix(0.0, base.dark, base.light),
 }
 
-const colors = { get, ...light, light, dark }
+const colors = { ...light, light, dark }
 
 export default colors
