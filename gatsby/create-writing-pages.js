@@ -27,16 +27,22 @@ const query = createQuery('CreateWritingPages')`
 `
 
 module.exports = async ({ graphql, actions: { createPage, deletePage } }) => {
-	const { writing: { edges } } = await query(graphql)
+	const {
+		writing: { edges },
+	} = await query(graphql)
 
 	edges.forEach(({ node: post }) => {
 		const title = post.childMdx.frontmatter.title
 		const locale = post.childMdx.fields.locale
 		const slug = post.childMdx.frontmatter.slug
-		const relativeSlug = replaceBoth(`${translations[locale].paths.writing}/${slug}`)
+		const relativeSlug = replaceBoth(
+			`${translations[locale].paths.writing}/${slug}`,
+		)
 		const path = getLocalizedPath(locale, relativeSlug)
 
-		try { deletePage(path) } catch (e) { }
+		try {
+			deletePage(path)
+		} catch (e) {}
 
 		createPage({ path, component, context: { locale, title, slug } })
 	})

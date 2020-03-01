@@ -1,26 +1,26 @@
 {
-  "paths": {
-    "home": "/",
-    "writing": "/writing",
-    "contact": "/contact"
-  },
-  "homepage": {
-    "heroTitle": "Move fast, Learn everyday"
-  },
-  "navbar": {
-    "main": {
-      "content": "Vitor Dino",
-      "path": "home"
-    },
-    "items": [
-      {
-        "content": "Writing",
-        "path": "writing"
-      },
-      {
-        "content": "Contact",
-        "path": "contact"
-      }
-    ]
-  }
+	"paths": {
+		"home": "/",
+		"writing": "/writing",
+		"contact": "/contact"
+	},
+	"homepage": {
+		"heroTitle": "Move fast, Learn everyday"
+	},
+	"navbar": {
+		"main": {
+			"content": "Vitor Dino",
+			"path": "home"
+		},
+		"items": [
+			{
+				"content": "Writing",
+				"path": "writing"
+			},
+			{
+				"content": "Contact",
+				"path": "contact"
+			}
+		]
+	}
 }

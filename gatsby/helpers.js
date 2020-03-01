@@ -18,9 +18,10 @@ const replaceTrailing = path => (path === `/` ? path : path.replace(/\/$/, ``))
 
 const replaceBoth = path => path.replace(/^\/|\/$/g, '')
 
-const getLocalizedPath = (locale, url) => replaceTrailing(
-	locales[locale].default ? `/${url}` : `/${locales[locale].path}/${url}`,
-)
+const getLocalizedPath = (locale, url) =>
+	replaceTrailing(
+		locales[locale].default ? `/${url}` : `/${locales[locale].path}/${url}`,
+	)
 
 module.exports = {
 	createQuery,
