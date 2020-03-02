@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
 import reset from 'wipe.css'
 import tiempos from '@/assets/fonts/tiempos-text'
 import 'typeface-ibm-plex-mono'
@@ -6,6 +6,7 @@ import 'typeface-ibm-plex-mono'
 const GlobalStyle = createGlobalStyle`
 	${reset}
 	${tiempos}
+
 	html, body {
 		text-rendering: optimizeLegibility;
 		font-smooth: antialised;
@@ -28,19 +29,41 @@ const GlobalStyle = createGlobalStyle`
 	button {
 		color: inherit;
 	}
-	${p => `
+	${({ theme }) => css`
+		:root, [data-theme='light'] {
+			--color-base: ${theme.colors.light.base};
+			--color-base88: ${theme.colors.light.base88};
+			--color-base66: ${theme.colors.light.base66};
+			--color-base44: ${theme.colors.light.base44};
+			--color-base22: ${theme.colors.light.base22};
+			--color-base11: ${theme.colors.light.base11};
+			--color-base06: ${theme.colors.light.base06};
+			--color-base03: ${theme.colors.light.base03};
+			--color-base00: ${theme.colors.light.base00};
+		}
+		[data-theme='dark'] {
+			--color-base: ${theme.colors.dark.base};
+			--color-base88: ${theme.colors.dark.base88};
+			--color-base66: ${theme.colors.dark.base66};
+			--color-base44: ${theme.colors.dark.base44};
+			--color-base22: ${theme.colors.dark.base22};
+			--color-base11: ${theme.colors.dark.base11};
+			--color-base06: ${theme.colors.dark.base06};
+			--color-base03: ${theme.colors.dark.base03};
+			--color-base00: ${theme.colors.dark.base00};
+		}
 		html, body {
-			font-family: ${p.theme.type.fonts.serif};
-			background: ${p.theme.getColor('base00')(p)};
-			color: ${p.theme.getColor('base')(p)};
-			${p.theme.transition.get()}
+			font-family: ${theme.type.fonts.serif};
+			background: ${theme.getColor('base00')({ theme })};
+			color: ${theme.getColor('base')({ theme })};
+			${theme.transition.get()}
 		}
 		::selection {
-			background: ${p.theme.getColor('base')(p)};
-			color: ${p.theme.getColor('base00')(p)};
+			background: ${theme.getColor('base')({ theme })};
+			color: ${theme.getColor('base00')({ theme })};
 		}
 		pre, code {
-			font-family ${p.theme.type.fonts.mono};
+			font-family ${theme.type.fonts.mono};
 		}
 	`}
 `
