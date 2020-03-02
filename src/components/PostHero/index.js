@@ -8,8 +8,9 @@ import Text from '@/components/Text'
 
 const Wrapper = styled.div`
 	position: relative;
-	background: ${p => p.theme.colors.dark.base00};
-	color: ${p => p.theme.colors.dark.base};
+	background: var(--color-base00);
+	${p => p.theme.colors.dark.base00};
+	color: var(--color-base);
 `
 
 const Content = styled(Container)`

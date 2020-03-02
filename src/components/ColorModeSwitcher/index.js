@@ -9,7 +9,7 @@ const Button = styled.button`
 	right: 0;
 	opacity: 0.25;
 	transition: 0.2s opacity;
-	color: ${({ theme }) => theme.getColor('base')} !important;
+	color: var(--color-base) !important;
 	transition: 0.25s opacity;
 	&:hover {
 		opacity: 1;

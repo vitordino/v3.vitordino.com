@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { ThemeProvider } from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import getTypeStyle from '@/utils/getTypeStyle'
 
@@ -9,11 +9,11 @@ import Text from '@/components/Text'
 import Spacer from '@/components/Spacer'
 import Grid from '@/components/Grid'
 
-const getColor = color => p => p.theme.getColor(color) || color
-
 const Wrapper = styled.div`
-	color: ${p => getColor(p.color)};
-	background: ${p => getColor(p.background)};
+	${({ color, background }) => css`
+		color: var(--color- ${color});
+		background: var(--color- ${background});
+	`}
 `
 
 const Content = styled(Text)`
@@ -22,7 +22,7 @@ const Content = styled(Text)`
 	}
 
 	code {
-		background: ${p => getColor('base06')};
+		background: var(--color-base06);
 		padding: 0 0.25em;
 		border-radius: 0.125rem;
 	}

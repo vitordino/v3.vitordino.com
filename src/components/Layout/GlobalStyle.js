@@ -54,13 +54,13 @@ const GlobalStyle = createGlobalStyle`
 		}
 		html, body {
 			font-family: ${theme.type.fonts.serif};
-			background: ${theme.getColor('base00')({ theme })};
-			color: ${theme.getColor('base')({ theme })};
+			background: var(--color-base00);
+			color: var(--color-base);
 			${theme.transition.get()}
 		}
 		::selection {
-			background: ${theme.getColor('base')({ theme })};
-			color: ${theme.getColor('base00')({ theme })};
+			background: var(--color-base);
+			color: var(--color-base00);
 		}
 		pre, code {
 			font-family ${theme.type.fonts.mono};

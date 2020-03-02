@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 `
 
 const DesktopLine = styled.div`
-	border-top: 1px solid ${({ theme }) => theme.getColor('base06')};
+	border-top: 1px solid var(--color-base06);
 	display: none;
 	margin-bottom: 2.5rem;
 	${({ theme }) => theme.transition.get()};
@@ -27,7 +27,7 @@ const StickyColumn = styled(Grid.Column)`
 `
 
 const MobileLine = styled.div`
-	border-top: 1px solid ${({ theme }) => theme.getColor('base06')};
+	border-top: 1px solid var(--color-base06);
 	display: block;
 	margin: 1rem -1rem 2.5rem;
 	${({ theme }) => theme.transition.get()};
