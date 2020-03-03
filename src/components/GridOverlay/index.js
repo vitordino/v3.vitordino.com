@@ -1,6 +1,8 @@
 import React from 'react'
 import styled, { withTheme, css } from 'styled-components'
 import { useMediaQuery, useWindowSize, useCurrentBreakpoint } from 'etymos'
+
+import { useGridMode } from '@/store'
 import Grid from '@/components/Grid'
 import Container from '@/components/Container'
 
@@ -70,8 +72,8 @@ const D = styled.pre`
 	}
 `
 
-const GridOverlay = withTheme(({ theme }) => {
-	const visible = theme.isGridVisible
+const GridOverlay = ({ theme }) => {
+	const [visible] = useGridMode()
 	const { innerWidth } = useWindowSize()
 	const currentBreakpoint = useCurrentBreakpoint()
 	const belowSM = useMediaQuery({ below: 'sm' })
@@ -101,6 +103,6 @@ const GridOverlay = withTheme(({ theme }) => {
 			</Breakpoint>
 		</Wrapper>
 	)
-})
+}
 
-export default GridOverlay
+export default withTheme(GridOverlay)
