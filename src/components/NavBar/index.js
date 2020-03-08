@@ -12,15 +12,7 @@ const Wrapper = styled.div`
 	position: sticky;
 	margin-top: 2.5rem;
 	z-index: 10;
-`
-
-const Background = styled.div`
 	background: var(--color-base00);
-	position: absolute;
-	top: -2.5rem;
-	left: 0;
-	bottom: 0px;
-	right: 0;
 	${({ theme }) => theme.transition.get()};
 `
 
@@ -58,43 +50,41 @@ const Right = styled.div`
 `
 
 const Bottom = styled.div`
-	height: 1.25rem;
-	border-bottom: 1px solid var(--color-base06);
-	${({ theme }) => theme.transition.get('border-color')};
-	margin: 0 -1rem;
-	${({ theme }) => theme.above('md')`margin: 0;`}
-	pointer-events: none;
+	height: 1px;
+	background: var(--color-base06);
+	margin-bottom: -1px;
+	position: relative;
+	z-index: 1;
+	${({ theme }) => theme.transition.get()};
 `
-
-const offset = y => `translateY(${Math.max(Math.min(0, -y + 56), -44)}px)`
 
 const NavBar = ({ lang }) => {
 	const { navbar, paths } = useTranslations()
-	const { y } = useWindowScroll()
-	const offsetY = offset(y)
-
 	return (
-		<Wrapper>
-			<Background style={{ transform: offsetY }} />
+		<>
+			<Wrapper>
+				<Container>
+					<Inner>
+						<Top />
+						<Links>
+							<Text as={Link} weight={500} to={paths[navbar.main.path]}>
+								{navbar.main.content}
+							</Text>
+							<Right>
+								{navbar.items?.map(({ content, path }) => (
+									<Text key={path} as={Link} to={paths[path]}>
+										{content}
+									</Text>
+								))}
+							</Right>
+						</Links>
+					</Inner>
+				</Container>
+			</Wrapper>
 			<Container>
-				<Inner>
-					<Top />
-					<Links>
-						<Text as={Link} weight={500} to={paths[navbar.main.path]}>
-							{navbar.main.content}
-						</Text>
-						<Right>
-							{navbar.items?.map(({ content, path }) => (
-								<Text key={path} as={Link} to={paths[path]}>
-									{content}
-								</Text>
-							))}
-						</Right>
-					</Links>
-				</Inner>
-				<Bottom style={{ transform: offsetY }} />
+				<Bottom />
 			</Container>
-		</Wrapper>
+		</>
 	)
 }
 
