@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import { mapBreakpoints } from 'etymos'
+import { mapBreakpoints, css } from 'etymos'
 
 import getTypeStyle from '@/utils/getTypeStyle'
 
 const Text = styled.div`
-  ${p => p.color && `color: ${p.theme.getColor(p.color)(p)};`}
+  ${p => p.color && `color: var(--color-${p.color});`}
   ${p => p.weight && `font-weight: ${p.weight};`}
   ${p => p.case && `text-transform: ${p.case};`}
   ${({ theme }) => theme.transition.get()};

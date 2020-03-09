@@ -1,5 +1,7 @@
 import React from 'react'
-import styled, { css, withTheme } from 'styled-components'
+import styled, { css } from 'styled-components'
+
+import { useColorMode, useGridMode } from '@/store'
 
 const Button = styled.button`
 	display: block;
@@ -9,7 +11,7 @@ const Button = styled.button`
 	right: 0;
 	opacity: 0.25;
 	transition: 0.2s opacity;
-	color: ${({ theme }) => theme.getColor('base')} !important;
+	color: var(--color-base) !important;
 	transition: 0.25s opacity;
 	&:hover {
 		opacity: 1;
@@ -79,13 +81,14 @@ const Inner = styled.svg`
 		`}
 `
 
-const ColorModeSwitcher = ({ theme, size = 20, ...props }) => {
-	const { isGridVisible, setGridVisible, colorMode, setColorMode } = theme
+const ColorModeSwitcher = ({ size = 20, ...props }) => {
+	const [colorMode, setColorMode] = useColorMode()
+	const [gridMode, setGridMode] = useGridMode()
 	const colorSwitch = () =>
 		setColorMode(colorMode === 'light' ? 'dark' : 'light')
 	const gridSwitch = e => {
 		e.preventDefault()
-		setGridVisible(!isGridVisible)
+		setGridMode(!gridMode)
 	}
 	return (
 		<Button
@@ -120,4 +123,4 @@ const ColorModeSwitcher = ({ theme, size = 20, ...props }) => {
 	)
 }
 
-export default withTheme(ColorModeSwitcher)
+export default ColorModeSwitcher

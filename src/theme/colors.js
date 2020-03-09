@@ -29,6 +29,6 @@ const dark = {
 	base00: mix(0.0, base.dark, base.light),
 }
 
-const colors = { ...light, light, dark }
+const colors = { light, dark }
 
 export default colors

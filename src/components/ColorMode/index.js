@@ -1,18 +1,8 @@
-import React from 'react'
-import { ThemeProvider, withTheme } from 'styled-components'
+import React, { Children, cloneElement } from 'react'
 
-const getTheme = ({ theme, mode }) => ({
-	...theme,
-	colors: {
-		...theme.colors,
-		mode,
-	},
-})
-
-const ColorMode = ({ theme, mode, children }) => {
+const ColorMode = ({ mode, children }) => {
 	if (!mode) return children
-	const _theme = getTheme({ theme, mode })
-	return <ThemeProvider theme={_theme}>{children}</ThemeProvider>
+	return Children.map(children, c => cloneElement(c, { 'data-theme': mode }))
 }
 
-export default withTheme(ColorMode)
+export default ColorMode
