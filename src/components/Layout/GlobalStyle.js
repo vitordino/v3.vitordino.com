@@ -16,6 +16,12 @@ const GlobalStyle = createGlobalStyle`
 		-webkit-font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'pnum' 0, 'tnum' 1, 'onum' 0, 'lnum' 1, 'dlig' 1, 'zero' 1, 'case' 1;
 		height: auto;
 		min-height: 100vh;
+		background: var(--color-base00);
+		color: var(--color-base);
+	}
+	::selection {
+		background: var(--color-base);
+		color: var(--color-base00);
 	}
 	body {
 		overflow-x: hidden;
@@ -54,13 +60,7 @@ const GlobalStyle = createGlobalStyle`
 		}
 		html, body {
 			font-family: ${theme.type.fonts.serif};
-			background: var(--color-base00);
-			color: var(--color-base);
-			${theme.transition.get()}
-		}
-		::selection {
-			background: var(--color-base);
-			color: var(--color-base00);
+			${theme.transition.get()};
 		}
 		pre, code {
 			font-family ${theme.type.fonts.mono};
