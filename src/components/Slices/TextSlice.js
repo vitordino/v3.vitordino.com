@@ -10,9 +10,10 @@ import Spacer from '@/components/Spacer'
 import Grid from '@/components/Grid'
 
 const Wrapper = styled.div`
-	${({ color, background }) => css`
+	${({ color, background, theme }) => css`
 		color: var(--color-${color});
 		background: var(--color-${background});
+		${theme.transition.get()};
 	`}
 `
 
@@ -28,6 +29,7 @@ const Content = styled(Text)`
 	}
 
 	pre {
+		${p => p.theme.transition.get('background')};
 		background: ${p => p.theme.colors.dark.base00};
 		color: ${p => p.theme.colors.dark.base};
 		overflow: auto;

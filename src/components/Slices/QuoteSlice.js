@@ -7,9 +7,10 @@ import Spacer from '@/components/Spacer'
 import Grid from '@/components/Grid'
 
 const Wrapper = styled.div`
-	${({ color, background }) => css`
+	${({ color, background, theme }) => css`
 		color: var(--color-${color});
 		background: var(--color-${background});
+		${theme.transition.get()};
 	`}
 `
 
@@ -26,7 +27,7 @@ const QuoteSymbolDecoration = styled.div`
 	${p => p.theme.above('lg')`
 		text-align: right;
 		font-size: 6rem;
-		line-height: 4rem
+		line-height: 4rem;
 	`}
 	font-weight: 500;
 	&:after {
