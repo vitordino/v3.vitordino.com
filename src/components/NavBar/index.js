@@ -13,13 +13,12 @@ const Wrapper = styled.div`
 	margin-top: 2.5rem;
 	z-index: 10;
 	background: var(--color-base00);
-	${({ theme }) => theme.transition.get()};
+	${({ theme }) => theme.transition.get()}
 `
 
 const Inner = styled.nav`
 	position: relative;
 	justify-content: space-between;
-	${({ theme }) => theme.transition.get('border-color')};
 `
 
 const Top = styled.div`
@@ -50,12 +49,9 @@ const Right = styled.div`
 `
 
 const Bottom = styled.div`
-	height: 1px;
-	background: var(--color-base06);
-	margin-bottom: -1px;
+	border-bottom: 1px solid var(--color-base06);
 	position: relative;
-	z-index: 1;
-	${({ theme }) => theme.transition.get()};
+	${({ theme }) => theme.transition.get()}
 `
 
 const NavBar = ({ lang }) => {
