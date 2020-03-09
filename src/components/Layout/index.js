@@ -24,10 +24,10 @@ const OverwriteStyles = createGlobalStyle`
 		css`
 			html,
 			body {
-				background: var(--color- ${p.background});
+				background: var(--color-${p.background});
 			}
 			::selection {
-				color: var(--color- ${p.background});
+				color: var(--color-${p.background});
 			}
 		`}
 	${p =>
@@ -35,10 +35,10 @@ const OverwriteStyles = createGlobalStyle`
 		css`
 			html,
 			body {
-				color: var(--color- ${p.color});
+				color: var(--color-${p.color});
 			}
 			::selection {
-				background: var(--color- ${p.color});
+				background: var(--color-${p.color});
 			}
 		`}
 `

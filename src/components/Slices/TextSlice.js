@@ -11,8 +11,8 @@ import Grid from '@/components/Grid'
 
 const Wrapper = styled.div`
 	${({ color, background }) => css`
-		color: var(--color- ${color});
-		background: var(--color- ${background});
+		color: var(--color-${color});
+		background: var(--color-${background});
 	`}
 `
 
