@@ -54,31 +54,29 @@ const Inner = styled.svg`
 		cy: 12px;
 		transition: 0.375s cx, 0.375s cy, 0.375s r 0.375s;
 	}
-	${({ mode }) =>
-		mode === 'dark' &&
-		css`
-			& .rays {
-				opacity: 0;
-				transition: 0.375s all;
-			}
-			& .main {
-				r: 10px;
-				transition: 0.375s r, 0.75s stroke;
-			}
-			& .other {
-				stroke: currentColor;
-				r: 9px;
-				cx: 18px;
-				cy: 6px;
-				transition: 0.375s r, 0.375s cx 0.375s, 0.375s cy 0.375s, 0.375s stroke;
-			}
-			& .maskOther {
-				r: 8px;
-				cx: 18px;
-				cy: 6px;
-				transition: 0.375s r, 0.375s cx 0.375s, 0.375s cy 0.375s;
-			}
-		`}
+	html[data-theme='dark'] & {
+		& .rays {
+			opacity: 0;
+			transition: 0.375s all;
+		}
+		& .main {
+			r: 10px;
+			transition: 0.375s r, 0.75s stroke;
+		}
+		& .other {
+			stroke: currentColor;
+			r: 9px;
+			cx: 18px;
+			cy: 6px;
+			transition: 0.375s r, 0.375s cx 0.375s, 0.375s cy 0.375s, 0.375s stroke;
+		}
+		& .maskOther {
+			r: 8px;
+			cx: 18px;
+			cy: 6px;
+			transition: 0.375s r, 0.375s cx 0.375s, 0.375s cy 0.375s;
+		}
+	}
 `
 
 const ColorModeSwitcher = ({ size = 20, ...props }) => {
@@ -97,7 +95,7 @@ const ColorModeSwitcher = ({ size = 20, ...props }) => {
 			onContextMenu={gridSwitch}
 			{...props}
 		>
-			<Inner mode={colorMode} size={size} viewBox='0 0 24 24'>
+			<Inner size={size} viewBox='0 0 24 24'>
 				<defs>
 					<mask id='mask' stroke='none'>
 						<circle className='maskMain' fill='#fff' />
