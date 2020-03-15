@@ -82,7 +82,6 @@ const Inner = styled.svg`
 const ColorModeSwitcher = ({ size = 20, ...props }) => {
 	const [colorMode, setColorMode] = useColorMode()
 	const [gridMode, setGridMode] = useGridMode()
-
 	const colorSwitch = () =>
 		setColorMode(colorMode === 'light' ? 'dark' : 'light')
 	const gridSwitch = e => {
