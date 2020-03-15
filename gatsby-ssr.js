@@ -1,8 +1,9 @@
 import fs from 'fs'
+import Terser from 'terser'
 import React from 'react'
 import GatsbyLayout from '@/components/Layout/Gatsby'
 
-const noflash = fs.readFileSync('./noflash.js')
+const { code: noflash } = Terser.minify(fs.readFileSync('./noflash.js', 'utf8'))
 
 export const wrapPageElement = ({ element, props }) => (
 	<GatsbyLayout {...props}>{element}</GatsbyLayout>
