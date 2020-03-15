@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { mapBreakpoints, css } from 'etymos'
+import { mapBreakpoints } from 'etymos'
 
 import getTypeStyle from '@/utils/getTypeStyle'
 

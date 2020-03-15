@@ -47,8 +47,8 @@ const SeparatorSection = ({ title, children, items = [], ...props }) => (
 			<Grid.Column xs={0} lg={2} xg={3} />
 			<Grid.Column xs={16} md={12} lg={8} xg={6}>
 				{children}
-				{items.map(item => (
-					<SeparatorSectionItem {...item} />
+				{items.map((item, index) => (
+					<SeparatorSectionItem key={index} {...item} />
 				))}
 			</Grid.Column>
 		</Grid.Row>
