@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import { useColorMode, useGridMode } from '@/store'
 
@@ -28,7 +28,7 @@ const Inner = styled.svg`
 	stroke-linecap: round;
 	stroke-linejoin: round;
 	& .rays {
-		transition: 0.375s opacity 0.375s
+		transition: 0.375s opacity 0.375s;
 	}
 	& .main {
 		cx: 12px;
@@ -40,7 +40,7 @@ const Inner = styled.svg`
 		cx: 12px;
 		cy: 12px;
 		r: 5px;
-		stroke transparent;
+		stroke: transparent;
 		transition: 0.375s cx, 0.375s cy, 0.375s r 0.375s, 0.125s stroke 0.25s;
 	}
 	& .maskMain {
