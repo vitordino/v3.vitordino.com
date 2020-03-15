@@ -34,7 +34,7 @@
 	// Determine the source of truth
 	if (localStorageExists) {
 		// source of truth from localStorage
-		setDarkModeInDom(localStorageTheme)
+		setDarkModeInDom(localStorageTheme === 'dark')
 	} else if (supportsColorSchemeQuery) {
 		// source of truth from system
 		setDarkModeInDom(mql.matches)
