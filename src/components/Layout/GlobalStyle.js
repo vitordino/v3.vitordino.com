@@ -58,7 +58,7 @@ const GlobalStyle = createGlobalStyle`
 			--color-base03: ${theme.colors.dark.base03};
 			--color-base00: ${theme.colors.dark.base00};
 		}
-		html, body {
+		body {
 			font-family: ${theme.type.fonts.serif};
 			${theme.transition.get()};
 		}

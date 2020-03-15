@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useReducer, useLayoutEffect } from 'react'
 import styled from 'styled-components'
 
 import { useColorMode, useGridMode } from '@/store'
@@ -79,9 +79,19 @@ const Inner = styled.svg`
 	}
 `
 
+const useIsMounted = () => {
+	const [state, dispatch] = useReducer(() => true, false)
+	useLayoutEffect(dispatch, [])
+	return state
+}
+
 const ColorModeSwitcher = ({ size = 20, ...props }) => {
 	const [colorMode, setColorMode] = useColorMode()
 	const [gridMode, setGridMode] = useGridMode()
+	const isMounted = useIsMounted()
+
+	if (!isMounted) return null
+
 	const colorSwitch = () =>
 		setColorMode(colorMode === 'light' ? 'dark' : 'light')
 	const gridSwitch = e => {
