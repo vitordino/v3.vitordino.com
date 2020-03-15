@@ -27,50 +27,50 @@ const Inner = styled.svg`
 	stroke-width: 2;
 	stroke-linecap: round;
 	stroke-linejoin: round;
-	& .rays {
+	.rays {
 		transition: 0.375s opacity 0.375s;
 	}
-	& .main {
+	.main {
 		cx: 12px;
 		cy: 12px;
 		r: 5px;
 		transition: 0.375s r 0.375s, 0.75s stroke;
 	}
-	& .other {
+	.other {
 		cx: 12px;
 		cy: 12px;
 		r: 5px;
 		stroke: transparent;
 		transition: 0.375s cx, 0.375s cy, 0.375s r 0.375s, 0.125s stroke 0.25s;
 	}
-	& .maskMain {
+	.maskMain {
 		cx: 12px;
 		cy: 12px;
 		r: 11px;
 	}
-	& .maskOther {
+	.maskOther {
 		r: 4px;
 		cx: 12px;
 		cy: 12px;
 		transition: 0.375s cx, 0.375s cy, 0.375s r 0.375s;
 	}
 	html[data-theme='dark'] & {
-		& .rays {
+		.rays {
 			opacity: 0;
 			transition: 0.375s all;
 		}
-		& .main {
+		.main {
 			r: 10px;
 			transition: 0.375s r, 0.75s stroke;
 		}
-		& .other {
+		.other {
 			stroke: currentColor;
 			r: 9px;
 			cx: 18px;
 			cy: 6px;
 			transition: 0.375s r, 0.375s cx 0.375s, 0.375s cy 0.375s, 0.375s stroke;
 		}
-		& .maskOther {
+		.maskOther {
 			r: 8px;
 			cx: 18px;
 			cy: 6px;
