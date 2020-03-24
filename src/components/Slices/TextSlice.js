@@ -64,6 +64,11 @@ const Content = styled(Text)`
 			border-radius: 0;
 		}
 	}
+
+	a {
+		text-decoration: underline;
+	}
+
 	hr {
 		height: 32px;
 		position: relative;
