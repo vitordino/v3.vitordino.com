@@ -17,6 +17,25 @@ const Wrapper = styled.div`
 	`}
 `
 
+const counterContainer = css`
+	${p => p.theme.above('md')`
+		margin-left: -2rem;
+		margin-right: -2rem;
+		padding: 2rem 2rem;
+	`}
+	${p => p.theme.above('lg')`
+		margin-left: -8.675%;
+		margin-right: -8.675%;
+		padding: 2rem 8.675%;
+		border-radius: 0.125rem;
+	`}
+	${p => p.theme.above('xg')`
+		margin-left: -10.5%;
+		margin-right: -10.5%;
+		padding: 2rem 10.5%;
+	`}
+`
+
 const Content = styled(Text)`
 	& > * + * {
 		margin-top: 1.75em;
@@ -54,6 +73,7 @@ const Content = styled(Text)`
 			margin-right: -10.5%;
 			padding: 2rem 10.5%;
 		`}
+		${counterContainer}
 		code {
 			background: none;
 			padding: 0;
