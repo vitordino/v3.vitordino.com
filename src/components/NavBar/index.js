@@ -23,9 +23,7 @@ const Inner = styled.nav`
 
 const Top = styled.div`
 	border-top: 1px solid var(--color-base06);
-	margin: 0 -1rem;
-	${({ theme }) => theme.transition.get()};
-	${({ theme }) => theme.above('md')`margin: 0;`}
+	${({ theme }) => theme.transition.get()}
 `
 
 const Links = styled.div`
