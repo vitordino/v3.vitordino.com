@@ -57,27 +57,45 @@ const Content = styled(Text)`
 		margin-bottom: 4rem;
 		padding: 2rem 1rem;
 		${getTypeStyle(1)};
-		${p => p.theme.above('md')`
-			margin-left: -2rem;
-			margin-right: -2rem;
-			padding: 2rem 2rem;
-		`}
-		${p => p.theme.above('lg')`
-			margin-left: -8.675%;
-			margin-right: -8.675%;
-			padding: 2rem 8.675%;
-			border-radius: 0.125rem;
-		`}
-		${p => p.theme.above('xg')`
-			margin-left: -10.5%;
-			margin-right: -10.5%;
-			padding: 2rem 10.5%;
-		`}
 		${counterContainer}
 		code {
 			background: none;
 			padding: 0;
 			border-radius: 0;
+		}
+	}
+	hr {
+		height: 32px;
+		position: relative;
+		overflow: hidden;
+		color: var(--color-base22);
+		margin-top: 4rem;
+		margin-bottom: 4rem;
+		${counterContainer};
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+		&:before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 50%;
+			background: currentColor;
+			width: 100%;
+			height: 1px;
+			${p => p.theme.transition.get()};
+		}
+		&:after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			background: var(--color-base00);
+			z-index: 1;
+			width: 32px;
+			height: 34px;
+			transform: translate(-50%, -50%) skewX(-45deg);
+			box-shadow: 0 0 0 1.5px currentColor;
+			${p => p.theme.transition.get()};
 		}
 	}
 `
