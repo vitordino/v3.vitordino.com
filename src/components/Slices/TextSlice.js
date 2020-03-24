@@ -103,6 +103,37 @@ const Content = styled(Text)`
 			${p => p.theme.transition.get()};
 		}
 	}
+
+	blockquote {
+		position: relative;
+		padding-left: 2rem;
+		${p => p.theme.above('sm')`
+			padding-left: 3rem;
+		`}
+		${p => p.theme.above('md')`
+			padding-left: 6.375%;
+		`}
+		${p => p.theme.above('lg')`
+			padding-left: 0;
+		`}
+		&:before {
+			content: '';
+			position: absolute;
+			background: var(--color-base11);
+			height: 100%;
+			width: 4px;
+			left: 0;
+			${p => p.theme.above('lg')`
+				top: -1rem;
+				height: calc(100% + 2rem);
+				padding-left: 0;
+				left: -8.675%;
+			`}
+			${p => p.theme.above('xg')`
+				left: -10.5%;
+			`}
+		}
+	}
 `
 
 const TextSlice = ({ color, background, colorMode, children }) => (
