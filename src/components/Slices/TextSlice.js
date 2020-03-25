@@ -69,6 +69,31 @@ const Content = styled(Text)`
 		text-decoration: underline;
 	}
 
+	ol {
+		list-style: decimal-leading-zero;
+	}
+
+	ol, ul {
+		& > * + * {
+			margin-top: 1.75em;
+		}
+		p:first-child {
+			display: inline;
+			${p => p.theme.above('md')`
+				display: block;
+			`}
+		}
+	}
+
+	li {
+		margin-top: 1.75em;
+		list-style-position: inside;
+		${p => p.theme.above('md')`
+			list-style-position: outside;
+		`}
+	}
+
+
 	hr {
 		height: 32px;
 		position: relative;
