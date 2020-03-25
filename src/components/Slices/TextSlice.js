@@ -49,7 +49,7 @@ const Content = styled(Text)`
 
 	pre {
 		${p => p.theme.transition.get('background')};
-		background: ${p => p.theme.colors.dark.base00};
+		background: ${p => p.theme.colors.dark.base03};
 		color: ${p => p.theme.colors.dark.base};
 		overflow: auto;
 		margin-left: -1rem;
