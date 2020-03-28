@@ -25,56 +25,186 @@ import Slices from '@/components/Slices'
 
 <Slices.Quote author="— Me, just a couple of hours after learning how to apply background-color to a div">
 
-CSS is pretty easy, right? It’s just applying some style rules to a specific element, what could go wrong?
+  CSS is pretty easy, right? It’s just applying some style rules to a specific element, what could go wrong?
 
 </Slices.Quote>
 
 
 <Slices.Text>
 
-Maybe I was just naïve about the scale things might get on the web, or I hadn’t lost enough nights fighting bugs at that time.
+  Maybe I was just naïve about the scale things might get on the web, or I hadn’t lost enough nights fighting bugs at that time.
 
-Is not that I was entirely wrong, nor does it means that handwritten stylesheets it’s not a way of writing styles anymore. It’s just that **my concerns at that time were totally different from what developers face on their everyday job today**.
+  Is not that I was entirely wrong, nor does it means that handwritten stylesheets it’s not a way of writing styles anymore. It’s just that **my concerns at that time were totally different from what developers face on their everyday job today**.
 
 </Slices.Text>
-
 
 <Slices.Text background='base03'>
 
-Being optimistic, open to learn, and not having — at that time — a career that relied on my front-end knowledge, helped me learn and develop some interesting approaches to boost my productivity while learning some concepts and building my own tools.
+  For example, a coworker said he was struggling building a grid layout with the current tools (*flex-box* had just launched), and every css library limited him on having a single fixed gutter width — percentage or pixels — on every breakpoint.
 
-For example, a coworker said he was struggling building a grid layout with the current tools (*flex-box* just launched), and he said every css library limited him on having a single fixed gutter width (percentage or pixels) on every breakpoint. It wasn’t that hard to write my own that supported it while being compatible with the current Bootstrap API, and it took [roughly 30 lines of stylus code](https://codepen.io/vitordino/pen/PooGGyz).
+  Back then I wasn’t working with frontend yet, but it wasn’t that hard to write my first own library that supported it while being backwards-compatible with the Bootstrap API, and it only took [roughly 30 lines](https://codepen.io/vitordino/pen/PooGGyz) of [stylus](https://stylus-lang.com/) code.
 
-I’ve used mostly that grid system for basically every static website I’ve developed at that time. This was the moment I’ve realized how important is to separate concerns and think deeply about APIs — even when you just copy what’s mainstream at that time, to understand different approaches, really help you to build abstractions and to extend them as you need.
+  I’ve used mostly that grid system for basically [every](https://kunst.com.br/) [static](https://musterventures.com/) [website](http://v1.vitordino.com/) I’ve developed at that time. And that was the moment I’ve realized how important is to separate concerns and think deeply about APIs — even when you just copy what’s mainstream at that time, to understand different approaches, it really helps you to build abstractions and to extend them as you need.
 
 </Slices.Text>
 
-
 <Slices.Text>
 
-Let’s get back to Bootstrap. I’ve never was a fan of it — and mostly used on already running projects. But it certainly paved the way to nicer things, it wasn’t the first, but certainly one of the biggest CSS frameworks of all time, I’m pretty sure every web developer used it at least once.
+  Let’s get back to Bootstrap. I’ve never was a fan of it — and mostly used on already running projects. But it certainly paved the way to nicer things, it wasn’t the first, but certainly one of the biggest CSS frameworks of all time, I’m pretty sure every web developer used it at least once.
 
-Laying grids on Bootstrap usually looks like this:
+  Laying grids on Bootstrap usually looks like this:
 
-```html
-<div class="row">
-  <div class="col-xs-12 col-sm-6 col-lg-4">
-    <p>First</p>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-lg-4">
-    <p>Second</p>
-  </div>
+  ```html
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-lg-4">
+      <p>First</p>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-lg-4">
+      <p>Second</p>
+    </div>
  </div>
-```
+  ```
 
-The key point here is definately on how concise and expressivelly one can write and know exactly on what it would look like. It’s like that unix philosophy axiom: *Do One Thing And Do It Well*. Defining a single porpuse for the column div, makes it clear what it does and easier to reuse everywhere whitout worrying of some obscure behavior or having to write it everytime.
+  The key point here is on how **concise** and **expressively** one can write and know exactly on what it would look like. It’s like that unix philosophy axiom: *Do One Thing And Do It Well*. Defining a single purpose for the column div, makes it clear what it does and easier to reuse everywhere **without worrying of some obscure inheritance behaviour** or **having to write it every time**.
 
-For me, that was one of the greatest abstractions Bootstrap brought to mainstream, and perharps one of the most copied and used features of it.
+  That was one of the greatest abstractions Bootstrap brought to mainstream, and perhaps one of the most copied and used features of it.
 
 </Slices.Text>
 
 <Slices.Text colorMode='dark' background='base03'>
 
-  ## Fast forward some years, and we have landed into the train of JS, SPAs and, of course, React and CSS in JS libraries.
+  ## Fast forward some years, and we have landed into the train of **JS**: Single Page Applications now reign and, of course, *React* and *CSS-in-JS* libraries came along.
 
 </Slices.Text>
+
+<Slices.Text>
+
+  The most famous paradigms on this new tools are **composition** and **thinking with components**, but other perks are often overlooked for dealing with styles.
+
+  Besides being easier to pass values between markup and styles, we now can declare one unified set of tokens in a theme and use it in-place, and be confident they are producing the result we wrote.
+
+</Slices.Text>
+
+<Slices.Text background='base03'>
+
+  Although the tools have changed and, in a sense, are now much more powerful, some principles we developed and used back then may still be valuable or have new meaning on current workflows.
+
+  It’s now easier than ever write our own *design systems*, and have a direct way to cross the lines between styles and markup when we need, and write our own rules and themes with JS functions at run time, and not only compiled *SASS* or *CSS* variables. And all of this is awesome — and I use it everyday including at this website.
+
+</Slices.Text>
+
+<Slices.Text>
+
+  All this power — or at least these new ways to apply styles — might have blinded us and lead to a really short Icarus’ flight. It’s not unusual, to step into a recently built project that’s set up with all the *nice things*™, JS frameworks et al. but struggles with some basic things we sorted out long ago, even with plain CSS.
+
+  And again, I’m not advocating on a single way to solve all problems, each project have their own reality and requirements. But if, for example, the project is designed with a rigid column-grid layout, we shouldn’t fight it and keep creating every single content block style again and again by hand. We haven’t done this back then, and we certainly won’t need to do it now, we have better and smarter tools, let’s use them.
+
+
+  ```jsx
+  // Now let’s rewrite that grid with styled-components
+  const Row = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -16px;
+    @media (min-width: 768px) { margin: 0 -24px; }
+    @media (min-width: 1024px) { margin: 0 -32px; }
+ `
+
+  const Column = styled.div`
+    width: 100%;
+    padding: 0 16px;
+    @media (min-width: 768px) { width: 50%; padding: 0 24px; }
+    @media (min-width: 1024px) { width: 25%; padding: 0 32px; }
+ `
+
+  const GridWithStyled = () => (
+    <Row>
+      <Column>
+        <p>First</p>
+      </Column>
+      <Column>
+        <p>Second</p>
+      </Column>
+    </Row> 
+  )
+  ```
+
+  You may say that this was totally non-sense, we’ve hopped from a **single line that is flexible, readable, easy to change, and therefore can be used anywhere** in the code, to a bunch that are pretty specific to one single use case, that generates a lot of overhead to read and maintain, and it doesn’t use any amazing feature the ecosystem has to offer.
+
+  Yep, it is totally non-sense, but is pretty normal to stumble on such a thing these days. It solves the problem, but on the long run, it might start to hurt some fingers to write the same things over and over.
+
+  ---
+
+  If we take a look on the other side of the ring we can clearly see other tribe being formed: the *prop junkies*. They are the exact opposite from the last example, and they propagate the message that every layout can be written with less than a dozen components. They are descendants of *utility-first CSS* tribes — [tailwind](https://tailwindcss.com/) for example — and their most famous prophets are [rebass](https://rebassjs.org/) and [styled-system](https://styled-system.com/).
+
+  ```jsx
+  const GridWithRebass = () => (
+    <Flex mx={-2}>
+      <Box width={[1, 1/2, 1/3]} px={2}>
+        <Text>First</Text>
+      </Box>
+      <Box width={[1, 1/2, 1/3]} px={2}>
+        <Text>Second</Text>
+      </Box>
+    </Flex>
+  )
+  ```
+
+  Wow, that’s really different, isn’t it? This approaches solve most of the styliyng directly in the markup, leading to much less lines of CSS. It’s a nice approach, it uses the maximum “extendability” and there are many awesome libraries being built upon this ideas too — eg.: github’s styleguide [Primer](https://primer.style/components/).
+
+  Yet, for an outsider it may be a little overwhelming to process and clearly understand what is going on, especially when there is multiple layers of `<Box/>` nested into each other. It also leaves us with the burden of declaring some fine detail every time — like the margin/padding on the grid example above.
+
+  And if we look closer, we just changed where we’re repeating ourselves — of course both examples can be written in a much cleaner and reusable way, and that’s exactly what we’re about to discuss.
+
+</Slices.Text>
+
+<Slices.Text colorMode='dark' background='base03'>
+
+  ## What if virtue lies **between** two vices?
+
+</Slices.Text>
+
+<Slices.Text>
+
+  Most projects I’ve worked on the last years — from static marketing websites to more complex applications — fall into one of that 2 ways of writing CSS, because at sometime it made more sense to the project, or the team was more used to it.
+
+  > But, what if we could pick the best of both worlds, it would probably be more productive and future-proof, right? A way that could be easily extended to solve new challenges and needs, while keeping our sanity while working with it.
+
+  I believe the way out is really aligned to one of react’s greatest laws: being declarative. Not only with the code (markup and/or styles) itself, but with humans reading it. Mix that with the unix philosophy and we would have something like that for our grid example:
+
+  ```jsx
+  <Grid.Row>
+    <Grid.Column xs={12} sm={6} lg={4}>
+      <p>First</p>
+    </Grid.Column>
+    <Grid.Column xs={12} sm={6} lg={4}>
+      <p>Second</p>
+    </Grid.Column>
+  </Grid.Row>
+  ```
+
+  It kinda feels like home again, you can easily read it, there’s no CSS to be writing every time, and the things that should be fixed (like gutters on this example) are safely stored on our theme, so we don’t have to remember to declare them every time.
+
+  Behind the hood, these grid components can be written in a really reusable and concise manner, they only have to map their environment and output their rules, or as some call it: Style as a Function of State.
+
+  ## But what next? Is this text only about grids? What could we do extending this API?
+
+  If we look closer enough, the only difference is the use of `props` instead of `class names`, but behind the hood, some function is using the declared values, and there’s something taking care of the gutter for us too.
+
+  ---
+
+  From this example we can think on 2 things that help us create this building blocks:
+
+  1. **Theme**: design tokens and UI state that you shouldn’t need to be specifying every time (dark mode context, color palettes, sizing scales, typographic scale, etc)
+
+  2. **Props**: will act as our external API, or the arguments, to build slightly different outputs, with the same component (number of columns to fill, typographic style to use, and so on).
+
+</Slices.Text>
+
+<Slices.Image caption={
+  <><a href='https://vertbase.com'>vertbase.com</a> project, where I worked with <a href='https://significa.co'>significa</a></>
+}>
+
+  ![vertbase.com](./vertbase.png)
+
+</Slices.Image>
