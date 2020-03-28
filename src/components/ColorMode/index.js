@@ -1,4 +1,4 @@
-import React, { Children, cloneElement } from 'react'
+import { Children, cloneElement } from 'react'
 
 const ColorMode = ({ mode, children }) => {
 	if (!mode) return children

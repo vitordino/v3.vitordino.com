@@ -1,7 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
-import Spacer from '@/components/Spacer'
 import Text from '@/components/Text'
 import Container from '@/components/Container'
 import ColorMode from '@/components/ColorMode'

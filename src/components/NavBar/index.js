@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useWindowScroll } from 'react-use'
 
 import useTranslations from '@/hooks/useTranslations'
 import BaseLink from '@/components/Link'
