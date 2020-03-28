@@ -99,8 +99,8 @@ const Content = styled(Text)`
 		position: relative;
 		overflow: hidden;
 		color: var(--color-base22);
-		margin-top: 4rem;
-		margin-bottom: 4rem;
+		margin-top: 6rem;
+		margin-bottom: 6rem;
 		${counterContainer};
 		padding-top: 0 !important;
 		padding-bottom: 0 !important;
