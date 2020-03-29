@@ -19,17 +19,21 @@ const DesktopLine = styled.div`
 `
 
 const StickyColumn = styled(Grid.Column)`
+	position: sticky;
+	top: 3.25rem;
+	margin-bottom: 2.5rem;
+	background: var(--color-base00);
 	${({ theme }) => theme.above('md')`
-		position: sticky;
 		top: 6.25rem;
 		padding-bottom: 4rem;
+		margin-bottom: 0;
 	`}
 `
 
 const MobileLine = styled.div`
 	border-top: 1px solid var(--color-base06);
 	display: block;
-	margin: 1rem -1rem 2.5rem;
+	margin: 1rem 0 0;
 	${({ theme }) => theme.transition.get()};
 	${({ theme }) => theme.above('md')`
 		display: none;
