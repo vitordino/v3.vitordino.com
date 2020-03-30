@@ -73,6 +73,10 @@ const Content = styled(Text)`
 		list-style: decimal-leading-zero;
 	}
 
+	ul {
+		list-style: circle;
+	}
+
 	ol, ul {
 		& > * + * {
 			margin-top: 1.75em;
