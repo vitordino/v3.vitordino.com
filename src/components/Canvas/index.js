@@ -1,14 +1,9 @@
-import React from 'react'
 import Etymos from './Etymos'
 
-const canvasComponents = {
-	etymos: p => <Etymos {...p} />,
+const components = {
+	etymos: Etymos,
 }
 
-const Canvas = ({ canvas, ...props }) => {
-	const Component = canvasComponents?.[canvas]
-	if (!Component) return null
-	return <Component {...props} />
-}
+const Canvas = ({ canvas, ...p }) => components?.[canvas]?.(p) || null
 
 export default Canvas

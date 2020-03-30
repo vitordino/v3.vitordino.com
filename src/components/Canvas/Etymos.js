@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components'
+import { useInView } from 'react-intersection-observer'
 
 import useCanvas from '@/hooks/useCanvas'
 import { useMeasure, useMouse } from 'react-use'
@@ -13,9 +14,14 @@ const Wrapper = styled.div`
 	left: 0;
 	bottom: 0;
 	right: 0;
-	opacity: ${p => (p.visible ? 1 : 0)};
+	opacity: ${p => (p.visible ? 1 : 0)} ;
 	transition: 0.3s opacity;
 	margin-top: 1px;
+`
+
+const Inner = styled.div`
+	width: 100%;
+	height: 100%;
 `
 
 const Main = styled.canvas`
@@ -72,30 +78,35 @@ const ripples = ({ ctx, size, width, height, mouseX, mouseY, count }) =>
 		})
 	})
 
-const draw = ({ ctx, width = 0, height = 0, mouseX = 0, mouseY = 0 }) => {
+const draw = ({ width = 0, height = 0, mouseX = 0, mouseY = 0 }) => ctx => {
 	ctx.clearRect(0, 0, width, height)
 	grid({ ctx, width, height })
 	ripples({ ctx, width, height, mouseX, mouseY, size: 24, count: 24 })
 }
 
-const CanvasEtymos = () => {
+const Outer = ({ children }) => {
 	const mouseRef = useRef()
+	const [inViewRef, inView] = useInView()
 	const [ref, { width, height }] = useMeasure()
 	const { elX: mouseX, elY: mouseY } = useMouse(mouseRef)
 	const noRender = typeof window === 'undefined' || !width || !height
 
-	const canvasRef = useCanvas(ctx => {
-		if (noRender) return null
-		return draw({ ctx, width, height, mouseX, mouseY })
-	})
-
 	return (
 		<div ref={mouseRef}>
 			<Wrapper ref={ref} visible={!noRender}>
-				<Main width={width} height={height} ref={canvasRef} />
+				<Inner ref={inViewRef}>
+					{inView ? children({ width, height, mouseX, mouseY }) : null}
+				</Inner>
 			</Wrapper>
 		</div>
 	)
 }
 
-export default CanvasEtymos
+const Canvas = ({ width, height, mouseX, mouseY }) => {
+	const canvasRef = useCanvas(draw({ width, height, mouseX, mouseY }))
+	return <Main width={width} height={height} ref={canvasRef} />
+}
+
+const Etymos = () => <Outer>{p => <Canvas {...p} />}</Outer>
+
+export default Etymos

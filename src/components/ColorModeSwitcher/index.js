@@ -20,8 +20,8 @@ const Button = styled.button`
 
 const Inner = styled.svg`
 	display: block;
-	width: ${({ size }) => size}px;
-	height: ${({ size }) => size}px;
+	width: ${({ size }) => `${size}px`} ;
+	height: ${({ size }) => `${size}px`} ;
 	fill: none;
 	stroke: currentColor;
 	stroke-width: 2;

@@ -50,7 +50,22 @@ module.exports = {
 				path: `${__dirname}/src/assets/images`,
 			},
 		},
-		`gatsby-plugin-mdx`,
+		{
+			resolve: `gatsby-plugin-mdx`,
+			options: {
+				gatsbyRemarkPlugins: [
+					{
+						resolve: `gatsby-remark-images`,
+						options: {
+							maxWidth: 2400,
+							linkImagesToOriginal: false,
+							backgroundColor: 'none',
+							quality: 88,
+						},
+					},
+				],
+			},
+		},
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {

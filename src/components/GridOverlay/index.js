@@ -33,7 +33,7 @@ const Breakpoint = styled.pre`
 	transform-origin: top left;
 	transform: rotate(-90deg);
 	transition: 0.35s opacity;
-	opacity: ${p => (p.visible ? 1 : 0)};
+	opacity: ${p => (p.visible ? 1 : 0)} ;
 `
 
 const D = styled.pre`
