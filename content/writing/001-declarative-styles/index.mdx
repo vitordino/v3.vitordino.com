@@ -42,7 +42,7 @@ import Slices from '@/components/Slices'
 
   For example, a coworker said he was struggling building a grid layout with the current tools (*flex-box* had just launched), and every css library limited him on having a single fixed gutter width — percentage or pixels — on every breakpoint.
 
-  Back then I wasn’t working with frontend yet, but it wasn’t that hard to write my first own library that supported it while being backwards-compatible with the Bootstrap API, and it only took [roughly 30 lines](https://codepen.io/vitordino/pen/PooGGyz) of [stylus](https://stylus-lang.com/) code.
+  Back then I wasn’t working with frontend yet, but it wasn’t that hard to write my first own library that supported it while being backwards-compatible with the Bootstrap API, and it only took [roughly 50 lines](https://codepen.io/vitordino/pen/PooGGyz) of [stylus](https://stylus-lang.com/) code.
 
   I’ve used mostly that grid system for basically [every](https://kunst.com.br/) [static](https://musterventures.com/) [website](http://v1.vitordino.com/) I’ve developed at that time. And that was the moment I’ve realized how important is to separate concerns and think deeply about APIs — even when you just copy what’s mainstream at that time, to understand different approaches, it really helps you to build abstractions and to extend them as you need.
 
@@ -50,7 +50,7 @@ import Slices from '@/components/Slices'
 
 <Slices.Text>
 
-  Let’s get back to Bootstrap. I’ve never was a fan of it — and mostly used on already running projects. But it certainly paved the way to nicer things, it wasn’t the first, but certainly one of the biggest CSS frameworks of all time, I’m pretty sure every web developer used it at least once.
+  Let’s get back to Bootstrap. I’ve never been a fan of it — and mostly used on already running projects. But it certainly paved the way to nicer things, it wasn’t the first, but certainly one of the biggest CSS frameworks of all time, I’m pretty sure every web developer used it at least once.
 
   Laying grids on Bootstrap usually looks like this:
 
@@ -67,7 +67,7 @@ import Slices from '@/components/Slices'
 
   The key point here is on how **concise** and **expressively** one can write and know exactly on what it would look like. It’s like that unix philosophy axiom: *Do One Thing And Do It Well*. Defining a single purpose for the column div, makes it clear what it does and easier to reuse everywhere **without worrying of some obscure inheritance behaviour** or **having to write it every time**.
 
-  That was one of the greatest abstractions Bootstrap brought to mainstream, and perhaps one of the most copied and used features of it.
+  That was one of the greatest abstractions Bootstrap brought to mainstream, and perhaps the most copied and used feature of it.
 
 </Slices.Text>
 
@@ -81,7 +81,7 @@ import Slices from '@/components/Slices'
 
   The most famous paradigms on this new tools are **composition** and **thinking with components**, but other perks are often overlooked for dealing with styles.
 
-  Besides being easier to pass values between markup and styles, we now can declare one unified set of tokens in a theme and use it in-place, and be confident they are producing the result we wrote.
+  Besides being easier to pass values between markup and styles, we now can declare a unified set of tokens in a theme and use it in-place, and be confident they are producing the result we wrote.
 
 </Slices.Text>
 
@@ -129,13 +129,13 @@ import Slices from '@/components/Slices'
   )
   ```
 
-  You may say that this was totally non-sense, we’ve hopped from a **single line that is flexible, readable, easy to change, and therefore can be used anywhere** in the code, to a bunch that are pretty specific to one single use case, that generates a lot of overhead to read and maintain, and it doesn’t use any amazing feature the ecosystem has to offer.
+  You may say that this was totally non-sense, we’ve hopped from a **single line that is flexible, readable, easy to change, and therefore can be used anywhere** in the code, to a bunch that are pretty specific to a single use case, that generates a lot of overhead to read and maintain, and it doesn’t use any amazing feature the ecosystem has to offer.
 
   Yep, it is totally non-sense, but is pretty normal to stumble on such a thing these days. It solves the problem, but on the long run, it might start to hurt some fingers to write the same things over and over.
 
   ---
 
-  If we take a look on the other side of the ring we can clearly see other tribe being formed: the *prop junkies*. They are the exact opposite from the last example, and they propagate the message that every layout can be written with less than a dozen components. They are descendants of *utility-first CSS* tribes — [tailwind](https://tailwindcss.com/) for example — and their most famous prophets are [rebass](https://rebassjs.org/) and [styled-system](https://styled-system.com/).
+  If we take a look on the other side of the ring we can clearly see other tribe being formed: the *prop junkies*. They are the exact opposite from the last example, and they propagate the message that every layout can be written with less than a dozen components filled with style related props. They are descendants of *utility-first CSS* tribes — [tailwind](https://tailwindcss.com/) for example — and their most famous prophets are [rebass](https://rebassjs.org/) and [styled-system](https://styled-system.com/).
 
   ```jsx
   const GridWithRebass = () => (
@@ -150,7 +150,7 @@ import Slices from '@/components/Slices'
   )
   ```
 
-  Wow, that’s really different, isn’t it? This approaches solve most of the styliyng directly in the markup, leading to much less lines of CSS. It’s a nice approach, it uses the maximum “extendability” and there are many awesome libraries being built upon this ideas too — eg.: github’s styleguide [Primer](https://primer.style/components/).
+  Wow, that’s really different, isn’t it? This approaches solve most of the styling directly in the markup, leading to much less lines of CSS. It’s a nice approach, it uses the maximum “extendability” and there are many awesome libraries being built upon this ideas too — eg.: github’s [Primer](https://primer.style/components/) components.
 
   Yet, for an outsider it may be a little overwhelming to process and clearly understand what is going on, especially when there is multiple layers of `<Box/>` nested into each other. It also leaves us with the burden of declaring some fine detail every time — like the margin/padding on the grid example above.
 
@@ -187,9 +187,9 @@ import Slices from '@/components/Slices'
 
   Behind the hood, these grid components can be written in a really reusable and concise manner, they only have to map their environment and output their rules, or as some call it: Style as a Function of State.
 
-  ## But what next? Is this text only about grids? What could we do extending this API?
+  ## But what next? Is this text only about grids? What could we do extending the use of this API?
 
-  If we look closer enough, the only difference is the use of `props` instead of `class names`, but behind the hood, some function is using the declared values, and there’s something taking care of the gutter for us too.
+  If we look closer enough, the only difference is the use of `props` instead of `class names`, but behind the hood, some functions are using the declared values, and there’s something taking care of the gutter for us too.
 
   ---
 
@@ -202,9 +202,88 @@ import Slices from '@/components/Slices'
 </Slices.Text>
 
 <Slices.Image caption={
-  <><a href='https://vertbase.com'>vertbase.com</a> project, where I worked with <a href='https://significa.co'>significa</a></>
+  <><a href='https://vertbase.com'>vertbase.com</a> project, where I worked with <a href='https://significa.co'>significa</a>, check out their <a href='https://significa.co/showcase/vertbase'>case page</a></>
 }>
 
   ![vertbase.com](./vertbase.png)
 
 </Slices.Image>
+
+<Slices.Text>
+
+  ## How to use this approach on the real world
+
+  As mentioned above, we can cross the *theme* and *props* to build a readable component. As one can imagine, I began just using this technique for grid components, but found use for it on many scenarios, on different projects.
+
+  On Vertbase project I was handed the beautifully crafted screens, alongside a really strict style guide, containing the grid, the typographic scale, colors, and basically every other design token I would need for the project.
+
+  Before starting laying the markup, i’ve put everything on the App’s theme, then I started seeing the breakpoint-value pattern repeating itself.
+
+  All the components on the website were unique, they shared no single inheritance and there was no “global” headings or paragraph size for example, so making a component mapping typography styles on each breakpoint really made sense and cuts thousands of lines of code.
+
+  > Composing with just 3 basic components: Grid, Text, Spacer, I could develop most of the site in record time, without repetition, breaking the strict style guide, or overwriting edge cases.
+
+  and another mind-blowing fact of this approach is: no component was bigger than **15 lines** of `styled` declarations.
+
+</Slices.Text>
+
+<Slices.Text background="base03">
+
+  For helping me and others to develop following this ideas, I’ve built a library called [*etymos*](https://github.com/vitordino/etymos) — it’s currently based on `styled-components` — although I’m planning on releasing a agnostic or [*emotion*](http://emotion.sh) version too — and really [lightweight (1.2kb)](https://bundlephobia.com/result?p=etymos).
+
+  ```jsx
+  import { mapBreakpoints } from 'etymos'
+
+  // theme declaration (passed to <ThemeProvider/>):
+  // different from other libs no standard shape is enforced
+  const theme = {
+    typographicScale: {
+      caption: { s: 14, l: 20, c: 0.0 },
+      body:    { s: 16, l: 23, c: 0.0 },
+    },
+  }
+
+  // create Text component:
+
+  const getTypeStyle = name => ({ theme }) => {
+    const { s, l, c } = theme.typographicScale[name]
+    return [
+      s && `font-size: ${s}px;`,
+      l && `line-height: ${l}px;`,
+      c && `letter-spacing: ${c}px;`,
+    ].filter(x => !!x)
+  }
+
+  const Text = styled.div`
+    ${mapBreakpoints(getTypeStyle)}
+  `
+
+  // example of the <Text/> component in use:
+  <Text xs='caption' md='body'>
+    Text use the `caption` style on `xs` breakpoint up
+    and `body` from the `md` breakpoint up
+  </Text>
+  ```
+
+  Other examples can be seen for this exact site for [*Grid*](https://github.com/vitordino/vitordino.com/blob/master/src/components/Grid/index.js), [*Text*](https://github.com/vitordino/vitordino.com/blob/master/src/components/Text/index.js) and [*Spacer*](https://github.com/vitordino/vitordino.com/blob/master/src/components/Spacer/index.js) components.
+
+  Any doubts, questions, or further ideas please open a [*issue*](https://github.com/vitordino/etymos/issues) or a [*pull request*](https://github.com/vitordino/etymos/issues) on github.
+
+</Slices.Text>
+
+<Slices.Text>
+
+  ## Related reads:
+
+  * [*A conceptual look at theming*](https://jxnblk.com/blog/a-conceptual-look-at-theming/) and [*Themeability*](https://jxnblk.com/blog/themeability/) by [Brent Jackson](https://jxnblk.com/)
+
+  * [*Why I Write CSS in JavaScript*](https://mxstbr.com/thoughts/css-in-js) and [*Margin considered harmful*](https://mxstbr.com/thoughts/margin) by [Max Stoiber](https://mxstbr.com)
+
+  * [*Declarative Design Tools*](https://jon.gold/2016/06/declarative-design-tools/) by [Jon Gold](https://jon.gold)
+
+  * [Styling themes](https://johno.com/styling-themes/) by [John Otander](https://johno.com)
+
+  * [Component Styling API](http://mrmrs.cc/writing/component-styling-api/) by [Adam Morse](http://mrmrs.cc/)
+
+
+</Slices.Text>
