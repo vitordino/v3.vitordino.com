@@ -1,7 +1,15 @@
+import fs from 'fs'
+import Terser from 'terser'
 import React from 'react'
 import GatsbyLayout from '@/components/Layout/Gatsby'
 
-// eslint-disable-next-line import/prefer-default-export
+const { code: noflash } = Terser.minify(fs.readFileSync('./noflash.js', 'utf8'))
+
 export const wrapPageElement = ({ element, props }) => (
 	<GatsbyLayout {...props}>{element}</GatsbyLayout>
 )
+
+export const onRenderBody = ({ setPreBodyComponents }) =>
+	setPreBodyComponents([
+		<script key='noflash.js' dangerouslySetInnerHTML={{ __html: noflash }} />,
+	])
