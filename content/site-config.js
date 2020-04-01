@@ -3,7 +3,7 @@ const path = require('path')
 module.exports = {
 	title: `Vitor Dino`,
 	shortName: `Vitor Dino`,
-	description: `move fast, learn everyday`,
+	description: `move fast, learn every day`,
 	author: `@vitordino`,
 	keywords: ['design', 'development', 'interface', 'digital', 'product'],
 	siteUrl: 'https://vitordino.com',

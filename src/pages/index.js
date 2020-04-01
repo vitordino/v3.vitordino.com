@@ -35,7 +35,7 @@ const HomePage = ({ data, ...props }) => {
 				<Text
 					xs={4}
 					md={6}
-					style={{ maxWidth: '7em', textTransform: 'lowercase' }}
+					style={{ maxWidth: '7.25em', textTransform: 'lowercase' }}
 					color='base'
 				>
 					{homepage?.heroTitle}
