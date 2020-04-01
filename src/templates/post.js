@@ -19,8 +19,14 @@ const components = {
 	h2: H2,
 }
 
+const getMeta = ({ frontmatter }) => ({
+	...frontmatter,
+	ogImage: frontmatter.ogImage.url,
+	twitterImage: frontmatter.twitterImage.url,
+})
+
 const Post = ({ data: { mdx } }) => (
-	<Layout {...mdx.frontmatter}>
+	<Layout {...getMeta(mdx)}>
 		<NavBar />
 		<PostHero {...mdx.frontmatter} {...mdx.frontmatter.hero} />
 		<MDXProvider components={components}>
@@ -44,6 +50,12 @@ export const query = graphql`
 				tags
 				hero {
 					canvas
+				}
+				ogImage {
+					url: publicURL
+				}
+				twitterImage {
+					url: publicURL
 				}
 			}
 			body

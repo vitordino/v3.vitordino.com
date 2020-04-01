@@ -43,12 +43,23 @@ const OverwriteStyles = createGlobalStyle`
 		`}
 `
 
-const Layout = ({ children, title, description, background, color, lang }) => {
+const Layout = ({
+	children,
+	title,
+	description,
+	background,
+	color,
+	lang,
+	ogImage,
+	twitterImage,
+}) => {
 	const { site } = useStaticQuery(query)
 	const hasStyle = background || color
 	const meta = {
-		title: title,
+		title,
 		description: description || site.meta.description,
+		ogImage,
+		twitterImage,
 	}
 	return (
 		<>

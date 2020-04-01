@@ -36,7 +36,8 @@ const SEO = ({
 	lang = 'en',
 	meta = [],
 	tags,
-	image,
+	ogImage,
+	twitterImage,
 	titleTemplate,
 }) => {
 	const { site, allImageSharp } = useStaticQuery(seoQuery)
@@ -96,7 +97,7 @@ const SEO = ({
 				},
 				{
 					property: `og:image`,
-					content: `${siteUrl}${image || opengraphImage}`,
+					content: `${siteUrl}${ogImage || opengraphImage}`,
 				},
 				{
 					name: `twitter:card`,
@@ -104,7 +105,7 @@ const SEO = ({
 				},
 				{
 					name: `twitter:image`,
-					content: `${siteUrl}${image || twittercardImage}`,
+					content: `${siteUrl}${twitterImage || twittercardImage}`,
 				},
 				{
 					name: `twitter:site`,
