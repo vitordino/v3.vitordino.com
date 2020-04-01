@@ -6,7 +6,7 @@ module.exports = {
 	description: `move fast, learn every day`,
 	author: `@vitordino`,
 	keywords: ['design', 'development', 'interface', 'digital', 'product'],
-	siteUrl: 'https://vitordino.com',
+	siteUrl: process.env.URL || 'http://localhost:8000',
 	themeColor: '#000',
 	backgroundColor: '#fff',
 	pathPrefix: '/',
