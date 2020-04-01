@@ -52,12 +52,12 @@ const PostHero = ({
 							{description}
 						</Text>
 						<Spacer.V xs={4} md={6} lg={8} />
-						{tags?.length && (
+						{!!tags?.length && (
 							<>
 								<Spacer.V xs={2} md={4} />
 								<Tags>
 									{tags.map(tag => (
-										<Tag xs={0} as='li'>
+										<Tag key={tag} xs={0} as='li'>
 											{tag}
 										</Tag>
 									))}
