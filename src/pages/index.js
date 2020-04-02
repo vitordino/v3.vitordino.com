@@ -13,7 +13,7 @@ const HomePage = ({ data, ...props }) => {
 	const { paths, homepage } = useTranslations()
 	const { writing, experience } = data
 
-	const postItems = flattenEdges(writing).map(({ frontmatter }) => ({
+	const writingItems = flattenEdges(writing).map(({ frontmatter }) => ({
 		title: frontmatter.title,
 		description: frontmatter.description,
 		right: frontmatter.date,
@@ -41,8 +41,11 @@ const HomePage = ({ data, ...props }) => {
 					{homepage?.heroTitle}
 				</Text>
 				<Spacer.V xs={8} />
-				<SeparatorSection title='writing' items={postItems} />
-				<SeparatorSection title='experience' items={experienceItems} />
+				<SeparatorSection title={homepage?.writingTitle} items={writingItems} />
+				<SeparatorSection
+					title={homepage?.experienceTitle}
+					items={experienceItems}
+				/>
 			</Container>
 		</Layout>
 	)

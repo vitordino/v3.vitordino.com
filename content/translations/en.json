@@ -5,7 +5,9 @@
 		"contact": "/contact"
 	},
 	"homepage": {
-		"heroTitle": "Move fast, Learn every day"
+		"heroTitle": "Move fast, Learn every day",
+		"writingTitle": "writing",
+		"experienceTitle": "experience"
 	},
 	"navbar": {
 		"main": {
