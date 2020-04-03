@@ -22,7 +22,7 @@ const SeparatorSectionItem = ({ to, title, description, right, ...props }) => (
 					{title}
 				</Text>
 			)}
-			{right && <Text color='base66'>{right}</Text>}
+			{right && <Text color='base22'>{right}</Text>}
 		</Top>
 		{description && <Spacer.V xs={0.5} />}
 		{description && <Text color='base44'>{description}</Text>}
