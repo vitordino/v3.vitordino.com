@@ -1,5 +1,5 @@
 const getTypeStyle = name => ({ theme }) => {
-	const { s, l, c } = theme.type.scale[name]
+	const { s, l, c } = theme.type.scale?.[name] || {}
 	return [
 		s && `font-size: ${s}px`,
 		l && `line-height: ${l}px`,
