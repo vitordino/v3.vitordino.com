@@ -22,11 +22,13 @@ const StickyColumn = styled(Grid.Column)`
 	position: sticky;
 	top: 3.25rem;
 	margin-bottom: 2.5rem;
+	padding-top: 1rem;
 	background: var(--color-base00);
 	${({ theme }) => theme.transition.get()};
 	${({ theme }) => theme.above('md')`
 		background: none;
 		top: 6.25rem;
+		padding-top: 0;
 		padding-bottom: 4rem;
 		margin-bottom: 0;
 	`}
