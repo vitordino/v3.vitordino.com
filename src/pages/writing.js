@@ -39,7 +39,7 @@ export const query = graphql`
 				fields: { locale: { eq: $locale } }
 				fileAbsolutePath: { regex: "/writing/" }
 			}
-			sort: { fields: [frontmatter___date], order: DESC }
+			sort: { fields: [fileAbsolutePath], order: DESC }
 		) {
 			edges {
 				node {
