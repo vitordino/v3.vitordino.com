@@ -7,11 +7,4 @@ module.exports = {
 		ogLang: 'en_US',
 		dateFormat: `YYYY`,
 	},
-	pt: {
-		path: 'pt',
-		locale: 'pt-br',
-		siteLanguage: 'pt',
-		ogLang: 'pt_BR',
-		dateFormat: `YYYY`,
-	},
 }
