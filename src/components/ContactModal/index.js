@@ -181,7 +181,12 @@ const ContactModal = ({ isOpen, onClose }) => {
 											<Text xs={1.5} md={2} weight={500}>
 												Hey there 👋
 											</Text>
-											<Form name='contact' handleSubmit={handleSubmit} netlify>
+											<Form
+												name='contact'
+												handleSubmit={handleSubmit}
+												netlify
+												data-netlify='true'
+											>
 												<Input
 													name='name'
 													value={state.name}
