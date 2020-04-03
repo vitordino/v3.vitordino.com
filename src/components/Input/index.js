@@ -38,7 +38,7 @@ const Field = styled.input`
 		border-color: var(--color-base66);
 	}
 	&:invalid {
-		border-color: #d0011b;
+		border-color: var(--color-error);
 	}
 	&:placeholder-shown {
 		border-color: var(--color-base11);

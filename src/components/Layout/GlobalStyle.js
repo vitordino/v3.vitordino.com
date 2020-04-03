@@ -46,6 +46,8 @@ const GlobalStyle = createGlobalStyle`
 			--color-base06: ${theme.colors.light.base06};
 			--color-base03: ${theme.colors.light.base03};
 			--color-base00: ${theme.colors.light.base00};
+			--color-success: ${theme.colors.light.success};
+			--color-error: ${theme.colors.light.error};
 		}
 		[data-theme='dark'] {
 			--color-base: ${theme.colors.dark.base};
@@ -57,6 +59,8 @@ const GlobalStyle = createGlobalStyle`
 			--color-base06: ${theme.colors.dark.base06};
 			--color-base03: ${theme.colors.dark.base03};
 			--color-base00: ${theme.colors.dark.base00};
+			--color-success: ${theme.colors.dark.success};
+			--color-error: ${theme.colors.dark.error};
 		}
 		body {
 			font-family: ${theme.type.fonts.serif};
