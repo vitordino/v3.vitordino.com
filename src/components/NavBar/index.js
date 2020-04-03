@@ -1,7 +1,10 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useState, useEffect } from 'react'
+import styled, { css } from 'styled-components'
+import { useWindowScroll } from 'react-use'
+import { useBreakpoints } from 'etymos'
 
 import useTranslations from '~/hooks/useTranslations'
+
 import BaseLink from '~/components/Link'
 import Container from '~/components/Container'
 import Text from '~/components/Text'
@@ -18,6 +21,12 @@ const Wrapper = styled.div`
 const Inner = styled.nav`
 	position: relative;
 	justify-content: space-between;
+	${({ theme }) => theme.transition.get()};
+	${({ isBottomLineFixed }) =>
+		isBottomLineFixed &&
+		css`
+			box-shadow: 0 1px 0 0 var(--color-base06);
+		`}
 `
 
 const Top = styled.div`
@@ -53,11 +62,15 @@ const Bottom = styled.div`
 
 const NavBar = ({ lang }) => {
 	const { navbar, paths } = useTranslations()
+	const { y } = useWindowScroll()
+	const breakpoints = useBreakpoints()
+	const isBottomLineFixed = breakpoints.includes('md') ? y >= 80 : y >= 74
+
 	return (
 		<>
 			<Wrapper>
 				<Container>
-					<Inner>
+					<Inner isBottomLineFixed={isBottomLineFixed}>
 						<Top />
 						<Links>
 							<Text as={Link} weight={500} to={paths[navbar.main.path]}>
