@@ -8,6 +8,7 @@ const Text = styled.div`
 	${p => p.background && `background: var(--color-${p.background});`}
 	${p => p.weight && `font-weight: ${p.weight};`}
 	${p => p.case && `text-transform: ${p.case};`}
+	${p => p.family && `font-family: ${p.theme.type.fonts?.[p.family]};`}
 	${({ theme }) => theme.transition.get()};
 	${mapBreakpoints(getTypeStyle)}
 `
