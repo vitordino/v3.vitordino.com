@@ -15,6 +15,9 @@ const Button = styled(Text).attrs({ as: Clickable })`
 		pointer-events: none;
 		opacity: 0.44;
 	}
+	&:focus {
+		box-shadow: 0 0 0 1px inset dodgerblue, 0 0 0 1px dodgerblue;
+	}
 `
 
 Button.defaultProps = {
