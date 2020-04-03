@@ -128,7 +128,7 @@ const ContactModal = ({ isOpen, onClose }) => {
 		state,
 	})
 
-	//
+	// eslint-ignore-next-line
 	const esc = useCallback(e => e.keyCode === 27 && onClose(), [onClose])
 
 	useEffect(() => {
@@ -181,7 +181,7 @@ const ContactModal = ({ isOpen, onClose }) => {
 											<Text xs={1.5} md={2} weight={500}>
 												Hey there 👋
 											</Text>
-											<Form name='contact' handleSubmit={handleSubmit}>
+											<Form name='contact' handleSubmit={handleSubmit} netlify>
 												<Input
 													name='name'
 													value={state.name}
