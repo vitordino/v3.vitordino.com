@@ -12,7 +12,7 @@ const onSearchClick = url => e => {
 }
 
 const getLocalizedPath = ({ locales, locale, href }) => {
-	const url = href.replace(/^\/|\/$/g, '')
+	const url = href?.replace(/^\/|\/$/g, '')
 	if (url.startsWith('?')) return url
 	const isIndex = href === '/'
 	return !locales[locale] || locales[locale].default
@@ -22,14 +22,14 @@ const getLocalizedPath = ({ locales, locale, href }) => {
 
 const Clickable = ({ to, children, className, style, target, ...p }) => {
 	const { locales, locale } = useLocale()
-
-	const href = (to || {}).pathname || typeof to === 'string' ? to : null
 	const props = { className, style, children, target }
-
-	const localized = getLocalizedPath({ locales, locale, href })
 
 	if (p.onClick || p.type)
 		return <button type={p.type || 'button'} {...p} {...props} />
+
+	const href = (to || {}).pathname || typeof to === 'string' ? to : null
+	const localized = getLocalizedPath({ locales, locale, href })
+
 	if (/^[.?]/.test(href))
 		return <a {...props} href={localized} onClick={onSearchClick(localized)} />
 	if (/^[.#]/.test(href)) return <a {...p} {...props} href={href} />
