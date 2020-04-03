@@ -1,7 +1,7 @@
 import fs from 'fs'
 import Terser from 'terser'
 import React from 'react'
-import GatsbyLayout from '@/components/Layout/Gatsby'
+import GatsbyLayout from '~/components/Layout/Gatsby'
 
 const { code: noflash } = Terser.minify(fs.readFileSync('./noflash.js', 'utf8'))
 

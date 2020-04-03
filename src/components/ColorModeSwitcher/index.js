@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { useColorMode, useGridMode } from '@/store'
+import { useColorMode, useGridMode } from '~/store'
 
 const Button = styled.button`
 	display: block;

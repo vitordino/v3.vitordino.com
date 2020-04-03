@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import Grid from '@/components/Grid'
-import Text from '@/components/Text'
+import Grid from '~/components/Grid'
+import Text from '~/components/Text'
 import SeparatorSectionItem from './Item'
 
 const Wrapper = styled.div`

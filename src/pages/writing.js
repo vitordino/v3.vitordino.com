@@ -1,13 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import flattenEdges from '@/utils/flattenEdges'
-import useTranslations from '@/hooks/useTranslations'
-import Layout from '@/components/Layout'
-import Container from '@/components/Container'
-import NavBar from '@/components/NavBar'
-import Spacer from '@/components/Spacer'
-import Text from '@/components/Text'
-import SeparatorSection from '@/components/SeparatorSection'
+import flattenEdges from '~/utils/flattenEdges'
+import useTranslations from '~/hooks/useTranslations'
+import Layout from '~/components/Layout'
+import Container from '~/components/Container'
+import NavBar from '~/components/NavBar'
+import Spacer from '~/components/Spacer'
+import Text from '~/components/Text'
+import SeparatorSection from '~/components/SeparatorSection'
 
 const HomePage = ({ data, ...props }) => {
 	const { paths, homepage } = useTranslations()

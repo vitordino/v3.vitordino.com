@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import useTranslations from '@/hooks/useTranslations'
-import BaseLink from '@/components/Link'
-import Container from '@/components/Container'
-import Text from '@/components/Text'
+import useTranslations from '~/hooks/useTranslations'
+import BaseLink from '~/components/Link'
+import Container from '~/components/Container'
+import Text from '~/components/Text'
 
 const Wrapper = styled.div`
 	top: -1rem;

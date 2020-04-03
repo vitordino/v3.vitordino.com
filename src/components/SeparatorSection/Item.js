@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import Text from '@/components/Text'
-import Link from '@/components/Link'
-import Spacer from '@/components/Spacer'
+import Text from '~/components/Text'
+import Link from '~/components/Link'
+import Spacer from '~/components/Spacer'
 
 const Wrapper = styled(Link)`
 	margin-bottom: 4rem;

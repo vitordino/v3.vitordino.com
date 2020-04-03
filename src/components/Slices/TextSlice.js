@@ -1,13 +1,13 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
-import getTypeStyle from '@/utils/getTypeStyle'
+import getTypeStyle from '~/utils/getTypeStyle'
 
-import ColorMode from '@/components/ColorMode'
-import Container from '@/components/Container'
-import Text from '@/components/Text'
-import Spacer from '@/components/Spacer'
-import Grid from '@/components/Grid'
+import ColorMode from '~/components/ColorMode'
+import Container from '~/components/Container'
+import Text from '~/components/Text'
+import Spacer from '~/components/Spacer'
+import Grid from '~/components/Grid'
 
 const Wrapper = styled.div`
 	${({ color, background, theme }) => css`

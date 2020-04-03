@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
-import useLocale from '@/store/locale'
+import useLocale from '~/store/locale'
 
 /* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable react/button-has-type */

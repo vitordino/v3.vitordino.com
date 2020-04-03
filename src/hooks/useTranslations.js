@@ -1,4 +1,4 @@
-import useLocale from '@/store/locale'
+import useLocale from '~/store/locale'
 import translations from '../../content/translations'
 
 function useTranslations() {

@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import styled from 'styled-components'
 import { useInView } from 'react-intersection-observer'
 
-import useCanvas from '@/hooks/useCanvas'
+import useCanvas from '~/hooks/useCanvas'
 import { useMeasure, useMouse } from 'react-use'
 
 const range = n => [...Array(n)].map((_, i) => i)

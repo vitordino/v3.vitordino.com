@@ -1,8 +1,8 @@
 import React, { StrictMode, useLayoutEffect } from 'react'
 
-import { AppProvider, useColorMode } from '@/store'
-import { ThemeProvider } from '@/theme'
-import GlobalStyle from '@/components/Layout/GlobalStyle'
+import { AppProvider, useColorMode } from '~/store'
+import { ThemeProvider } from '~/theme'
+import GlobalStyle from '~/components/Layout/GlobalStyle'
 
 const ThemeModeSideEffect = () => {
 	const [colorMode] = useColorMode()

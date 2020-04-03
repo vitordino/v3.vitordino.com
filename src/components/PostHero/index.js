@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import Canvas from '@/components/Canvas'
-import Container from '@/components/Container'
-import Spacer from '@/components/Spacer'
-import Grid from '@/components/Grid'
-import Text from '@/components/Text'
-import ColorMode from '@/components/ColorMode'
+import Canvas from '~/components/Canvas'
+import Container from '~/components/Container'
+import Spacer from '~/components/Spacer'
+import Grid from '~/components/Grid'
+import Text from '~/components/Text'
+import ColorMode from '~/components/ColorMode'
 
 const Wrapper = styled.div`
 	position: relative;
