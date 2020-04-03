@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { mapBreakpoints } from 'etymos'
 
-import getTypeStyle from '@/utils/getTypeStyle'
+import getTypeStyle from '~/utils/getTypeStyle'
 
 const Text = styled.div`
 	${p => p.color && `color: var(--color-${p.color});`}

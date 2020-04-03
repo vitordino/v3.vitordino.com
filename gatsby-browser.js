@@ -1,5 +1,5 @@
 import React from 'react'
-import GatsbyLayout from '@/components/Layout/Gatsby'
+import GatsbyLayout from '~/components/Layout/Gatsby'
 
 export const onClientEntry = async () => {
 	if (typeof IntersectionObserver === `undefined`) {

@@ -3,9 +3,9 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { createGlobalStyle, css } from 'styled-components'
 
-import SEO from '@/components/SEO'
-import GridOverlay from '@/components/GridOverlay'
-import ColorModeSwitcher from '@/components/ColorModeSwitcher'
+import SEO from '~/components/SEO'
+import GridOverlay from '~/components/GridOverlay'
+import ColorModeSwitcher from '~/components/ColorModeSwitcher'
 
 const query = graphql`
 	query LayoutQuery {

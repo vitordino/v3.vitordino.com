@@ -2,9 +2,9 @@ import React from 'react'
 import styled, { withTheme, css } from 'styled-components'
 import { useMediaQuery, useWindowSize, useCurrentBreakpoint } from 'etymos'
 
-import { useGridMode } from '@/store'
-import Grid from '@/components/Grid'
-import Container from '@/components/Container'
+import { useGridMode } from '~/store'
+import Grid from '~/components/Grid'
+import Container from '~/components/Container'
 
 /* eslint-disable */
 const leftPad = s => ((s + '').length === 1 ? '0' + s : '' + s)

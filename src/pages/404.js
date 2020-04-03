@@ -1,8 +1,8 @@
 import React from 'react'
-import Layout from '@/components/Layout'
-import NavBar from '@/components/NavBar'
-import Container from '@/components/Container'
-import Link from '@/components/Link'
+import Layout from '~/components/Layout'
+import NavBar from '~/components/NavBar'
+import Container from '~/components/Container'
+import Link from '~/components/Link'
 
 const NotFoundPage = () => (
 	<Layout title='404: Not found'>
