@@ -30,6 +30,7 @@ const useNetlifyForm = ({
 	onError = noop,
 }) => {
 	const [status, setStatus] = useState(STATUS.INITIAL)
+	const reset = () => setStatus(STATUS.INITIAL)
 
 	const handleSubmit = e => {
 		e.preventDefault()
@@ -45,7 +46,7 @@ const useNetlifyForm = ({
 			})
 	}
 
-	return [handleSubmit, status]
+	return [handleSubmit, status, reset]
 }
 
 export default useNetlifyForm
