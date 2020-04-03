@@ -25,7 +25,7 @@ const Inner = styled.nav`
 	${({ isBottomLineFixed }) =>
 		isBottomLineFixed &&
 		css`
-			box-shadow: 0 1px 0 0 var(--color-base06);
+			box-shadow: 0 -1px 0 0 inset var(--color-base06);
 		`}
 `
 
