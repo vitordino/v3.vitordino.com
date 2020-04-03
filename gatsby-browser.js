@@ -11,3 +11,9 @@ export const onClientEntry = async () => {
 export const wrapPageElement = ({ element, props }) => (
 	<GatsbyLayout {...props}>{element}</GatsbyLayout>
 )
+
+export const shouldUpdateScroll = ({ prevRouterProps, routerProps }) => {
+	if(prevRouterProps.location.search.startsWith('?')) return false
+	if(routerProps.location.search.startsWith('?')) return false
+  return true
+}
