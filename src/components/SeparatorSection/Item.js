@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import Text from '~/components/Text'
-import Link from '~/components/Link'
+import Clickable from '~/components/Clickable'
 import Spacer from '~/components/Spacer'
 
-const Wrapper = styled(Link)`
+const Wrapper = styled(Clickable)`
 	margin-bottom: 4rem;
 	display: block;
 `

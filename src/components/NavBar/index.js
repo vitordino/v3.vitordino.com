@@ -5,7 +5,7 @@ import { useBreakpoints } from 'etymos'
 
 import useTranslations from '~/hooks/useTranslations'
 
-import BaseLink from '~/components/Link'
+import Clickable from '~/components/Clickable'
 import Container from '~/components/Container'
 import Text from '~/components/Text'
 
@@ -45,7 +45,7 @@ const Links = styled.div`
 	`}
 `
 
-const Link = styled(BaseLink)`
+const Link = styled(Clickable)`
 	padding: 1rem;
 	color: var(--color-base88);
 `

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link as GatsbyLink } from 'gatsby'
+import { Link } from 'gatsby'
 import { navigate } from '@reach/router'
 import useLocale from '~/store/locale'
 
@@ -20,7 +20,7 @@ const getLocalizedPath = ({ locales, locale, href }) => {
 		: `${locales[locale].path}${isIndex ? '' : `${url}`}`
 }
 
-const Link = ({ to, children, className, style, target, ...p }) => {
+const Clickable = ({ to, children, className, style, target, ...p }) => {
 	const { locales, locale } = useLocale()
 
 	const href = (to || {}).pathname || typeof to === 'string' ? to : null
@@ -32,8 +32,8 @@ const Link = ({ to, children, className, style, target, ...p }) => {
 		return <button type={p.type || 'button'} {...p} {...props} />
 	if (/^[.?]/.test(href))
 		return <a {...props} href={localized} onClick={onSearchClick(localized)} />
-	if (/^[./]/.test(href)) return <GatsbyLink {...props} to={localized} />
 	if (/^[.#]/.test(href)) return <a {...p} {...props} href={href} />
+	if (/^[./]/.test(href)) return <Link {...props} to={localized} />
 	if (/^[.http]/.test(href))
 		return (
 			<a
@@ -49,4 +49,4 @@ const Link = ({ to, children, className, style, target, ...p }) => {
 /* eslint-enable react/button-has-type */
 /* eslint-enable jsx-a11y/anchor-has-content */
 
-export default Link
+export default Clickable
