@@ -1,18 +1,17 @@
 import { useLayoutEffect } from 'react'
 
-export const useScrollLock = (condition = false) => {
+export const useScrollLock = (active = false) => {
 	useLayoutEffect(() => {
-		if (condition) {
-			const original = window.getComputedStyle(document.documentElement)
-				.overflow
+		if (active) {
+			const o = window.getComputedStyle(document.documentElement).overflow
 			document.documentElement.style.overflow = 'hidden'
-			return () => (document.documentElement.style.overflow = original)
+			return () => (document.documentElement.style.overflow = o)
 		}
-	}, [condition])
+	}, [active])
 }
 
-const ScrollLock = () => {
-	useScrollLock()
+const ScrollLock = ({ active = true }) => {
+	useScrollLock(active)
 	return null
 }
 
