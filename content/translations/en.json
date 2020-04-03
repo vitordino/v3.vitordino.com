@@ -2,7 +2,7 @@
 	"paths": {
 		"home": "/",
 		"writing": "/writing",
-		"contact": "/contact"
+		"contact": "?contact"
 	},
 	"homepage": {
 		"heroTitle": "Move fast, Learn every day",
