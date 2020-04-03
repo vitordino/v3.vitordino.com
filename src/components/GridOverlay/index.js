@@ -3,6 +3,7 @@ import styled, { withTheme, css } from 'styled-components'
 import { useMediaQuery, useWindowSize, useCurrentBreakpoint } from 'etymos'
 
 import { useGridMode } from '~/store'
+import Portal from '~/components/Portal'
 import Grid from '~/components/Grid'
 import Container from '~/components/Container'
 
@@ -18,7 +19,7 @@ const Wrapper = styled.div`
 	right: 0;
 	overflow: hidden;
 	transition: 0.2s all;
-	z-index: 10;
+	z-index: 100;
 	user-select: none;
 	pointer-events: none;
 	transition: 0.1s opacity;
@@ -80,28 +81,30 @@ const GridOverlay = ({ theme }) => {
 	const aboveSMBelowMD = useMediaQuery({ above: 'sm', below: 'md' })
 
 	return (
-		<Wrapper>
-			<Container>
-				<Grid.Row>
-					{fromArray(theme.columns).map((x, i, { length }) => (
-						<Grid.Column key={x} xs={i % 4 ? 0 : 4} sm={i % 2 ? 0 : 2} md={1}>
-							<D
-								visible={visible}
-								delay={(length - i) * 50}
-								reverseDelay={i * 50}
-							>
-								{x}
-								{belowSM && <span> - {leftPad(i + 4)}</span>}
-								{aboveSMBelowMD && <span> - {leftPad(i + 2)}</span>}
-							</D>
-						</Grid.Column>
-					))}
-				</Grid.Row>
-			</Container>
-			<Breakpoint visible={visible}>
-				<strong>{currentBreakpoint}</strong>: {innerWidth}px
-			</Breakpoint>
-		</Wrapper>
+		<Portal>
+			<Wrapper>
+				<Container>
+					<Grid.Row>
+						{fromArray(theme.columns).map((x, i, { length }) => (
+							<Grid.Column key={x} xs={i % 4 ? 0 : 4} sm={i % 2 ? 0 : 2} md={1}>
+								<D
+									visible={visible}
+									delay={(length - i) * 50}
+									reverseDelay={i * 50}
+								>
+									{x}
+									{belowSM && <span> - {leftPad(i + 4)}</span>}
+									{aboveSMBelowMD && <span> - {leftPad(i + 2)}</span>}
+								</D>
+							</Grid.Column>
+						))}
+					</Grid.Row>
+				</Container>
+				<Breakpoint visible={visible}>
+					<strong>{currentBreakpoint}</strong>: {innerWidth}px
+				</Breakpoint>
+			</Wrapper>
+		</Portal>
 	)
 }
 
