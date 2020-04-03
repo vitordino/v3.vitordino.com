@@ -4,8 +4,13 @@ const base = {
 	light: '#0A0B0E',
 	dark: '#FFFFFF',
 }
+const shared = {
+	success: '#3FDC75',
+	error: '#D0011B',
+}
 
 const light = {
+	...shared,
 	base: base.light,
 	base88: mix(0.88, base.light, base.dark),
 	base66: mix(0.66, base.light, base.dark),
@@ -18,6 +23,7 @@ const light = {
 }
 
 const dark = {
+	...shared,
 	base: base.dark,
 	base88: mix(0.88, base.dark, base.light),
 	base66: mix(0.66, base.dark, base.light),
