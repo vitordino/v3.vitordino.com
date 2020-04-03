@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import styled, { css } from 'styled-components'
 
 import useNetlifyForm, { STATUS } from '~/hooks/useNetlifyForm'
@@ -127,6 +127,17 @@ const ContactModal = ({ isOpen, onClose }) => {
 		name: 'contact',
 		state,
 	})
+
+	//
+	const esc = useCallback(e => e.keyCode === 27 && onClose(), [onClose])
+
+	useEffect(() => {
+		document.addEventListener('keydown', esc, false)
+
+		return () => {
+			document.removeEventListener('keydown', esc, false)
+		}
+	}, [esc])
 
 	const handleChange = e =>
 		setState({ ...state, [e.target.name]: e.target.value })
