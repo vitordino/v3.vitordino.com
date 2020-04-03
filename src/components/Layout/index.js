@@ -2,8 +2,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { createGlobalStyle, css } from 'styled-components'
-import { parse } from 'query-string'
-import { useNavigate, useLocation } from '@reach/router'
 
 import SEO from '~/components/SEO'
 import GridOverlay from '~/components/GridOverlay'
@@ -56,11 +54,6 @@ const Layout = ({
 	ogImage,
 	twitterImage,
 }) => {
-	const navigate = useNavigate()
-	const { search, pathname } = useLocation()
-	const { contact } = parse(search)
-	const closeModal = () => navigate(pathname)
-
 	const { site } = useStaticQuery(query)
 	const hasStyle = background || color
 	const meta = {
@@ -70,8 +63,6 @@ const Layout = ({
 		twitterImage,
 	}
 
-	const isContactModalOpen = typeof contact !== 'undefined'
-
 	return (
 		<>
 			{hasStyle && <OverwriteStyles color={color} background={background} />}
@@ -79,7 +70,6 @@ const Layout = ({
 			{children}
 			<GridOverlay />
 			<ColorModeSwitcher />
-			<ContactModal isOpen={isContactModalOpen} onClose={closeModal} />
 		</>
 	)
 }
