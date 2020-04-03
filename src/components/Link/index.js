@@ -31,13 +31,7 @@ const Link = ({ to, children, className, style, target, ...p }) => {
 	if (p.onClick || p.type)
 		return <button type={p.type || 'button'} {...p} {...props} />
 	if (/^[.?]/.test(href))
-		return (
-			<GatsbyLink
-				{...props}
-				href={localized}
-				onClick={onSearchClick(localized)}
-			/>
-		)
+		return <a {...props} href={localized} onClick={onSearchClick(localized)} />
 	if (/^[./]/.test(href)) return <GatsbyLink {...props} to={localized} />
 	if (/^[.#]/.test(href)) return <a {...p} {...props} href={href} />
 	if (/^[.http]/.test(href))
