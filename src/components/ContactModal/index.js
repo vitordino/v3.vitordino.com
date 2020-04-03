@@ -9,6 +9,7 @@ import Grid from '~/components/Grid'
 import Spacer from '~/components/Spacer'
 import Text from '~/components/Text'
 import Input from '~/components/Input'
+import Button from '~/components/Button'
 
 const Wrapper = styled.form`
 	display: block;
@@ -84,6 +85,36 @@ const Inner = styled.div`
 	}
 `
 
+const Form = styled.form`
+	position: relative;
+	font-family: ${p => p.theme.type.fonts.sans} ;
+`
+
+const Flex = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+`
+
+const getButtonBackground = status => {
+	if (status === STATUS.SUCCESS) return 'success'
+	if (status === STATUS.ERROR) return 'error'
+	return 'base'
+}
+
+const getButtonColor = status => {
+	if (status === STATUS.SUCCESS) return 'white'
+	if (status === STATUS.ERROR) return 'white'
+	return 'base22'
+}
+
+const getButtonContent = status => {
+	if (status === STATUS.SUCCESS) return 'success'
+	if (status === STATUS.ERROR) return 'error'
+	if (status === STATUS.LOADING) return 'loading'
+	return 'submit'
+}
+
 const initialValues = {
 	name: '',
 	email: '',
@@ -92,17 +123,35 @@ const initialValues = {
 
 const ContactModal = ({ isOpen, onClose }) => {
 	const [state, setState] = useState(() => initialValues)
-	const [handleSubmit, status] = useNetlifyForm({ name: 'contact', state })
+	const [handleSubmit, status, reset] = useNetlifyForm({
+		name: 'contact',
+		state,
+	})
 
 	const handleChange = e =>
 		setState({ ...state, [e.target.name]: e.target.value })
 
-	const disabled = status === STATUS.LOADING || status === STATUS.SUCCESS
+	const initial = status === STATUS.INITIAL
+	const loading = status === STATUS.LOADING
+	const success = status === STATUS.SUCCESS
+	const error = status === STATUS.ERROR
+	const disabled = loading || success
+
+	const getButtonAction = status => e => {
+		if (status === STATUS.SUCCESS) {
+			onClose()
+			reset()
+			setState(initialValues)
+		}
+		if (status === STATUS.ERROR) return reset()
+		if (status === STATUS.LOADING) return null
+		return null
+	}
 
 	return (
 		<Portal>
 			{isOpen && <ScrollLock />}
-			<Wrapper name='contact' onSubmit={handleSubmit} isOpen={isOpen}>
+			<Wrapper isOpen={isOpen}>
 				<Backdrop isOpen={isOpen} onClick={onClose} />
 				<Container>
 					<Grid.Row style={{ justifyContent: 'center' }}>
@@ -118,37 +167,55 @@ const ContactModal = ({ isOpen, onClose }) => {
 											xg={12}
 										>
 											<Spacer.V xs={1} sm={1.5} md={2} />
-											<Text xs={1} md={2} weight={500}>
+											<Text xs={1.5} md={2} weight={500}>
 												Hey there 👋
 											</Text>
-											<Input
-												name='name'
-												value={state.name}
-												onChange={handleChange}
-												disabled={disabled}
-											/>
-											<Input
-												name='email'
-												type='email'
-												value={state.email}
-												onChange={handleChange}
-												disabled={disabled}
-												required
-											/>
-											<Input
-												textarea
-												name='message'
-												type='message'
-												value={state.message}
-												onChange={handleChange}
-												disabled={disabled}
-												required
-											/>
-											<button type='button' onClick={onClose}>
-												close
-											</button>
-											<button type='submit'>submit</button>
-											<Spacer.V xs={2} />
+											<Form name='contact' handleSubmit={handleSubmit}>
+												<Input
+													name='name'
+													value={state.name}
+													onChange={handleChange}
+													disabled={disabled}
+												/>
+												<Input
+													name='email'
+													type='email'
+													value={state.email}
+													onChange={handleChange}
+													disabled={disabled}
+													required
+												/>
+												<Input
+													textarea
+													name='message'
+													type='message'
+													value={state.message}
+													onChange={handleChange}
+													disabled={disabled}
+													required
+												/>
+												<Spacer.V xs={2} md={3} />
+												<Flex>
+													<Button
+														disabled={loading}
+														background='base03'
+														onClick={onClose}
+													>
+														close
+													</Button>
+													<Button
+														disabled={loading}
+														type={initial ? 'submit' : 'button'}
+														background={getButtonBackground(status)}
+														color={getButtonColor(status)}
+														weight={500}
+														onClick={getButtonAction(status)}
+													>
+														{getButtonContent(status)}
+													</Button>
+												</Flex>
+											</Form>
+											<Spacer.V xs={2} md={3} />
 										</Grid.Column>
 									</Grid.Row>
 								</Inner>
