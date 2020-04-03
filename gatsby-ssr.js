@@ -9,7 +9,11 @@ export const wrapPageElement = ({ element, props }) => (
 	<GatsbyLayout {...props}>{element}</GatsbyLayout>
 )
 
-export const onRenderBody = ({ setPreBodyComponents }) =>
+export const onRenderBody = ({ setPreBodyComponents, setPostBodyComponents }) => {
 	setPreBodyComponents([
 		<script key='noflash.js' dangerouslySetInnerHTML={{ __html: noflash }} />,
 	])
+	setPostBodyComponents([
+		<div id='portal-root' key='portal-root'/>
+	])
+}
