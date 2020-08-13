@@ -8,6 +8,9 @@ import NavBar from '~/components/NavBar'
 import Text from '~/components/Text'
 import Clickable from '~/components/Clickable'
 import PostHero from '~/components/PostHero'
+import Container from '~/components/Container'
+import Grid from '~/components/Grid'
+import TableOfContents from '~/components/TableOfContents'
 import CodeBlock from '~/components/CodeBlock'
 import Utterances from '~/components/Utterances'
 import Spacer from '~/components/Spacer'
@@ -32,6 +35,16 @@ const Post = ({ data: { mdx }, pageContext }) => (
 		<NavBar />
 		<PostHero {...mdx.frontmatter} {...mdx.frontmatter.hero} />
 		<MDXProvider components={components}>
+			<Container>
+				<Spacer.V xs={8} />
+				<Grid.Row>
+					<Grid.Column xs={0} lg={1} xg={2} />
+					<Grid.Column xs={16} lg={12} xg={10}>
+						<TableOfContents headings={mdx.headings} />
+					</Grid.Column>
+				</Grid.Row>
+				<Spacer.V xs={2} />
+			</Container>
 			<MDXRenderer>{mdx.body}</MDXRenderer>
 		</MDXProvider>
 		<Utterances uid={`[${pageContext.locale}] ${pageContext.slug}`} />
@@ -63,6 +76,10 @@ export const query = graphql`
 				}
 			}
 			body
+			headings {
+				depth
+				value
+			}
 		}
 	}
 `
