@@ -3,6 +3,7 @@ require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
 const path = require('path')
 const siteConfig = require('./content/site-config')
 
+
 module.exports = {
 	siteMetadata: {
 		...siteConfig,
@@ -54,6 +55,7 @@ module.exports = {
 			resolve: `gatsby-plugin-mdx`,
 			options: {
 				gatsbyRemarkPlugins: [
+					'gatsby-remark-slug',
 					{
 						resolve: `gatsby-remark-images`,
 						options: {
