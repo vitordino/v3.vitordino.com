@@ -32,7 +32,7 @@ const Clickable = ({ to, children, className, style, target, ...p }) => {
 
 	if (/^[.?]/.test(href))
 		return <a {...props} href={localized} onClick={onSearchClick(localized)} />
-	if (/^[.#]/.test(href)) return <a {...p} {...props} href={href} />
+	if (/^[.#]/.test(href)) return <Link {...p} {...props} href={href} />
 	if (/^[./]/.test(href)) return <Link {...props} to={localized} />
 	if (/^[.http]/.test(href))
 		return (
