@@ -13,7 +13,7 @@ import Utterances from '~/components/Utterances'
 import Spacer from '~/components/Spacer'
 
 const MDXLink = ({ href, ...props }) => <Clickable {...props} to={href} />
-const H2 = p => <Text xs={3} md={5} {...p} />
+const H2 = p => <Text as='h2' xs={3} md={5} {...p} />
 
 const components = {
 	a: MDXLink,
