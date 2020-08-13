@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
 		min-height: 100vh;
 		background: var(--color-base00);
 		color: var(--color-base);
+		scroll-behavior: smooth;
 	}
 	::selection {
 		background: var(--color-base);
