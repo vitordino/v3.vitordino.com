@@ -13,7 +13,7 @@ export const wrapPageElement = ({ element, props }) => (
 )
 
 export const shouldUpdateScroll = ({ prevRouterProps, routerProps }) => {
-	if(prevRouterProps.location.search.startsWith('?')) return false
-	if(routerProps.location.search.startsWith('?')) return false
+	if (prevRouterProps?.location?.search?.startsWith('?')) return false
+	if (routerProps?.location?.search?.startsWith('?')) return false
   return true
 }
