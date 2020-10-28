@@ -20,6 +20,7 @@
 		"etymos": "^0.0.2",
 		"gatsby": "^2.15.29",
 		"gatsby-image": "^2.2.24",
+		"gatsby-plugin-feed": "^2.5.19",
 		"gatsby-plugin-mdx": "^1.0.53",
 		"gatsby-remark-images": "^3.2.1",
 		"intersection-observer": "^0.7.0",
