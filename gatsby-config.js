@@ -100,6 +100,66 @@ module.exports = {
 				icon: siteConfig.logo,
 			},
 		},
+		{
+			resolve: `gatsby-plugin-feed`,
+			options: {
+				query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+						}
+          }
+        `,
+				feeds: [
+					{
+						serialize: ({ query: { site, allMdx } }) => allMdx.edges.map(({ node }) => {
+							const url = `${site.siteMetadata.siteUrl}/writing/${node.frontmatter.slug}`
+							return {
+								title: node.frontmatter.title,
+								description: node.frontmatter.description,
+								excerpt: node.excerpt,
+								date: node.frontmatter.date,
+								url,
+								guid: url,
+							}
+						}),
+						query: `{
+							allMdx(
+								filter: { fileAbsolutePath: { regex: "/writing/" } },
+								sort: { fields: [frontmatter___date], order: DESC }
+							) {
+								edges {
+									node {
+										frontmatter {
+											title
+											date(formatString: "DD-MM-YYYY")
+											slug
+											description
+										}
+										excerpt(pruneLength: 255)
+										fields {
+											locale
+										}
+									}
+								}
+							}
+						}`,
+						output: '/rss.xml',
+						title: 'Vitor Dino',
+						// optional configuration to insert feed reference in pages:
+						// if `string` is used, it will be used to create RegExp and then test if pathname of
+						// current page satisfied this regular expression;
+						// if not provided or `undefined`, all pages will have feed reference inserted
+						match: '^/writing/',
+					},
+				],
+			},
+		},
 		`gatsby-plugin-netlify`,
 	],
 }
